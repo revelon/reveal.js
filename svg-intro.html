@@ -38,6 +38,7 @@
 
 		<div class="reveal">
 
+
 			<div class="slides">
 				<section>
 					<h1>Do Not be afraid of SVG</h1>
@@ -46,6 +47,8 @@
 						<small>by <a href="http://svg.kvalitne.cz/">Marek Raida</a> / <a href="http://twitter.com/xrevelon">@xrevelon</a></small>
 					</p>
 				</section>
+
+
 
 				<section>
 					<h2>Scalable Vector Graphics</h2>
@@ -58,6 +61,8 @@
 					</ul>
 				</section>
 
+
+
 				<section>
 					<h2>How to create SVG</h2>
 					<ul>
@@ -69,19 +74,23 @@
 					</ul>
 				</section>
 
+
+
 				<section>
 					<h2>SVG Basics</h2>
 					<ul>
 						<li>primitives: <strong>line, rect, circle, ellipse, polyline, polygon, path</strong> 
-            <li>organization: <strong>defs, g, svg, use, a, image, foreignObject...</strong> 
-            <li>advanced: <strong>clipPath, mask, pattern, radial/linearGradient, mask, filters...</strong>
+            <li>organization: <strong>defs, g, svg, use, symbol, a, image, foreignObject...</strong> 
+            <li>advanced: <strong>clipPath, mask, marker, pattern, radial/linearGradient, mask, filters...</strong>
             <li>texts: <strong>text, tspan,textPath, tref</strong>
             <li>animations: <strong>set, animate, animateTransform, animateMotion</strong>
 					</ul>
 				</section>
 
+
+
 				<section>
-					<h2>Integration ways</h2>
+					<h2>Recommended integration ways</h2>
 					<p>
 						There are many ways how to integrate SVG in your web project. I recommend to use these ones:
 					</p>
@@ -93,18 +102,25 @@
 					</ol>
 				</section>
 
+
+
 				<section>          
 					<section>
 						<h2>Direct markup</h2>
 						<pre><code>
     ...
-    <h2>Some Title</h2>
+    &lt;h2>Some Title&lt;/h2>
     <!-- xmlns is not required in HTML5 document -->
-    <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="25" cy="25" r="20" fill="green"/>
-      <line x1="0" y1="0" x2="50" y2="50" stroke="red"/>
-    </svg>
-    <p>Text of some paragraph</p>
+    &lt;svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+      &lt;circle cx="25" cy="25" r="20" fill="green"/>
+      &lt;line x1="0" y1="0" x2="50" y2="50" stroke="red"/>
+    &lt;/svg>
+    &lt;script>
+      if (document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Shape", "1.1")) {
+        // optional fallback here
+      }
+    &lt;/script>
+    &lt;p>Text of some paragraph&lt;/p>
     ...
             </code></pre>
             
@@ -117,7 +133,7 @@
 					<section>
             <h2>Advantages</h2>
             <ul>
-              <li>applicable CSS from embedding document
+              <li>applicable CSS from embedding document (also currentColor support)
               <li>manipulable via JavaScript
               <li>accessible
             </ul>
@@ -131,7 +147,7 @@
 					<section>
 						<h2>Fluid design MSIE trick</h2>
 						if needed only... <a href="">Live demo link</a>
-            <pre><code>    <style>
+            <pre><code>    &lt;style>
       .wrapper {
           width: 50%;
           height: 0;
@@ -143,12 +159,14 @@
           top: 0;
           left: 0;
       }
-    </style>
-    <div class="wrapper">  <!-- replace svg's width/height by viewBox -->
-      <svg viewBox="0 0 50 50"><!-- SVG content --></svg>
-    </div></pre></code>
+    &lt;/style>
+    &lt;div class="wrapper">  <!-- replace svg's width/height by viewBox -->
+      &lt;svg viewBox="0 0 50 50"><!-- SVG content -->&lt;/svg>
+    &lt;/div></pre></code>
 					</section>
         </section>
+
+
 
 				<section>          
 					<section>
@@ -157,39 +175,38 @@
     ...
     <h2>Some Title</h2>
     <!-- xmlns is not required in HTML5 document -->
-    <object type="image/svg+xml" data="my_SVG_file.svg">
-      <!-- fallback like PNG image here -->xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-      
-      <line x1="0" y1="0" x2="50" y2="50" stroke="red"/>
-    </svg>
+    <object type="image/svg+xml" data="svg/OdieDog.svg" width="136" height="200">
+      <!-- fallback like PNG image here -->
+    </object>
     <p>Text of some paragraph</p>
     ...
             </code></pre>
             
-              <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="25" cy="25" r="20" fill="green"/>
-                <line x1="0" y1="0" x2="50" y2="50" stroke="red"/>
-              </svg>
+            &lt;object type="image/svg+xml" data="svg/OdieDog.svg" width="136" height="200">
+              <!-- fallback like PNG image here -->
+            &lt;/object>
 
  					</section>
 					<section>
             <h2>Advantages</h2>
             <ul>
-              <li>applicable CSS from embedding document
-              <li>manipulable via JavaScript
-              <li>accessible
+              <li>applicable CSS from external stylesheet
+              <li>manipulable via JavaScript (both externally and internally)
+              <li>cacheable, as it is external file
+              <li>intensive pre-compress possible
+              <li>accessible ??
             </ul>
             
             <h2>Disadvantages</h2>
             <ul>
-              <li>not cacheable
+              <li>owner document CSS stylesheet not applicable
               <li>cross-browser (MSIE) fluid size trick needed
             </ul>
 					</section>
 					<section>
 						<h2>Fluid design MSIE trick</h2>
-						if needed only... <a href="">Live demo link</a>
-            <pre><code>    <style>
+						the same like direct case... <a href="">Live demo link</a>
+            <pre><code>    &lt;style>
       .wrapper {
           width: 50%;
           height: 0;
@@ -201,21 +218,23 @@
           top: 0;
           left: 0;
       }
-    </style>
-    <div class="wrapper">  <!-- replace svg's width/height by viewBox -->
-      <svg viewBox="0 0 50 50"><!-- SVG content --></svg>
-    </div></pre></code>
+    &lt;/style>
+    &lt;div class="wrapper">  <!-- replace svg's width/height by viewBox -->
+      &lt;svg viewBox="0 0 50 50"><!-- SVG content -->&lt;/svg>
+    &lt;/div></pre></code>
 					</section>
         </section>
+
+
 
         <section>
 					<section>
 						<h2>Image tag integration</h2>
 						<p>Good old way...</p>
 						<pre><code>
-    <img width="178" height="238" src="svg/hourglass.svg" alt="Hourglass"/>
+    &lt;img width="178" height="238" src="svg/hourglass.svg" alt="Hourglass"
+      onerror="this.onerror=null; this.src='fallback.png'"/>
             </pre></code>
-						</pre></code>
             <img width="178" height="238" src="svg/hourglass.svg" alt="Hourglass"/>
 					</section>
 					<section>
@@ -228,7 +247,8 @@
             
             <h2>Disadvantages</h2>
             <ul>
-              <li>CSS from external document is not applicable
+              <li>external CSS stylesheet not applicable
+              <li>owner document CSS stylesheet not applicable (only globally)
               <li>cannot be manipulated via JavaScript (not even internally)
             </ul>
 					</section>
@@ -236,14 +256,50 @@
 						<h2>Fluid design MSIE trick</h2>
 						if needed only... <a href="">Live demo link</a>
             <pre><code>
-    <style>
+    &lt;style>
       img {
           width: 100%;
       }
-    </style>
+    &lt;/style>
     
-    <img width="178" height="238" src="svg/hourglass.svg" alt="Hourglass"/>
+    &lt;img width="178" height="238" src="svg/hourglass.svg" alt="Hourglass"/>
             </pre></code>
+					</section>
+				</section>
+
+
+
+        <section>
+					<section>
+						<h2>CSS background image</h2>
+						<pre><code>
+    &lt;style>
+      .holder {
+        width: 50%;
+        height: 50%;
+        background-image: url(svg/hourglass.svg);
+      }
+    &lt;/style>
+    
+    &lt;div class="holder"/>
+            </pre></code>
+            <div style="border: 2px dotted gray; width: 50%; height: 200px; background: url(svg/OdieDog.svg); 
+              background-size: contain; background-position: center center; background-repeat: no-repeat;">&nbsp;</div>
+					</section>
+					<section>
+            <h2>Advantages</h2>
+            <ul>
+              <li>cacheable, as it is external file
+              <li>intensive pre-compress possible
+              <li>no tricks needed for modern browsers
+            </ul>
+            
+            <h2>Disadvantages</h2>
+            <ul>
+              <li>external CSS stylesheet not applicable
+              <li>owner document CSS stylesheet not applicable (only globally)
+              <li>cannot be manipulated via JavaScript (not even internally)
+            </ul>
 					</section>
 				</section>
 

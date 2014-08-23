@@ -1,0 +1,54 @@
+v html ale s xml/xhtml syntaxi
+pro logo v hlavicce ale jde stylovat pres ext soubor s cachovanim pres currentColor (snad)
+ukazat vyhodu gzipu extra predem
+ze je to jednodussi kreslit nez pomoci css shapes, vcetne manipulace a asi i velikosti a citelnosti/semantiky
+
+http://schepers.cc/css-link-hack-in-svg
+
+currentColor
+
+http://forums.greensock.com/topic/8724-svg-transforms-and-ie/
+
+USE => show  DEFS = shadow dom
+Pattern live (fill, stroke) asi taky, obdoba -moc-element
+Mask na text, shapes, live...
+Text on the path...
+svg nesting (not just image) ??
+CSS transformace originated in SVG, like animations..
+jak se tisknou ty obrazky v CSS?? mozna blbe...
+
+http://www.w3.org/Graphics/SVG/Test/20011026/linking-view-BE-04.svg   fragment
+
+http://soqr.fr/testsvg/embed-svg-liquid-layout-responsive-web-design.php
+http://buseca.github.io/patternbolt/
+
+http://sarasoueidan.com/blog/svg-coordinate-systems/ + demo
+
+JS anim i pro MSIE!!! kdyz moc chcete
+http://24ways.org/2013/animating-vectors-with-svg/
+
+ICON Fonts, hack a one-color only, no animations.
+http://designmodo.github.io/Flat-UI/
+http://webdesign.tutsplus.com/articles/manipulating-svg-icons-with-simple-css--webdesign-15694
+Rozliseni displeju je porad vetsi a vetsi => nelze to resit vetsimi bitmapami...
+https://useiconic.com/tour/
+Great for responsive infographics  http://www.google.com/insidesearch/howsearchworks/thestory/  (tahle???)
+Nepouzivat z ilustratoru efekty filtru => pokud mozno ani ne fonty v krivkach/jednodussi...
+Simplify paths, GZIP them
+Grumpicon -> auto generates fallbacks... PNG/CSS, dokonce i HTML ci JS
+
+pekna prezentace!!  http://kylefoster.me/svg-slides/#/2   styl   https://github.com/hakimel/reveal.js
+
+http://svg-edit.googlecode.com/svn/branches/stable/editor/svg-editor.html
+http://petercollingridge.appspot.com/svg-editor
+
+http://tavmjong.free.fr/blog/?p=741
+
+
+vyborne animace, hlavne ty s textem
+http://pilatinfo.org/english/animer/index.htm
+
+responsive!!
+http://tympanus.net/codrops/2014/08/19/making-svgs-responsive-with-css
+
+http://ie.microsoft.com/testdrive/graphics/hands-on-css3/hands-on_svg-filter-effects.htm
