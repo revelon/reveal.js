@@ -40,6 +40,9 @@
       img {
         border-image-width: 0 !important;
       }
+      .fix {
+        width: 96% !important;
+      }
     </style>
 	</head>
 
@@ -60,7 +63,7 @@
 
 
 				<section>
-					<h2>Scalable Vector Graphics</h2>
+					<h3>Scalable Vector Graphics</h3>
 					<ul>
 						<li>W3C approved standard since 1999
             <li>XML based markup, DOM manipulation
@@ -77,8 +80,9 @@
 					<h2>How to create SVG</h2>
 					<ul>
 						<li>manually (just like you do HTML, CSS)
-            <li>profi editor like Illustrator or Inkscape
-            <li>online editor like SVG-Edit
+            <li>profi editor like <a href="http://en.wikipedia.org/wiki/Adobe_Illustrator" target="_blank">Illustrator</a> 
+                or <a href="http://en.wikipedia.org/wiki/Inkscape" target="_blank">Inkscape</a>
+            <li>online editor like <a href="http://svg-edit.googlecode.com/svn/branches/stable/editor/svg-editor.html" target="_blank">SVG-Edit</a>
             <li>download and use files from internet
             <li>generate via scripting
 					</ul>
@@ -91,7 +95,7 @@
 					<ul>
 						<li>primitives: <strong>line, rect, circle, ellipse, polyline, polygon, path</strong> 
             <li>organization: <strong>defs, g, svg, use, symbol, a, image, foreignObject...</strong> 
-            <li>advanced: <strong>clipPath, mask, marker, pattern, radial/linearGradient, mask, filters...</strong>
+            <li>advanced: <strong>clipPath, mask, marker, pattern, mask, gradients, filters...</strong>
             <li>texts: <strong>text, tspan, textPath, tref</strong>
             <li>animations: <strong>set, animate, animateTransform, animateMotion</strong>
 					</ul>
@@ -100,15 +104,30 @@
 
 
 				<section>
-					<h2>Recommended integration ways</h2>
+					<h2>viewPort vs. viewBox</h2>
+          <p>SVG canvas is infinite. ViewPort is defined by <code>width</code> and <code>height</code> and is for outside use, 
+          giving know document's dimensions for embedding purposes</p>
+          <pre><code>&lt;svg width="200" height="200">&lt;!-- content -->&lt;/svg></code></pre>
+          <p>ViewBox is defined by <code>viewBox</code> and defines document's internal visibility box. 
+          Four values stand for box definition: <code>left top width height</code></p>
+          <pre><code>&lt;svg viewBox="-50 -50 200 200">&lt;!-- content -->&lt;/svg></code></pre>
+          <p>No one of them is mandatory, but they are usefull and they can co-exists easily, if you want to</p>
+          <pre><code>&lt;svg viewBox="-50 -50 200 200" width="100" height="100">&lt;!-- ... -->&lt;/svg></code></pre>
+
+				</section>
+
+
+
+				<section>
+					<h2>Integration ways</h2>
 					<p>
-						There are many ways how to integrate SVG in your web project. I recommend to use these ones:
+						There are many ways how to integrate SVG in your web project. I recommend to stick to these ones:
 					</p>
 					<ol>
-						<li>inline markup
-            <li>object
-            <li>image
-            <li>CSS background
+						<li>inline <code>svg</code> markup
+            <li><code>object</code>
+            <li>image (<code>img</code>)
+            <li>CSS <code>background</code> property
 					</ol>
 				</section>
 
@@ -116,47 +135,47 @@
 
 				<section>          
 					<section>
-						<h2>Inline markup</h2>
-						<pre><code>
-    ...
-    &lt;h2>Some Title&lt;/h2>
-    <!-- xmlns is not required in HTML5 document -->
-    &lt;svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
-      &lt;circle cx="25" cy="25" r="20" fill="green"/>
-      &lt;line x1="0" y1="0" x2="50" y2="50" stroke="red"/>
-    &lt;/svg>
-    &lt;script>
-      if (document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Shape", "1.1")) {
-        // optional fallback here
-      }
-    &lt;/script>
-    &lt;p>Text of some paragraph&lt;/p>
-    ...
-            </code></pre>
+						<h2>Inline SVG markup</h2>
+						<pre><code>  ...
+  &lt;h2>Some Title&lt;/h2>
+  <!-- xmlns is not required in HTML5 document -->
+  &lt;svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+    &lt;circle cx="25" cy="25" r="20" fill="orange"/>
+    &lt;line x1="0" y1="0" x2="50" y2="50" stroke="green" stroke-width="3"/>
+  &lt;/svg>
+  &lt;script>
+    if (document.implementation.hasFeature(
+          "http://www.w3.org/TR/SVG11/feature#Shape", "1.1")) {
+      // optional fallback here
+    }
+  &lt;/script>
+  &lt;p>Text of some paragraph&lt;/p>
+  ...</code></pre>
             
               <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="25" cy="25" r="20" fill="green"/>
-                <line x1="0" y1="0" x2="50" y2="50" stroke="red"/>
+                <circle cx="25" cy="25" r="20" fill="orange"/>
+                <line x1="0" y1="0" x2="50" y2="50" stroke="green" stroke-width="3"/>
               </svg>
 
  					</section>
 					<section>
             <h2>Advantages</h2>
-            <ul>
+            <ul class="fix">
               <li>applicable CSS from embedding document (also currentColor support)
               <li>manipulable via JavaScript
+              <li>no extra file to load
               <li>accessible
             </ul>
-            
+            <hr/>            
             <h2>Disadvantages</h2>
-            <ul>
+            <ul class="fix">
               <li>not cacheable
               <li>cross-browser (MSIE) fluid size trick needed
             </ul>
 					</section>
 					<section>
 						<h2>Fluid design MSIE trick</h2>
-						if needed only, fixed sizes are OK... <a href="">Live demo link</a>
+						Use if you need stretching, fixed sizes are OK without it<br/> <a href="fluid-inline.html" target="_blank">Live demo</a>
             <pre><code>    &lt;style>
       .wrapper {
           width: 50%;
@@ -185,52 +204,48 @@
     ...
     &lt;h2>Some Title&lt;/h2>
     <!-- xmlns is not required in HTML5 document -->
-    &lt;object type="image/svg+xml" data="svg/OdieDog.svg" width="136" height="200">
+    &lt;object type="image/svg+xml" data="dog.svg" width="136" height="200">
       <!-- possible fallback (like PNG image) here -->
     &lt;/object>
     &lt;p>Text of some paragraph&lt;/p>
     ...
             </code></pre>
             
-            <object type="image/svg+xml" data="svg/OdieDog.svg" width="136" height="200">
+            <object type="image/svg+xml" data="svg/dog.svg" width="136" height="200">
               <!-- fallback like PNG image here -->
             </object>
 
  					</section>
 					<section>
             <h2>Advantages</h2>
-            <ul>
+            <ul class="fix">
               <li>applicable CSS from external stylesheet
               <li>manipulable via JavaScript (both externally and internally)
               <li>cacheable, as it is external file
               <li>intensive pre-compress possible
               <li>accessible ??
             </ul>
-            
+            <hr/>            
             <h2>Disadvantages</h2>
-            <ul>
+            <ul class="fix">
               <li>owner document CSS stylesheet not applicable
               <li>cross-browser (MSIE) fluid size trick needed
             </ul>
 					</section>
 					<section>
 						<h2>Fluid design MSIE trick</h2>
-						the same like direct case... <a href="">Live demo link</a>
+						Setting width does the trick. <a href="fluid-object.html" target="_blank">Live demo</a>
             <pre><code>    &lt;style>
       .wrapper {
           width: 50%;
-          height: 0;
-          padding-top: 50%; /* (svg-height / svg-width) * wrapper-width */
-          position: relative;
       }
-      svg {
-          position: absolute;
-          top: 0;
-          left: 0;
+      .wrapper object {
+          width: 100%;
       }
     &lt;/style>
+    
     &lt;div class="wrapper">  <!-- replace svg's width/height by viewBox -->
-      &lt;svg viewBox="0 0 50 50"><!-- SVG content -->&lt;/svg>
+      &lt;object type="image/svg+xml" data="dog.svg">&lt;/object>
     &lt;/div></code></pre>
 					</section>
         </section>
@@ -240,23 +255,23 @@
         <section>
 					<section>
 						<h2>Image tag integration</h2>
-						<p>Good old way...</p>
+						<p>Good old, familiar way to go...</p>
 						<pre><code>
-    &lt;img width="178" height="238" src="svg/hourglass.svg" alt="Hourglass"
+    &lt;img width="323" height="153" src="svg/turtle.svg" alt="Turtle"
       onerror="this.onerror=null; this.src='fallback.png'"/>
             </code></pre>
-            <img width="178" height="238" src="svg/hourglass.svg" alt="Hourglass"/>
+            <img width="323" height="153" src="svg/turtle.svg" alt="Turtle"/>
 					</section>
 					<section>
             <h2>Advantages</h2>
-            <ul>
+            <ul class="fix">
               <li>cacheable, as it is external file
               <li>intensive pre-compress possible
               <li>safe and simple
             </ul>
-            
+            <hr/>            
             <h2>Disadvantages</h2>
-            <ul>
+            <ul class="fix">
               <li>external CSS stylesheet not applicable
               <li>owner document CSS stylesheet not applicable (only globally)
               <li>cannot be manipulated via JavaScript (not even internally)
@@ -264,7 +279,7 @@
 					</section>
 					<section>
 						<h2>Fluid design MSIE trick</h2>
-						if needed only... <a href="">Live demo link</a>
+						<a href="fluid-image.html" target="_blank">Live demo</a>
             <pre><code>
     &lt;style>
       img {
@@ -272,7 +287,7 @@
       }
     &lt;/style>
     
-    &lt;img width="178" height="238" src="svg/hourglass.svg" alt="Hourglass"/>
+    &lt;img width="323" height="153" src="svg/turtle.svg" alt="Turtle"/>
             </code></pre>
 					</section>
 				</section>
@@ -282,31 +297,33 @@
         <section>
 					<section>
 						<h2>CSS background image</h2>
-						<pre><code>
-    &lt;style>
+						<pre><code>    &lt;style>
       .holder {
         width: 50%;
         height: 50%;
-        background: url('img/hourglass.png'); /* possible fallback trick */
-        background-image: url(svg/hourglass.svg), none;
+        background: url('img/turtle.png'); /* possible fallback trick */
+        background-image: url(svg/fish.svg), none;
+        background-size: contain; 
+        background-position: center center; 
+        background-repeat: no-repeat;
       }
     &lt;/style>
     
-    &lt;div class="holder"/>
-            </code></pre>
-            <div style="border: 2px dotted gray; width: 50%; height: 200px; background: url(svg/OdieDog.svg); 
+    &lt;div class="holder"/></code></pre>
+            <a href="fluid-background.html" target="_blank">Live demo for fluid design</a>
+            <div style="border: 2px dotted gray; width: 50%; height: 180px; background: url(svg/fish.svg); 
               background-size: contain; background-position: center center; background-repeat: no-repeat;">&nbsp;</div>
 					</section>
 					<section>
             <h2>Advantages</h2>
-            <ul>
+            <ul class="fix">
               <li>cacheable, as it is external file
               <li>intensive pre-compress possible
               <li>no tricks needed for modern browsers
             </ul>
-            
+            <hr/>            
             <h2>Disadvantages</h2>
-            <ul>
+            <ul class="fix">
               <li>external CSS stylesheet not applicable
               <li>owner document CSS stylesheet not applicable (only globally)
               <li>cannot be manipulated via JavaScript (not even internally)
@@ -317,19 +334,18 @@
 
 
 				<section>
-					<h2>HTML vs SVG CSS main differences</h2>
+					<h2>HTML vs SVG differences</h2>
+          <p>There are many SVG only CSS properties and all of them (and more) could be written
+          as direct presentation attributes, but probably the most notable are:</p>
 					<table>
             <tr>
-              <th>Property</th><th>HTML</th><th>SVG</th>
+              <th>HTML</th><th>SVG</th>
             </tr>
             <tr>
-              <th></th><th>border</th><th>stroke</th>
+              <th>border</th><th>stroke</th>
             </tr>
             <tr>
-              <th></th><th>color, background</th><th>fill</th>
-            </tr>
-            <tr>
-              <th></th><th>what</th><th>else</th>
+              <th>color, background</th><th>fill</th>
             </tr>
           </table>
 				</section>
@@ -337,13 +353,15 @@
 
 
 				<section>
-					<h2>Is drawing in CSS good enough?</h2>
-					<p>Example of Twitter logo recreated in HTML/CSS (single color, and where is multicolor?)</p>
+					<h3>Is drawing in CSS good enough?</h3>
+					<p>Example of Twitter logo recreated in HTML/CSS<br/>(single color only)</p>
+          <hr/>
           <ol>
             <li>PNG = 1.4 kB (1 file, 1 element), 1.4 kB GZ
             <li>CSS = 2.5 kB (16 rules)+0.5 kB HTML (14 nodes), 1.4 kB GZ
             <li>SVG = 1.2 kB (3 elements), 0.6kB GZ
           </ol>
+          <hr/>
           <a href="svg/twittercss.htm" target="_blank"><img src="svg/twitter.svg" width="250" alt="Twitter Logo"/></a>
 				</section>
 
@@ -352,7 +370,7 @@
 				<section>
           <section class="crclr">
   					<h2>Sharing CSS definitions</h2>
-  					<p>Inline code case, notice symbol object use.</p>
+  					<p>Inline code case, notice symbol element use.</p>
             <pre><code>&lt;style>
   span { color: darkgreen; fill: currentColor; }
 &lt;/style>
@@ -438,25 +456,22 @@ dd, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
           <section>
   					<h2>JS manipulations</h2>
             <pre><code>&lt;input onchange="document.getElementById('txt').firstChild.data=this.value">
+
 &lt;svg width="310" height="120">
-  &lt;path id="crc" stroke="none" fill="none" transform="scale(1.5)" d="M50,0c0,27.6-22.4,50-50,50s-50-22.4-50-50,22.4-50,50-50,50,22.4,50,50z"/>
+  &lt;path id="crc" stroke="none" fill="none" d="M50,0c0,27.6-22.4,50-50,50s-50-22.4-50-50,22.4-50,50-50,50,22.4,50,50z"/>
   &lt;g transform="translate(150 60) scale(2 0.8)">
     &lt;text font-size="26px" font-family="Helvetica, sans-serif" fill="maroon">
-      &lt;textPath xlink:href="#crc">
-        &lt;tspan dy="20" id="txt">This Is The Text Writ Around The Circle!&lt;/tspan>
-      &lt;/textPath>
-      &lt;animateTransform attributeName="transform" begin="1s" type="rotate" repeatCount="indefinite" from="0" to="360" dur="9s"/>
+      &lt;textPath xlink:href="#crc" id="txt">Text Writ Around The Circle&lt;/textPath>
+      &lt;animateTransform attributeName="transform" type="rotate" from="0" to="360" begin="1s" repeatCount="indefinite" dur="9s"/>
     &lt;/text>
   &lt;/g>
 &lt;/svg></code></pre>
             <input onchange="document.getElementById('txt').firstChild.data=this.value">
             <svg width="310" height="120">
-              <path id="crc" stroke="none" fill="none" d="M50,0c0,27.6-22.4,50-50,50s-50-22.4-50-50,22.4-50,50-50,50,22.4,50,50z" transform="scale(1.5)"/>
+              <path id="crc" stroke="none" fill="none" d="M50,0c0,27.6-22.4,50-50,50s-50-22.4-50-50,22.4-50,50-50,50,22.4,50,50z"/>
               <g transform="translate(150 60) scale(2 0.8)">
                 <text font-size="26px" font-family="Helvetica, sans-serif" fill="maroon">
-                  <textPath xlink:href="#crc">
-                    <tspan dy="20" id="txt">This Is The Text Writ Around The Circle!</tspan>
-                  </textPath>
+                  <textPath xlink:href="#crc" id="txt">Text Writ Around The Circle</textPath>
                   <!--animateTransform attributeName="transform" begin="1s" type="rotate" repeatCount="indefinite" from="0" to="360" dur="9s"/-->
                 </text>
               </g>
