@@ -1,37 +1,37 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
 
-		<title>Do Not be afraid of SVG - Presentation</title>
+        <title>Do Not be afraid of SVG - Presentation</title>
 
-		<meta name="description" content="Do Not be afraid of SVG - Utilize It On Your Web Today">
-		<meta name="author" content="Marek Raida">
+        <meta name="description" content="Do Not be afraid of SVG - Utilize It On Your Web Today">
+        <meta name="author" content="Marek Raida">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+        <link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/sky.css" id="theme">
+        <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
-		<script>
-			if( window.location.search.match( /print-pdf/gi ) ) {
-				var link = document.createElement( 'link' );
-				link.rel = 'stylesheet';
-				link.type = 'text/css';
-				link.href = 'css/print/pdf.css';
-				document.getElementsByTagName( 'head' )[0].appendChild( link );
-			}
-		</script>
+        <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+        <script>
+            if( window.location.search.match( /print-pdf/gi ) ) {
+                var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'css/print/pdf.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
     
     <style>
       table, tr, th, td {
@@ -44,67 +44,67 @@
         width: 96% !important;
       }
     </style>
-	</head>
+    </head>
 
-	<body>
+    <body>
 
-		<div class="reveal">
-
-
-			<div class="slides">
-				<section>
-					<h1>Do Not be afraid of SVG</h1>
-					<h3>Utilize It On Your Web Today</h3>
-					<p>
-						<small>by <a href="http://svg.kvalitne.cz/">Marek Raida</a> / <a href="http://twitter.com/xrevelon">@xrevelon</a></small>
-					</p>
-				</section>
+        <div class="reveal">
 
 
+            <div class="slides">
+                <section>
+                    <h1>Do Not be afraid of SVG</h1>
+                    <h3>Utilize It On Your Web Today</h3>
+                    <p>
+                        <small>by <a href="http://svg.kvalitne.cz/">Marek Raida</a> / <a href="http://twitter.com/xrevelon">@xrevelon</a></small>
+                    </p>
+                </section>
 
-				<section>
-					<h3>Scalable Vector Graphics</h3>
-					<ul>
-						<li>W3C approved standard since 1999
+
+
+                <section>
+                    <h3>Scalable Vector Graphics</h3>
+                    <ul>
+                        <li>W3C approved standard since 1999
             <li>XML based markup, DOM manipulation
             <li>focused on 2D vector space
             <li>vectors = super quality for every screen resolution
             <li>HTML5, CSS and JS friendly
             <li>well supported, even in MSIE 9+ (easy fallbacks possible)
-					</ul>
-				</section>
+                    </ul>
+                </section>
 
 
 
-				<section>
-					<h2>How to create SVG</h2>
-					<ul>
-						<li>manually (just like you do HTML, CSS)
+                <section>
+                    <h2>How to create SVG</h2>
+                    <ul>
+                        <li>manually (just like you do HTML, CSS)
             <li>profi editor like <a href="http://en.wikipedia.org/wiki/Adobe_Illustrator" target="_blank">Illustrator</a> 
                 or <a href="http://en.wikipedia.org/wiki/Inkscape" target="_blank">Inkscape</a>
             <li>online editor like <a href="http://svg-edit.googlecode.com/svn/branches/stable/editor/svg-editor.html" target="_blank">SVG-Edit</a>
             <li>download and use files from internet
             <li>generate via scripting
-					</ul>
-				</section>
+                    </ul>
+                </section>
 
 
 
-				<section>
-					<h2>SVG Basics</h2>
-					<ul>
-						<li>primitives: <strong>line, rect, circle, ellipse, polyline, polygon, path</strong> 
+                <section>
+                    <h2>SVG Basics</h2>
+                    <ul>
+                        <li>primitives: <strong>line, rect, circle, ellipse, polyline, polygon, path</strong> 
             <li>organization: <strong>defs, g, svg, use, symbol, a, image, foreignObject...</strong> 
             <li>advanced: <strong>clipPath, mask, marker, pattern, mask, gradients, filters...</strong>
             <li>texts: <strong>text, tspan, textPath, tref</strong>
             <li>animations: <strong>set, animate, animateTransform, animateMotion</strong>
-					</ul>
-				</section>
+                    </ul>
+                </section>
 
 
 
-				<section>
-					<h2>viewPort vs. viewBox</h2>
+                <section>
+                    <h2>viewPort vs. viewBox</h2>
           <p>SVG canvas is infinite. ViewPort is defined by <code>width</code> and <code>height</code> and is for outside use, 
           giving know document's dimensions for embedding purposes</p>
           <pre><code>&lt;svg width="200" height="200">&lt;!-- content -->&lt;/svg></code></pre>
@@ -114,29 +114,30 @@
           <p>No one of them is mandatory, but they are usefull and they can co-exists easily, if you want to</p>
           <pre><code>&lt;svg viewBox="-50 -50 200 200" width="100" height="100">&lt;!-- ... -->&lt;/svg></code></pre>
 
-				</section>
+                </section>
 
 
 
-				<section>
-					<h2>Integration ways</h2>
-					<p>
-						There are many ways how to integrate SVG in your web project. I recommend to stick to these ones:
-					</p>
-					<ol>
-						<li>inline <code>svg</code> markup
+                <section>
+                    <h2>Integration ways</h2>
+                    <p>
+                        There are many ways how to integrate SVG in your web project. I recommend to stick to these ones:
+                    </p>
+                    <ol>
+                        <li>inline <code>svg</code> markup
             <li><code>object</code>
             <li>image (<code>img</code>)
             <li>CSS <code>background</code> property
-					</ol>
-				</section>
+                    </ol>
+                </section>
 
 
 
-				<section>          
-					<section>
-						<h2>Inline SVG markup</h2>
-						<pre><code>  ...
+                <section>          
+                    <section>
+                        <h2>Inline SVG markup</h2>
+                        <p>Mind necessity to keep XML tag structure for all SVG nodes!</p>
+                        <pre><code>  ...
   &lt;h2>Some Title&lt;/h2>
   <!-- xmlns is not required in HTML5 document -->
   &lt;svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
@@ -157,8 +158,8 @@
                 <line x1="0" y1="0" x2="50" y2="50" stroke="green" stroke-width="3"/>
               </svg>
 
- 					</section>
-					<section>
+                     </section>
+                    <section>
             <h2>Advantages</h2>
             <ul class="fix">
               <li>applicable CSS from embedding document (also currentColor support)
@@ -172,10 +173,10 @@
               <li>not cacheable
               <li>cross-browser (MSIE) fluid size trick needed
             </ul>
-					</section>
-					<section>
-						<h2>Fluid design MSIE trick</h2>
-						Use if you need stretching, fixed sizes are OK without it<br/> <a href="fluid-inline.html" target="_blank">Live demo</a>
+                    </section>
+                    <section>
+                        <h2>Fluid design MSIE trick</h2>
+                        Use if you need stretching, fixed sizes are OK without it<br/> <a href="fluid-inline.html" target="_blank">Live demo</a>
             <pre><code>    &lt;style>
       .wrapper {
           width: 50%;
@@ -192,15 +193,15 @@
     &lt;div class="wrapper">  <!-- replace svg's width/height by viewBox -->
       &lt;svg viewBox="0 0 50 50"><!-- SVG content -->&lt;/svg>
     &lt;/div></code></pre>
-					</section>
+                    </section>
         </section>
 
 
 
-				<section>          
-					<section>
-						<h2>Object tag integration</h2>
-						<pre><code>
+                <section>          
+                    <section>
+                        <h2>Object tag integration</h2>
+                        <pre><code>
     ...
     &lt;h2>Some Title&lt;/h2>
     <!-- xmlns is not required in HTML5 document -->
@@ -215,8 +216,8 @@
               <!-- fallback like PNG image here -->
             </object>
 
- 					</section>
-					<section>
+                     </section>
+                    <section>
             <h2>Advantages</h2>
             <ul class="fix">
               <li>applicable CSS from external stylesheet
@@ -231,10 +232,10 @@
               <li>owner document CSS stylesheet not applicable
               <li>cross-browser (MSIE) fluid size trick needed
             </ul>
-					</section>
-					<section>
-						<h2>Fluid design MSIE trick</h2>
-						Setting width does the trick. <a href="fluid-object.html" target="_blank">Live demo</a>
+                    </section>
+                    <section>
+                        <h2>Fluid design MSIE trick</h2>
+                        Setting width does the trick. <a href="fluid-object.html" target="_blank">Live demo</a>
             <pre><code>    &lt;style>
       .wrapper {
           width: 50%;
@@ -247,22 +248,22 @@
     &lt;div class="wrapper">  <!-- replace svg's width/height by viewBox -->
       &lt;object type="image/svg+xml" data="dog.svg">&lt;/object>
     &lt;/div></code></pre>
-					</section>
+                    </section>
         </section>
 
 
 
         <section>
-					<section>
-						<h2>Image tag integration</h2>
-						<p>Good old, familiar way to go...</p>
-						<pre><code>
+                    <section>
+                        <h2>Image tag integration</h2>
+                        <p>Good old, familiar way to go...</p>
+                        <pre><code>
     &lt;img width="323" height="153" src="svg/turtle.svg" alt="Turtle"
       onerror="this.onerror=null; this.src='fallback.png'"/>
             </code></pre>
             <img width="323" height="153" src="svg/turtle.svg" alt="Turtle"/>
-					</section>
-					<section>
+                    </section>
+                    <section>
             <h2>Advantages</h2>
             <ul class="fix">
               <li>cacheable, as it is external file
@@ -276,10 +277,10 @@
               <li>owner document CSS stylesheet not applicable (only globally)
               <li>cannot be manipulated via JavaScript (not even internally)
             </ul>
-					</section>
-					<section>
-						<h2>Fluid design MSIE trick</h2>
-						<a href="fluid-image.html" target="_blank">Live demo</a>
+                    </section>
+                    <section>
+                        <h2>Fluid design MSIE trick</h2>
+                        <a href="fluid-image.html" target="_blank">Live demo</a>
             <pre><code>
     &lt;style>
       img {
@@ -289,15 +290,15 @@
     
     &lt;img width="323" height="153" src="svg/turtle.svg" alt="Turtle"/>
             </code></pre>
-					</section>
-				</section>
+                    </section>
+                </section>
 
 
 
         <section>
-					<section>
-						<h2>CSS background image</h2>
-						<pre><code>    &lt;style>
+                    <section>
+                        <h2>CSS background image</h2>
+                        <pre><code>    &lt;style>
       .holder {
         width: 50%;
         height: 50%;
@@ -311,10 +312,10 @@
     
     &lt;div class="holder"/></code></pre>
             <a href="fluid-background.html" target="_blank">Live demo for fluid design</a>
-            <div style="border: 2px dotted gray; width: 50%; height: 180px; background: url(svg/fish.svg); 
+            <div style="width: 50%; height: 180px; margin: 0 auto; background: url(svg/fish.svg); 
               background-size: contain; background-position: center center; background-repeat: no-repeat;">&nbsp;</div>
-					</section>
-					<section>
+                    </section>
+                    <section>
             <h2>Advantages</h2>
             <ul class="fix">
               <li>cacheable, as it is external file
@@ -328,16 +329,16 @@
               <li>owner document CSS stylesheet not applicable (only globally)
               <li>cannot be manipulated via JavaScript (not even internally)
             </ul>
-					</section>
-				</section>
+                    </section>
+                </section>
 
 
 
-				<section>
-					<h2>HTML vs SVG differences</h2>
+                <section>
+                    <h2>HTML vs SVG differences</h2>
           <p>There are many SVG only CSS properties and all of them (and more) could be written
           as direct presentation attributes, but probably the most notable are:</p>
-					<table>
+                    <table>
             <tr>
               <th>HTML</th><th>SVG</th>
             </tr>
@@ -348,13 +349,13 @@
               <th>color, background</th><th>fill</th>
             </tr>
           </table>
-				</section>
+                </section>
 
 
 
-				<section>
-					<h3>Is drawing in CSS good enough?</h3>
-					<p>Example of Twitter logo recreated in HTML/CSS<br/>(single color only)</p>
+                <section>
+                    <h3>Is drawing in CSS good enough?</h3>
+                    <p>Example of Twitter logo recreated in HTML/CSS<br/>(single color only)</p>
           <hr/>
           <ol>
             <li>PNG = 1.4 kB (1 file, 1 element), 1.4 kB GZ
@@ -363,14 +364,14 @@
           </ol>
           <hr/>
           <a href="svg/twittercss.htm" target="_blank"><img src="svg/twitter.svg" width="250" alt="Twitter Logo"/></a>
-				</section>
+                </section>
 
 
 
-				<section>
+                <section>
           <section class="crclr">
-  					<h2>Sharing CSS definitions</h2>
-  					<p>Inline code case, notice symbol element use.</p>
+                      <h2>Sharing CSS definitions</h2>
+                      <p>Inline code case, notice symbol element use.</p>
             <pre><code>&lt;style>
   span { color: darkgreen; fill: currentColor; }
 &lt;/style>
@@ -420,7 +421,7 @@
             </span>
           </section>
           <section class="crclr2">
-  					<h2>External CSS &amp; object</h2>
+                      <h2>External CSS &amp; object</h2>
             <pre><code>/* objectcase.css file */ 
 dd, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
             <pre><code>&lt;style type="text/css"> 
@@ -448,13 +449,13 @@ dd, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
               </object>
             </span>
           </section>
-				</section>
+                </section>
 
 
 
-				<section>
+                <section>
           <section>
-  					<h2>JS manipulations</h2>
+                      <h2>JS manipulations</h2>
             <pre><code>&lt;input onchange="document.getElementById('txt').firstChild.data=this.value">
 
 &lt;svg width="310" height="120">
@@ -477,44 +478,44 @@ dd, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
               </g>
             </svg>
           </section>
-				</section>
+                </section>
 
 
 
-				<section>
-					<h1>THE END</h1>
-					<h3>Thank you!</h3>
-				</section>
+                <section>
+                    <h1>THE END</h1>
+                    <h3>Thank you!</h3>
+                </section>
 
-			</div>
+            </div>
 
-		</div>
+        </div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
 
-		<script>
+        <script>
 
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
         slideNumber: true,
 
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
 
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
 
-		</script>
+        </script>
 
-	</body>
+    </body>
 </html>
