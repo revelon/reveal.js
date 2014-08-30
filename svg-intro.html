@@ -33,31 +33,31 @@
         <script src="lib/js/html5shiv.js"></script>
         <![endif]-->
     
-    <style>
-      table, tr, th, td {
-        border: 2px solid gray !important;
-      }
-      img {
-        border-image-width: 0 !important;
-      }
-      .fix {
-        width: 96% !important;
-      }
-    </style>
+        <style>
+            th, td {
+                border: 2px solid lightgray !important;
+                padding: 3px !important;
+                width: 50%;
+                font-size: 0.7em !important;
+            }
+            img {
+                border-image-width: 0 !important;
+            }
+            .fix, table, tr {
+                width: 96% !important;
+            }
+        </style>
     </head>
-
     <body>
-
         <div class="reveal">
-
-
             <div class="slides">
+
+
+            
                 <section>
                     <h1>Do Not be afraid of SVG</h1>
                     <h3>Utilize It On Your Web Today</h3>
-                    <p>
-                        <small>by <a href="http://svg.kvalitne.cz/">Marek Raida</a> / <a href="http://twitter.com/xrevelon">@xrevelon</a></small>
-                    </p>
+                    <p><small>by <a href="http://svg.kvalitne.cz/">Marek Raida</a> / <a href="http://twitter.com/xrevelon">@xrevelon</a></small></p>
                 </section>
 
 
@@ -66,11 +66,13 @@
                     <h3>Scalable Vector Graphics</h3>
                     <ul>
                         <li>W3C approved standard since 1999
-            <li>XML based markup, DOM manipulation
-            <li>focused on 2D vector space
-            <li>vectors = super quality for every screen resolution
-            <li>HTML5, CSS and JS friendly
-            <li>well supported, even in MSIE 9+ (easy fallbacks possible)
+                        <li>focused on 2D vector space
+                        <li>vectors = super quality for every screen resolution
+                        <li>HTML5, CSS and JS friendly
+                        <li>XML based markup <em>(even when part of HTML5 document!)</em>
+                        <li>DOM based with events well supported
+                        <li>well supported, even in MSIE 9+ <em>(easy fallbacks possible)</em>
+                        <li>accessible <em>(<code>role</code> attribute, <code>title/desc</code> tags)</em>
                     </ul>
                 </section>
 
@@ -79,12 +81,12 @@
                 <section>
                     <h2>How to create SVG</h2>
                     <ul>
-                        <li>manually (just like you do HTML, CSS)
-            <li>profi editor like <a href="http://en.wikipedia.org/wiki/Adobe_Illustrator" target="_blank">Illustrator</a> 
-                or <a href="http://en.wikipedia.org/wiki/Inkscape" target="_blank">Inkscape</a>
-            <li>online editor like <a href="http://svg-edit.googlecode.com/svn/branches/stable/editor/svg-editor.html" target="_blank">SVG-Edit</a>
-            <li>download and use files from internet
-            <li>generate via scripting
+                        <li>manually <em>(just like you do HTML, CSS)</em>
+                        <li>profi editor like <a href="http://en.wikipedia.org/wiki/Adobe_Illustrator" target="_blank">Illustrator</a> 
+                            or <a href="http://en.wikipedia.org/wiki/Inkscape" target="_blank">Inkscape</a>
+                        <li>online editor like <a href="http://svg-edit.googlecode.com/svn/branches/stable/editor/svg-editor.html" target="_blank">SVG-Edit</a>
+                        <li>download and utilize documents from internet
+                        <li>generate it via scripting
                     </ul>
                 </section>
 
@@ -93,11 +95,11 @@
                 <section>
                     <h2>SVG Basics</h2>
                     <ul>
-                        <li>primitives: <strong>line, rect, circle, ellipse, polyline, polygon, path</strong> 
-            <li>organization: <strong>defs, g, svg, use, symbol, a, image, foreignObject...</strong> 
-            <li>advanced: <strong>clipPath, mask, marker, pattern, mask, gradients, filters...</strong>
-            <li>texts: <strong>text, tspan, textPath, tref</strong>
-            <li>animations: <strong>set, animate, animateTransform, animateMotion</strong>
+                        <li>shape primitives: <strong>line, rect, circle, ellipse, polyline, polygon, path</strong> 
+                        <li>organization: <strong>defs, g, svg, use, symbol, a, image, foreignObject...</strong> 
+                        <li>advanced: <strong>clipPath, mask, marker, pattern, mask, gradients, filters...</strong>
+                        <li>texts: <strong>text, tspan, textPath, tref</strong>
+                        <li>animations: <strong>set, animate, animateTransform, animateMotion</strong>
                     </ul>
                 </section>
 
@@ -105,15 +107,14 @@
 
                 <section>
                     <h2>viewPort vs. viewBox</h2>
-          <p>SVG canvas is infinite. ViewPort is defined by <code>width</code> and <code>height</code> and is for outside use, 
-          giving know document's dimensions for embedding purposes</p>
-          <pre><code>&lt;svg width="200" height="200">&lt;!-- content -->&lt;/svg></code></pre>
-          <p>ViewBox is defined by <code>viewBox</code> and defines document's internal visibility box. 
-          Four values stand for box definition: <code>left top width height</code></p>
-          <pre><code>&lt;svg viewBox="-50 -50 200 200">&lt;!-- content -->&lt;/svg></code></pre>
-          <p>No one of them is mandatory, but they are usefull and they can co-exists easily, if you want to</p>
-          <pre><code>&lt;svg viewBox="-50 -50 200 200" width="100" height="100">&lt;!-- ... -->&lt;/svg></code></pre>
-
+                    <p>SVG canvas is <strong>infinite</strong>. ViewPort is defined by <code>width</code> and <code>height</code> and is for 
+                        internal percentage sizing use + it gives to document's parent (HTML, SVG) its dimensions</p>
+                    <pre><code>&lt;svg width="200" height="200">&lt;!-- content -->&lt;/svg></code></pre>
+                    <p>ViewBox is defined by <code>viewBox</code> and defines document's canvas visibility box. 
+                        Four values stand for definition of: <code>left top width height</code></p>
+                    <pre><code>&lt;svg viewBox="-50 -50 200 200">&lt;!-- content -->&lt;/svg></code></pre>
+                    <p>No one of them is mandatory, but they are useful and they can co-exists easily, if you want to</p>
+                    <pre><code>&lt;svg viewBox="-50 -50 200 200" width="100" height="100">&lt;!-- ... -->&lt;/svg></code></pre>
                 </section>
 
 
@@ -125,9 +126,9 @@
                     </p>
                     <ol>
                         <li>inline <code>svg</code> markup
-            <li><code>object</code>
-            <li>image (<code>img</code>)
-            <li>CSS <code>background</code> property
+                        <li><code>object</code> tag
+                        <li>image (<code>img</code>) tag
+                        <li>CSS <code>background</code> property
                     </ol>
                 </section>
 
@@ -136,7 +137,7 @@
                 <section>          
                     <section>
                         <h2>Inline SVG markup</h2>
-                        <p>Mind necessity to keep XML tag structure for all SVG nodes!</p>
+                        <p>Mind necessity to keep XML syntax for all SVG markup!</p>
                         <pre><code>  ...
   &lt;h2>Some Title&lt;/h2>
   <!-- xmlns is not required in HTML5 document -->
@@ -151,33 +152,34 @@
     }
   &lt;/script>
   &lt;p>Text of some paragraph&lt;/p>
-  ...</code></pre>
-            
-              <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="25" cy="25" r="20" fill="orange"/>
-                <line x1="0" y1="0" x2="50" y2="50" stroke="green" stroke-width="3"/>
-              </svg>
-
+  ...                   </code></pre>
+       
+                        <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="25" cy="25" r="20" fill="orange"/>
+                            <line x1="0" y1="0" x2="50" y2="50" stroke="green" stroke-width="3"/>
+                        </svg>
                      </section>
-                    <section>
-            <h2>Advantages</h2>
-            <ul class="fix">
-              <li>applicable CSS from embedding document (also currentColor support)
-              <li>manipulable via JavaScript
-              <li>no extra file to load
-              <li>accessible
-            </ul>
-            <hr/>            
-            <h2>Disadvantages</h2>
-            <ul class="fix">
-              <li>not cacheable
-              <li>cross-browser (MSIE) fluid size trick needed
-            </ul>
+
+                     <section>
+                        <h2>Advantages</h2>
+                        <ul class="fix">
+                            <li>applicable CSS from embedding document <em>(also currentColor support)</em>
+                            <li>manipulable via JavaScript
+                            <li>no extra file to load
+                            <li>accessible
+                        </ul>
+                        <hr/>            
+                        <h2>Disadvantages</h2>
+                        <ul class="fix">
+                            <li>not cacheable
+                            <li>cross-browser <em>(MSIE)</em> fluid size trick needed
+                        </ul>
                     </section>
+
                     <section>
                         <h2>Fluid design MSIE trick</h2>
-                        Use if you need stretching, fixed sizes are OK without it<br/> <a href="fluid-inline.html" target="_blank">Live demo</a>
-            <pre><code>    &lt;style>
+                        <p>Use if you need stretching, fixed sizes are OK without it.<br/> <a href="fluid-inline.html" target="_blank">Live demo</a></p>
+                        <pre><code>    &lt;style>
       .wrapper {
           width: 50%;
           height: 0;
@@ -192,9 +194,9 @@
     &lt;/style>
     &lt;div class="wrapper">  <!-- replace svg's width/height by viewBox -->
       &lt;svg viewBox="0 0 50 50"><!-- SVG content -->&lt;/svg>
-    &lt;/div></code></pre>
+    &lt;/div>           </code></pre>
                     </section>
-        </section>
+                </section>
 
 
 
@@ -206,37 +208,37 @@
     &lt;h2>Some Title&lt;/h2>
     <!-- xmlns is not required in HTML5 document -->
     &lt;object type="image/svg+xml" data="dog.svg" width="136" height="200">
-      <!-- possible fallback (like PNG image) here -->
+        <!-- possible fallback (like PNG image) here -->
     &lt;/object>
     &lt;p>Text of some paragraph&lt;/p>
     ...
-            </code></pre>
+                        </code></pre>
             
-            <object type="image/svg+xml" data="svg/dog.svg" width="136" height="200">
-              <!-- fallback like PNG image here -->
-            </object>
-
+                        <object type="image/svg+xml" data="svg/dog.svg" width="136" height="200">
+                            <!-- fallback like PNG image here -->
+                        </object>
                      </section>
-                    <section>
-            <h2>Advantages</h2>
-            <ul class="fix">
-              <li>applicable CSS from external stylesheet
-              <li>manipulable via JavaScript (both externally and internally)
-              <li>cacheable, as it is external file
-              <li>intensive pre-compress possible
-              <li>accessible ??
-            </ul>
-            <hr/>            
-            <h2>Disadvantages</h2>
-            <ul class="fix">
-              <li>owner document CSS stylesheet not applicable
-              <li>cross-browser (MSIE) fluid size trick needed
-            </ul>
+
+                     <section>
+                        <h2>Advantages</h2>
+                        <ul class="fix">
+                            <li>applicable CSS from external stylesheet
+                            <li>manipulable via JavaScript <em>(both externally and internally)</em>
+                            <li>cacheable, as it is external file
+                            <li>intensive pre-compress possible <em>(.svgz)</em>
+                        </ul>
+                        <hr/>            
+                        <h2>Disadvantages</h2>
+                        <ul class="fix">
+                            <li>owner document CSS stylesheet not applicable
+                            <li>cross-browser <em>(MSIE)</em> fluid size trick needed
+                        </ul>
                     </section>
+                    
                     <section>
                         <h2>Fluid design MSIE trick</h2>
-                        Setting width does the trick. <a href="fluid-object.html" target="_blank">Live demo</a>
-            <pre><code>    &lt;style>
+                        <p>Setting width does the trick. <a href="fluid-object.html" target="_blank">Live demo</a></p>
+                        <pre><code>    &lt;style>
       .wrapper {
           width: 50%;
       }
@@ -247,41 +249,46 @@
     
     &lt;div class="wrapper">  <!-- replace svg's width/height by viewBox -->
       &lt;object type="image/svg+xml" data="dog.svg">&lt;/object>
-    &lt;/div></code></pre>
+    &lt;/div>           </code></pre>
                     </section>
-        </section>
+                </section>
 
 
 
-        <section>
+                <section>
                     <section>
                         <h2>Image tag integration</h2>
-                        <p>Good old, familiar way to go...</p>
+                        <p>Good old, familiar and easy way to go...</p>
                         <pre><code>
     &lt;img width="323" height="153" src="svg/turtle.svg" alt="Turtle"
-      onerror="this.onerror=null; this.src='fallback.png'"/>
-            </code></pre>
-            <img width="323" height="153" src="svg/turtle.svg" alt="Turtle"/>
+        onerror="this.onerror=null; this.src='fallback.png'"/>
+    &lt;!-- with possible fallback using onerror attribute -->
+                        </code></pre>
+                        <img width="323" height="153" src="svg/turtle.svg" alt="Turtle"/>
                     </section>
+
                     <section>
-            <h2>Advantages</h2>
-            <ul class="fix">
-              <li>cacheable, as it is external file
-              <li>intensive pre-compress possible
-              <li>safe and simple
-            </ul>
-            <hr/>            
-            <h2>Disadvantages</h2>
-            <ul class="fix">
-              <li>external CSS stylesheet not applicable
-              <li>owner document CSS stylesheet not applicable (only globally)
-              <li>cannot be manipulated via JavaScript (not even internally)
-            </ul>
+                        <h2>Advantages</h2>
+                        <ul class="fix">
+                            <li>cacheable, as it is external file
+                            <li>intensive pre-compress possible
+                            <li>safe and simple <em>(sandboxed)</em>
+                            <li>SMIL is allowed <em>(animated GIF substitute, except for MSIE)</em>
+                        </ul>
+                        <hr/>            
+                        <h2>Disadvantages</h2>
+                        <ul class="fix">
+                            <li>external <em>(linked)</em> CSS stylesheet not applicable
+                            <li>owner document's CSS stylesheet not applicable to individual SVG elements
+                            <li>cannot be manipulated via JavaScript <em>(not even internally)</em>
+                            <li>interactivity disabled <em>(links, DOM events)</em>
+                        </ul>
                     </section>
+                    
                     <section>
                         <h2>Fluid design MSIE trick</h2>
-                        <a href="fluid-image.html" target="_blank">Live demo</a>
-            <pre><code>
+                        <p>Similar to <code>object</code> tag - you need to set width. <a href="fluid-image.html" target="_blank">Live demo</a></p>
+                        <pre><code>
     &lt;style>
       img {
           width: 100%;
@@ -289,13 +296,13 @@
     &lt;/style>
     
     &lt;img width="323" height="153" src="svg/turtle.svg" alt="Turtle"/>
-            </code></pre>
+                        </code></pre>
                     </section>
                 </section>
 
 
 
-        <section>
+                <section>
                     <section>
                         <h2>CSS background image</h2>
                         <pre><code>    &lt;style>
@@ -311,68 +318,78 @@
     &lt;/style>
     
     &lt;div class="holder"/></code></pre>
-            <a href="fluid-background.html" target="_blank">Live demo for fluid design</a>
-            <div style="width: 50%; height: 180px; margin: 0 auto; background: url(svg/fish.svg); 
-              background-size: contain; background-position: center center; background-repeat: no-repeat;">&nbsp;</div>
+                        <p><a href="fluid-background.html" target="_blank">Live demo for fluid design</a></p>
+                        <div style="width: 50%; height: 180px; margin: 0 auto; background: url(svg/fish.svg); 
+                            background-size: contain; background-position: center center; background-repeat: no-repeat;">&nbsp;</div>
                     </section>
+
                     <section>
-            <h2>Advantages</h2>
-            <ul class="fix">
-              <li>cacheable, as it is external file
-              <li>intensive pre-compress possible
-              <li>no tricks needed for modern browsers
-            </ul>
-            <hr/>            
-            <h2>Disadvantages</h2>
-            <ul class="fix">
-              <li>external CSS stylesheet not applicable
-              <li>owner document CSS stylesheet not applicable (only globally)
-              <li>cannot be manipulated via JavaScript (not even internally)
-            </ul>
+                        <h2>Advantages</h2>
+                        <ul class="fix">
+                            <li>no tricks needed for modern browsers
+                            <li>cacheable, as it is external file
+                            <li>intensive pre-compress possible
+                            <li>safe and simple <em>(sandboxed)</em>
+                            <li>SMIL is allowed <em>(animated GIF substitute, except for MSIE)</em>
+                        </ul>
+                        <hr/>            
+                        <h2>Disadvantages</h2>
+                        <ul class="fix">
+                            <li>external <em>(linked)</em> CSS stylesheet not applicable
+                            <li>owner document's CSS stylesheet not applicable to individual SVG elements
+                            <li>cannot be manipulated via JavaScript <em>(not even internally)</em>
+                            <li>interactivity disabled <em>(links, DOM events)</em>
+                        </ul>
                     </section>
                 </section>
 
-
+                
 
                 <section>
                     <h2>HTML vs SVG differences</h2>
-          <p>There are many SVG only CSS properties and all of them (and more) could be written
-          as direct presentation attributes, but probably the most notable are:</p>
+                        <p>There are many SVG only CSS properties and all of them <em>(and more)</em> could be written
+                            as direct presentation attributes, but probably the most notable are:</p>
                     <table>
-            <tr>
-              <th>HTML</th><th>SVG</th>
-            </tr>
-            <tr>
-              <th>border</th><th>stroke</th>
-            </tr>
-            <tr>
-              <th>color, background</th><th>fill</th>
-            </tr>
-          </table>
+                        <tr>
+                            <th>HTML</th><th>SVG</th>
+                        </tr>
+                        <tr>
+                            <th>border</th><th>stroke</th>
+                        </tr>
+                        <tr>
+                            <th>color, background</th><th>fill</th>
+                        </tr>
+                        <tr>
+                            <th>border rgb<strong>a</strong> (alpha for opacity)</th><th>stroke-opacity</th>
+                        </tr>
+                        <tr>
+                            <th>background-color rgb<strong>a</strong> ( for opacity)</th><th>fill-opacity</th>
+                        </tr>                        
+                    </table>
                 </section>
 
 
 
                 <section>
                     <h3>Is drawing in CSS good enough?</h3>
-                    <p>Example of Twitter logo recreated in HTML/CSS<br/>(single color only)</p>
-          <hr/>
-          <ol>
-            <li>PNG = 1.4 kB (1 file, 1 element), 1.4 kB GZ
-            <li>CSS = 2.5 kB (16 rules)+0.5 kB HTML (14 nodes), 1.4 kB GZ
-            <li>SVG = 1.2 kB (3 elements), 0.6kB GZ
-          </ol>
-          <hr/>
-          <a href="svg/twittercss.htm" target="_blank"><img src="svg/twitter.svg" width="250" alt="Twitter Logo"/></a>
+                    <p>Example of Twitter logo recreated in HTML/CSS and crushed to the minimum size <em>(single colour image only)</em></p>
+                    <hr/>
+                    <ol>
+                        <li>PNG = 1.4 kB (1 file, 1 element), 1.4 kB GZ
+                        <li>CSS = 2.5 kB (16 rules)+0.5 kB HTML (14 nodes), 1.4 kB GZ
+                        <li>SVG = 1.2 kB (3 elements), 0.6kB GZ
+                    </ol>
+                    <hr/>
+                    <a href="svg/twittercss.htm" target="_blank"><img src="svg/twitter.svg" width="250" alt="Twitter Logo"/></a>
                 </section>
 
 
 
                 <section>
-          <section class="crclr">
-                      <h2>Sharing CSS definitions</h2>
-                      <p>Inline code case, notice symbol element use.</p>
-            <pre><code>&lt;style>
+                    <section class="crclr">
+                        <h2>Sharing CSS definitions</h2>
+                        <p>Inline code case, notice symbol element use.</p>
+                        <pre><code>&lt;style>
   span { color: darkgreen; fill: currentColor; }
 &lt;/style>
 &lt;span>My cute jellyfish
@@ -387,50 +404,51 @@
     &lt;/symbol>
     &lt;use xlink:href="#jellyfish"/>
   &lt;/svg>
-&lt;/span></code></pre>
-            <style scoped>
-              .crclr span.dr {
-                color: darkgreen;
-                fill: currentColor;
-                display: inline-block;                
-              }
-              .crclr span.lb {
-                color: #37abc8;
-                fill: currentColor;
-                display: inline-block;
-                margin-left: 30px;
-              }
-            </style>
-            <span class="dr">My cute jellyfish
-              <svg stroke="none" width="60" height="60">
-                <symbol id="jellyfish" viewBox="0 0 400 500">
-                  <path d="M200,0.438c-90,0.772-172,72-192,160-6.89,28-8.74,57-6.79,86,6.82,22,35.8,21,52.8,13,7.2-3,14.6-6,22.2-8,3.8,4,7.1,10,9.8,15-11.7,36-12.4,74-8.2,112-20.8,33-48.2,67-41.7,109,2.4,23,13.8,44,30.3,59-2.4,3-5,7-7.8,10-9.3,11,0.2,1,8.1-10,14.2,13,32.1,22,50.9,24-18.9-2-36.4-12-50.1-25,3.6-5,6.7-10,7.4-12,7.9-14,12.3-29,14.6-44,13.1,29,43.1,48,74.1,49-33-1-62-24-73.4-54,2.1-18,1.3-36-0.4-54,12.8-42,49.8-76,43.8-123-2-24-13-46-30-62v-1c8-1,15-1,22,0,7,10,19,21,18,30,11,28,14,59,11,88-17,19-33,40-28,66,2,7,5,13,9,18-2,25,5,50,24,67,5,7,17,13,27,17h-2,3c1,0,2,1,4,1-2,0-3-1-4-1,8-4,16-8,23-14,3,13-5,34-10,42,10-11,13-27,10-42,16,13,35,20,55,20-20,0-39-8-53-21,9-8,16-17,22-27,9,12,20,22,33,30-1,12,2,24,8,34-10,8-21,13-34,17,13-3,25-9,35-16,2,4,6,7,10,10-4-3-7-6-10-10,9-7,17-15,23-24,5,1,11,2,16,2-3,0-9-1-15-3,14-19,21-43,21-66,15-10,29-22,31-41,4-37-29-59-49-86,0-11,2-21,6-32,7-19,18-38,32-52,2,0,3,1,5,2,17,6,39,13,54-1,12-21,7-46,5-69-9-60-42-116-94-150-31-21.1-69-33.6-107-32.8-2-0.024-3-0.044-5-0.031zm1,558c-1,2-3,3-4,5,1,0,2-2,4-5zm99-315h2c-26,24-28,68-5,95-1,19,2,39,8,58,6,20,12,43,13,65-10,6-20,12-29,18-12,9-19,23-21,37-1,0-1-1-2-1-12-8-22-17-29-29,10-18,15-38,13-59-1-20-4-41-7-61,19-26,41-51,37-84-1-12-5-23-12-33,1-1,2-2,3-4,10-1,19-2,29-2zm16,1c5,0,11,2,16,3-5,7-9,14-12,17-13,19-20,40-22,63-17-27-9-66,18-83zm-226,3c0.9,0,1.9,1,2.8,1-0.8,3-1.6,6-2.4,9-1.7-3-3.5-6-5.5-9,1.7,0,3.4-1,5.1-1zm50.9,0c10,2,19,3,29,4,28,22,27,67,3,92-4,3-7,7-11,11,2-10,2-19,1-30-2-27-9-53-22-77zm116,1v1l1,1c-2,3-4,6-6,8-18,33-21,70-15,106-13,20-22,41-21,65-1,21,6,41,18,58-3,5-6,10-10,15-3,4-7,8-12,12-1,0-1-1-2-1-3-13-10-25-21-33-5-12-7-26-5-40,7-48,47-89,39-140-1-16-7-32-17-46,17,0,34-1,51-6zm-73,5c4,0,8,0,12,1,2,2,4,5,5,8,22,32,18,75,2,110-15,32-31,70-18,106-15-11-34-19-46-34,1-1,1-2,1-3,6-26,16-51,21-76,8-9,18-18,24-28,20-25,17-61-1-84zm-84,0c4,2,7,5,8,9,26,31,24,76,4,110-8,15-16.9,31-22.9,48-1.6-14-3.6-28-5.1-41,11.3-19,20-37,21-60,1-18-2-36-9.6-53,1.6-4,3.3-9,4.6-13zm163,4c15,25,10,58-8,81-4,6-8,12-13,18-2-24-2-49,8-73,4-9,8-18,13-26zm-171,21c10.3,30,7.2,64-8.6,92-0.1-1-0.2-1-0.2-2-2.6-30,0.5-61,8.8-90zm211,67c20,22,48,43,46,76-2,17-14,28-27,37-1-3-1-6-1-9-4-34-17-69-18-104zm-150,28c-2,14-6,27-11,40-3,9-5,18-6,27-3-5-4-10-5-16-2-21,9-37,22-51zm85,0c1,4,2,7,2,11,7,33,11,70-4,100-21-32-22-76,0-108,1-1,1-2,2-3zm-159,13c1.6,12,3.6,24,5.8,36,0.5,2,0.9,5,1.3,7-4.8,17-5.8,35,0.9,53,0.3,1,0.5,1,0.8,2-2.3,22-8.5,42-20.3,61-21.5-22-33.4-53-27.5-83,5.1-29,23.2-52,39-76zm8.5,54c1.4,12,1.8,25,0.9,38-3.1-11-3.8-23-1.7-34,0.2-1,0.5-3,0.8-4zm51.4,9c12,14,32,22,47,33,1,1,1,2,2,3,5,12,13,22,22,30-8,6-17,12-22,14-31-12-53-46-49-80zm179,15c0,19-3,38-13,55-2,3-4,6-6,9-10-2-22-6-30-11,3-16,12-31,26-39,7-5,15-9,23-14zm-127,21c8,7,15,15,18,26-8-7-14-16-18-26zm78,33c9,5,19,9,29,11-6,9-13,16-22,23-6-10-8-22-7-34zm-72,14c6,2,10,3,11,2-4,0-8-1-11-2z"/>
-                  <g id="eye" transform="matrix(0.89472818,0,0,0.89472818,363.45969,-292.73304)">
-                    <path fill="yellow" d="m-139,494c-4.15,39.8,46.2,71.1,80.1,49.9,15-7.45,25.7-23.6,28.7-39.9,0.194-14-16.3-9.07-25.4-9.96h-83.4z"/>
-                    <path fill="black" d="m-112,494c-4.57,20,18.9,32.5,35.7,26.2,12.5,0.718,26.1-27.1,9.42-26.2h-45.1z"/>
-                  </g>
-                  <use xlink:href="#eye" transform="translate(-150 0)"/>
-                </symbol>
-                <use xlink:href="#jellyfish"/>
-              </svg>
-            </span>
-            <span class="lb">Another cute jellyfish
-              <svg width="60" height="60">
-                <use xlink:href="#jellyfish" transform="rotate(180 30 30)"/>
-              </svg>
-            </span>
-          </section>
-          <section class="crclr2">
-                      <h2>External CSS &amp; object</h2>
-            <pre><code>/* objectcase.css file */ 
-dd, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
-            <pre><code>&lt;style type="text/css"> 
+&lt;/span>              </code></pre>
+                        <style scoped>
+                            .crclr span.dr {
+                                color: darkgreen;
+                                fill: currentColor;
+                                display: inline-block;                
+                            }
+                            .crclr span.lb {
+                                color: #37abc8;
+                                fill: currentColor;
+                                display: inline-block;
+                                margin-left: 30px;
+                            }
+                        </style>
+                        <span class="dr">My cute jellyfish
+                          <svg stroke="none" width="60" height="60">
+                            <symbol id="jellyfish" viewBox="0 0 400 500">
+                              <path d="M200,0.438c-90,0.772-172,72-192,160-6.89,28-8.74,57-6.79,86,6.82,22,35.8,21,52.8,13,7.2-3,14.6-6,22.2-8,3.8,4,7.1,10,9.8,15-11.7,36-12.4,74-8.2,112-20.8,33-48.2,67-41.7,109,2.4,23,13.8,44,30.3,59-2.4,3-5,7-7.8,10-9.3,11,0.2,1,8.1-10,14.2,13,32.1,22,50.9,24-18.9-2-36.4-12-50.1-25,3.6-5,6.7-10,7.4-12,7.9-14,12.3-29,14.6-44,13.1,29,43.1,48,74.1,49-33-1-62-24-73.4-54,2.1-18,1.3-36-0.4-54,12.8-42,49.8-76,43.8-123-2-24-13-46-30-62v-1c8-1,15-1,22,0,7,10,19,21,18,30,11,28,14,59,11,88-17,19-33,40-28,66,2,7,5,13,9,18-2,25,5,50,24,67,5,7,17,13,27,17h-2,3c1,0,2,1,4,1-2,0-3-1-4-1,8-4,16-8,23-14,3,13-5,34-10,42,10-11,13-27,10-42,16,13,35,20,55,20-20,0-39-8-53-21,9-8,16-17,22-27,9,12,20,22,33,30-1,12,2,24,8,34-10,8-21,13-34,17,13-3,25-9,35-16,2,4,6,7,10,10-4-3-7-6-10-10,9-7,17-15,23-24,5,1,11,2,16,2-3,0-9-1-15-3,14-19,21-43,21-66,15-10,29-22,31-41,4-37-29-59-49-86,0-11,2-21,6-32,7-19,18-38,32-52,2,0,3,1,5,2,17,6,39,13,54-1,12-21,7-46,5-69-9-60-42-116-94-150-31-21.1-69-33.6-107-32.8-2-0.024-3-0.044-5-0.031zm1,558c-1,2-3,3-4,5,1,0,2-2,4-5zm99-315h2c-26,24-28,68-5,95-1,19,2,39,8,58,6,20,12,43,13,65-10,6-20,12-29,18-12,9-19,23-21,37-1,0-1-1-2-1-12-8-22-17-29-29,10-18,15-38,13-59-1-20-4-41-7-61,19-26,41-51,37-84-1-12-5-23-12-33,1-1,2-2,3-4,10-1,19-2,29-2zm16,1c5,0,11,2,16,3-5,7-9,14-12,17-13,19-20,40-22,63-17-27-9-66,18-83zm-226,3c0.9,0,1.9,1,2.8,1-0.8,3-1.6,6-2.4,9-1.7-3-3.5-6-5.5-9,1.7,0,3.4-1,5.1-1zm50.9,0c10,2,19,3,29,4,28,22,27,67,3,92-4,3-7,7-11,11,2-10,2-19,1-30-2-27-9-53-22-77zm116,1v1l1,1c-2,3-4,6-6,8-18,33-21,70-15,106-13,20-22,41-21,65-1,21,6,41,18,58-3,5-6,10-10,15-3,4-7,8-12,12-1,0-1-1-2-1-3-13-10-25-21-33-5-12-7-26-5-40,7-48,47-89,39-140-1-16-7-32-17-46,17,0,34-1,51-6zm-73,5c4,0,8,0,12,1,2,2,4,5,5,8,22,32,18,75,2,110-15,32-31,70-18,106-15-11-34-19-46-34,1-1,1-2,1-3,6-26,16-51,21-76,8-9,18-18,24-28,20-25,17-61-1-84zm-84,0c4,2,7,5,8,9,26,31,24,76,4,110-8,15-16.9,31-22.9,48-1.6-14-3.6-28-5.1-41,11.3-19,20-37,21-60,1-18-2-36-9.6-53,1.6-4,3.3-9,4.6-13zm163,4c15,25,10,58-8,81-4,6-8,12-13,18-2-24-2-49,8-73,4-9,8-18,13-26zm-171,21c10.3,30,7.2,64-8.6,92-0.1-1-0.2-1-0.2-2-2.6-30,0.5-61,8.8-90zm211,67c20,22,48,43,46,76-2,17-14,28-27,37-1-3-1-6-1-9-4-34-17-69-18-104zm-150,28c-2,14-6,27-11,40-3,9-5,18-6,27-3-5-4-10-5-16-2-21,9-37,22-51zm85,0c1,4,2,7,2,11,7,33,11,70-4,100-21-32-22-76,0-108,1-1,1-2,2-3zm-159,13c1.6,12,3.6,24,5.8,36,0.5,2,0.9,5,1.3,7-4.8,17-5.8,35,0.9,53,0.3,1,0.5,1,0.8,2-2.3,22-8.5,42-20.3,61-21.5-22-33.4-53-27.5-83,5.1-29,23.2-52,39-76zm8.5,54c1.4,12,1.8,25,0.9,38-3.1-11-3.8-23-1.7-34,0.2-1,0.5-3,0.8-4zm51.4,9c12,14,32,22,47,33,1,1,1,2,2,3,5,12,13,22,22,30-8,6-17,12-22,14-31-12-53-46-49-80zm179,15c0,19-3,38-13,55-2,3-4,6-6,9-10-2-22-6-30-11,3-16,12-31,26-39,7-5,15-9,23-14zm-127,21c8,7,15,15,18,26-8-7-14-16-18-26zm78,33c9,5,19,9,29,11-6,9-13,16-22,23-6-10-8-22-7-34zm-72,14c6,2,10,3,11,2-4,0-8-1-11-2z"/>
+                              <g id="eye" transform="matrix(0.89472818,0,0,0.89472818,363.45969,-292.73304)">
+                                <path fill="yellow" d="m-139,494c-4.15,39.8,46.2,71.1,80.1,49.9,15-7.45,25.7-23.6,28.7-39.9,0.194-14-16.3-9.07-25.4-9.96h-83.4z"/>
+                                <path fill="black" d="m-112,494c-4.57,20,18.9,32.5,35.7,26.2,12.5,0.718,26.1-27.1,9.42-26.2h-45.1z"/>
+                              </g>
+                              <use xlink:href="#eye" transform="translate(-150 0)"/>
+                            </symbol>
+                            <use xlink:href="#jellyfish"/>
+                          </svg>
+                        </span>
+                        <span class="lb">Another cute jellyfish
+                          <svg width="60" height="60">
+                            <use xlink:href="#jellyfish" transform="rotate(180 30 30)"/>
+                          </svg>
+                        </span>
+                    </section>
+
+                    <section class="crclr2">
+                        <h2>External CSS &amp; object</h2>
+                        <pre><code>/* objectcase.css file */ 
+span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
+                        <pre><code>&lt;style type="text/css"> 
   @import url(css/objectcase.css);
 &lt;/style>
 &lt;span>My shared jellyfish
   &lt;object type="image/svg+xml" data="jellyfish.svg" width="60" height="60"/>
-&lt;/span>  </code></pre>
-            <pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 800" stroke="none" width="60" height="60">
+&lt;/span>              </code></pre>
+                        <pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink">
   &lt;style type="text/css">
     @import url(../css/objectcase.css);
   &lt;/style>
@@ -439,24 +457,30 @@ dd, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
     ... rest of the symbol definition ...
   &lt;/symbol>
   &lt;use xlink:href="#jellyfish" id="jellyfishExt"/>
-&lt;/svg>   </code></pre>
-            <style scoped>
-              @import url(css/objectcase.css);
-            </style>
-            <span class="mg">My shared jellyfish
-              <object type="image/svg+xml" data="svg/jellyfish.svg" width="60" height="60">
-                <!-- fallback like PNG image here -->
-              </object>
-            </span>
-          </section>
+&lt;/svg>               </code></pre>
+                        <style scoped>
+                            @import url(css/objectcase.css);
+                        </style>
+                        <span class="mg">My shared jellyfish
+                            <object type="image/svg+xml" data="svg/jellyfish.svg" width="60" height="60">
+                                <!-- fallback like PNG image here -->
+                            </object>
+                        </span>
+                    </section>
                 </section>
 
 
-
+                
                 <section>
-          <section>
-                      <h2>JS manipulations</h2>
-            <pre><code>&lt;input onchange="document.getElementById('txt').firstChild.data=this.value">
+                    <h2>Path - the ultimate solution</h2>
+                </section>
+
+
+                
+                <section>
+                    <section>
+                        <h2>JS manipulations</h2>
+                        <pre><code>&lt;input onchange="document.getElementById('txt').firstChild.data=this.value">
 
 &lt;svg width="310" height="120">
   &lt;path id="crc" stroke="none" fill="none" d="M50,0c0,27.6-22.4,50-50,50s-50-22.4-50-50,22.4-50,50-50,50,22.4,50,50z"/>
@@ -466,36 +490,37 @@ dd, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
       &lt;animateTransform attributeName="transform" type="rotate" from="0" to="360" begin="1s" repeatCount="indefinite" dur="9s"/>
     &lt;/text>
   &lt;/g>
-&lt;/svg></code></pre>
-            <input onchange="document.getElementById('txt').firstChild.data=this.value">
-            <svg width="310" height="120">
-              <path id="crc" stroke="none" fill="none" d="M50,0c0,27.6-22.4,50-50,50s-50-22.4-50-50,22.4-50,50-50,50,22.4,50,50z"/>
-              <g transform="translate(150 60) scale(2 0.8)">
-                <text font-size="26px" font-family="Helvetica, sans-serif" fill="maroon">
-                  <textPath xlink:href="#crc" id="txt">Text Writ Around The Circle</textPath>
-                  <!--animateTransform attributeName="transform" begin="1s" type="rotate" repeatCount="indefinite" from="0" to="360" dur="9s"/-->
-                </text>
-              </g>
-            </svg>
-          </section>
+&lt;/svg>               </code></pre>
+                        <input onchange="document.getElementById('txt').firstChild.data=this.value">
+                        <svg width="310" height="120">
+                          <path id="crc" stroke="none" fill="none" d="M50,0c0,27.6-22.4,50-50,50s-50-22.4-50-50,22.4-50,50-50,50,22.4,50,50z"/>
+                          <g transform="translate(150 60) scale(2 0.8)">
+                            <text font-size="26px" font-family="Helvetica, sans-serif" fill="maroon">
+                              <textPath xlink:href="#crc" id="txt">Text Writ Around The Circle</textPath>
+                              <!--animateTransform attributeName="transform" begin="1s" type="rotate" repeatCount="indefinite" from="0" to="360" dur="9s"/-->
+                            </text>
+                          </g>
+                        </svg>
+                    </section>
                 </section>
 
-
+                <section>
+                    <h2>Internal Media Queries</h2>
+                </section>
 
                 <section>
                     <h1>THE END</h1>
                     <h3>Thank you!</h3>
                 </section>
 
-            </div>
 
+
+            </div>
         </div>
 
         <script src="lib/js/head.min.js"></script>
         <script src="js/reveal.min.js"></script>
-
         <script>
-
             // Full list of configuration options available here:
             // https://github.com/hakimel/reveal.js#configuration
             Reveal.initialize({
@@ -503,7 +528,7 @@ dd, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                 progress: true,
                 history: true,
                 center: true,
-        slideNumber: true,
+                slideNumber: true,
 
                 theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
                 transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
@@ -514,8 +539,6 @@ dd, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                     { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
                 ]
             });
-
         </script>
-
     </body>
 </html>
