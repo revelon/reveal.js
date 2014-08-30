@@ -38,7 +38,7 @@
                 border: 2px solid lightgray !important;
                 padding: 3px !important;
                 width: 50%;
-                font-size: 0.7em !important;
+                font: normal 0.7em Verdana, sans-serif !important;
             }
             img {
                 border-image-width: 0 !important;
@@ -343,6 +343,16 @@
                     </section>
                 </section>
 
+
+
+                <section>
+                    <h2>Internal Media Queries</h2>
+                    <p>Embed your media queries inside SVG = put it where it belongs!
+                        <em>(OOP Encapsulation, proven practice)</em></p>
+                    <input type="range" min="30" max="488" value="488" oninput="document.getElementById('imgx').width=this.value"/><br/>
+                    <a href="responsive-svg.html" target="_blank"><img id="imgx" src="svg/responsive3.svg" width="488" alt="House Icon"/></a>
+                </section>
+
                 
 
                 <section>
@@ -360,11 +370,14 @@
                             <th>color, background</th><th>fill</th>
                         </tr>
                         <tr>
-                            <th>border rgb<strong>a</strong> (alpha for opacity)</th><th>stroke-opacity</th>
+                            <th>border rgb<strong>a</strong> <em>(alpha for opacity)</em></th><th>stroke-opacity</th>
                         </tr>
                         <tr>
-                            <th>background-color rgb<strong>a</strong> ( for opacity)</th><th>fill-opacity</th>
-                        </tr>                        
+                            <th>background-color rgb<strong>a</strong> <em>(for opacity)</em></th><th>fill-opacity</th>
+                        </tr>
+                        <tr>
+                            <th>z-index</th><th>element order <em>(planned to 2.0)</em></th>
+                        </tr>
                     </table>
                 </section>
 
@@ -452,7 +465,7 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
   &lt;style type="text/css">
     @import url(../css/objectcase.css);
   &lt;/style>
-  
+  &lt;!-- I prefer this CSS linking instead of &lt;?xml-stylesheet... ?> one -->
   &lt;symbol id="jellyfish" viewBox="0 0 400 500">
     ... rest of the symbol definition ...
   &lt;/symbol>
@@ -478,9 +491,8 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
                 
                 <section>
-                    <section>
-                        <h2>JS manipulations</h2>
-                        <pre><code>&lt;input onchange="document.getElementById('txt').firstChild.data=this.value">
+                    <h2>JS manipulations</h2>
+                    <pre><code>&lt;input onchange="document.getElementById('txt').firstChild.data=this.value">
 
 &lt;svg width="310" height="120">
   &lt;path id="crc" stroke="none" fill="none" d="M50,0c0,27.6-22.4,50-50,50s-50-22.4-50-50,22.4-50,50-50,50,22.4,50,50z"/>
@@ -490,23 +502,47 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
       &lt;animateTransform attributeName="transform" type="rotate" from="0" to="360" begin="1s" repeatCount="indefinite" dur="9s"/>
     &lt;/text>
   &lt;/g>
-&lt;/svg>               </code></pre>
-                        <input onchange="document.getElementById('txt').firstChild.data=this.value">
-                        <svg width="310" height="120">
-                          <path id="crc" stroke="none" fill="none" d="M50,0c0,27.6-22.4,50-50,50s-50-22.4-50-50,22.4-50,50-50,50,22.4,50,50z"/>
-                          <g transform="translate(150 60) scale(2 0.8)">
-                            <text font-size="26px" font-family="Helvetica, sans-serif" fill="maroon">
-                              <textPath xlink:href="#crc" id="txt">Text Writ Around The Circle</textPath>
-                              <!--animateTransform attributeName="transform" begin="1s" type="rotate" repeatCount="indefinite" from="0" to="360" dur="9s"/-->
-                            </text>
-                          </g>
-                        </svg>
-                    </section>
+&lt;/svg>           </code></pre>
+                    <input oninput="document.getElementById('txt').firstChild.data=this.value" value="Text Writ Around The Circle"/>
+                    <svg width="310" height="120">
+                      <path id="crc" stroke="none" fill="none" d="M50,0c0,27.6-22.4,50-50,50s-50-22.4-50-50,22.4-50,50-50,50,22.4,50,50z"/>
+                      <g transform="translate(150 60) scale(2 0.8) rotate(180)">
+                        <text font-size="26px" font-family="Helvetica, sans-serif" fill="maroon">
+                          <textPath xlink:href="#crc" id="txt">Text Writ Around The Circle</textPath>
+                          <!--animateTransform attributeName="transform" begin="1s" type="rotate" repeatCount="indefinite" from="0" to="360" dur="9s"/-->
+                        </text>
+                      </g>
+                    </svg>
                 </section>
 
+
+
                 <section>
-                    <h2>Internal Media Queries</h2>
+                    <h2>Line Drawing</h2>
+                    <pre><code>whatever
+                    </code></pre>
                 </section>
+
+
+
+                <section>
+                    <h2>Path manipulation</h2>
+                    <p>Including join, cap.... live demo</p>
+                    <pre><code>whatever
+                    </code></pre>
+                </section>
+
+
+
+                <section>
+                    <h2>Limitations</h2>
+                    <p>MSIE do not support SVG content transformations via CSS, only through direct tag properties, which very limits styling and especially 
+                        CSS transitions and animations to <a href="http://tutorials.jenkov.com/svg/svg-and-css.html" target="_blank">only properties</a> 
+                        related to: fill, stroke, text, cursor, opacity, marker, clip, mask etc.
+                    </p> demo??
+                </section>
+
+
 
                 <section>
                     <h1>THE END</h1>

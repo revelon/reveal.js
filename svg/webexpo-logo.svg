@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 125.6 139.3">
+    <g id="webexpo-logo">
+        <path fill="#EC6310" d="M123.8 21l-59.3-21v66.3z"/>
+        <path fill="#008491" d="M64.5 139.3l59.3-21-59.3-45.2z"/>
+        <path fill="#4AB8AA" d="M1.8 118.3l59.3 21v-66.2z"/>
+        <path fill="#D14090" d="M65.6 69.7l60 45.8v-91.6z"/>
+        <path fill="#009DDB" d="M0 23.9v91.6l60-45.8z"/>
+        <path fill="#FFD200" d="M61.1 0l-59.3 21 59.3 45.3z"/>
+    </g>
+</svg>
