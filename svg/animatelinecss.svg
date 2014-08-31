@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="10 35 420 140" onclick="document.getElementById('chipmunk').classList.toggle('animate')">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="10 0 420 210" onclick="document.getElementById('chipmunk').classList.toggle('animate')">
     <style>
         .animate {
-            -webkit-animation: draw 3s infinite;
-            animation: draw 3s infinite;
+            -webkit-animation: draw 4s linear infinite;
+            animation: draw 5s linear infinite;
         }
         @keyframes draw {
             100% {

@@ -34,7 +34,7 @@
         <![endif]-->
     
         <style>
-            th, td {
+            th, td, object {
                 border: 2px solid lightgray !important;
                 padding: 3px !important;
                 width: 50%;
@@ -96,8 +96,8 @@
                     <h2>SVG Basics</h2>
                     <ul>
                         <li>shape primitives: <strong>line, rect, circle, ellipse, polyline, polygon, path</strong> 
-                        <li>organization: <strong>defs, g, svg, use, symbol, a, image, foreignObject...</strong> 
-                        <li>advanced: <strong>clipPath, mask, marker, pattern, mask, gradients, filters...</strong>
+                        <li>organization: <strong>defs, g, svg, use, symbol, a, image, foreignObject…</strong> 
+                        <li>advanced: <strong>clipPath, mask, marker, pattern, mask, gradients, filters…</strong>
                         <li>texts: <strong>text, tspan, textPath, tref</strong>
                         <li>animations: <strong>set, animate, animateTransform, animateMotion</strong>
                     </ul>
@@ -114,7 +114,7 @@
                         Four values stand for definition of: <code>left top width height</code></p>
                     <pre><code>&lt;svg viewBox="-50 -50 200 200">&lt;!-- content -->&lt;/svg></code></pre>
                     <p>No one of them is mandatory, but they are useful and they can co-exists easily, if you want to</p>
-                    <pre><code>&lt;svg viewBox="-50 -50 200 200" width="100" height="100">&lt;!-- ... -->&lt;/svg></code></pre>
+                    <pre><code>&lt;svg viewBox="-50 -50 200 200" width="100" height="100">&lt;!-- … -->&lt;/svg></code></pre>
                 </section>
 
 
@@ -138,7 +138,7 @@
                     <section>
                         <h2>Inline SVG markup</h2>
                         <p>Mind necessity to keep XML syntax for all SVG markup!</p>
-                        <pre><code>  ...
+                        <pre><code>  …
   &lt;h2>Some Title&lt;/h2>
   <!-- xmlns is not required in HTML5 document -->
   &lt;svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
@@ -152,7 +152,7 @@
     }
   &lt;/script>
   &lt;p>Text of some paragraph&lt;/p>
-  ...                   </code></pre>
+  …                     </code></pre>
        
                         <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="25" cy="25" r="20" fill="orange"/>
@@ -204,14 +204,14 @@
                     <section>
                         <h2>Object tag integration</h2>
                         <pre><code>
-    ...
+    …
     &lt;h2>Some Title&lt;/h2>
     <!-- xmlns is not required in HTML5 document -->
     &lt;object type="image/svg+xml" data="dog.svg" width="136" height="200">
         <!-- possible fallback (like PNG image) here -->
     &lt;/object>
     &lt;p>Text of some paragraph&lt;/p>
-    ...
+    …
                         </code></pre>
             
                         <object type="image/svg+xml" data="svg/dog.svg" width="136" height="200">
@@ -232,6 +232,7 @@
                         <ul class="fix">
                             <li>owner document CSS stylesheet not applicable
                             <li>cross-browser <em>(MSIE)</em> fluid size trick needed
+                            <li>not directly linkable <em>(a tag)</em>
                         </ul>
                     </section>
                     
@@ -258,7 +259,7 @@
                 <section>
                     <section>
                         <h2>Image tag integration</h2>
-                        <p>Good old, familiar and easy way to go...</p>
+                        <p>Good old, familiar and easy way to go…</p>
                         <pre><code>
     &lt;img width="323" height="153" src="svg/turtle.svg" alt="Turtle"
         onerror="this.onerror=null; this.src='fallback.png'"/>
@@ -466,9 +467,9 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
   &lt;style type="text/css">
     @import url(../css/objectcase.css);
   &lt;/style>
-  &lt;!-- I prefer this CSS linking instead of &lt;?xml-stylesheet... ?> one -->
+  &lt;!-- I prefer this CSS linking instead of &lt;?xml-stylesheet… ?> one -->
   &lt;symbol id="jellyfish" viewBox="0 0 400 500">
-    ... rest of the symbol definition ...
+    …rest of the symbol definition…
   &lt;/symbol>
   &lt;use xlink:href="#jellyfish" id="jellyfishExt"/>
 &lt;/svg>               </code></pre>
@@ -520,11 +521,54 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
                 <section>
                     <section>
-                        <h2>Line Drawing via scripting</h2>
-                        <p>MSIE compatible, DOM manipulation involved solution</p>
-                        <pre><code> &lt;svg>
+                        <h2>Line Drawing - script</h2>
+                        <p>MSIE compatible solution, DOM manipulation involved.</p>
+                        <pre><code>  &lt;svg>
+    &lt;path id="drawMe" d="M 246,188 l3,12h2l5-6c0,4,1,6,5,7,3-5,8-2…"/>
+    &lt;script>
+      var lineElem = document.getElementById("drawMe");
+      var lineLength = elem.getTotalLength();
+      lineElem.style.strokeDasharray = lineLength; // +' '+ lineLength
+      lineElem.style.strokeDashoffset = lineLength;
+      // animation cycle follows
+      window.requestAnimationFrame(…shift strokeDashoffset here…);
+    &lt;/script>
   &lt;svg>              </code></pre>
-                        <object width="300" height="200" data="svg/animateline.svg" type="image/svg+xml"></object>
+                        <a href="svg/animateline.svg" target="_blank">External link</a> &nbsp; 
+                        <object height="200" data="svg/animateline.svg" type="image/svg+xml"></object>
+                    </section>
+
+                    <section>
+                        <h2>Line Drawing - SMIL</h2>
+                        <p>Synchronized Multimedia Integration Language solution.</p>
+                        <pre><code>  &lt;svg>
+    &lt;path stroke-dasharray="1439" stroke-dashoffset="1439" d="M 246,188…">
+      &lt;animate attributeName="stroke-dashoffset" from="1439" to="0" 
+        dur="4s" repeatCount="1" fill="freeze"/>
+    &lt;/path>
+  &lt;svg>              </code></pre>
+                        <a href="svg/animatelinesmil.svg" target="_blank">External link</a> &nbsp; 
+                        <object height="200" data="svg/animatelinesmil.svg" type="image/svg+xml"></object>
+                    </section>
+
+                    <section>
+                        <h2>Line Drawing - CSS</h2>
+                        <p>Don't forget to add necessary prefixes <em>(like -webkit-…)</em></p>
+                        <pre><code>  &lt;svg>
+    &lt;style>
+      .animate {
+        animation: draw 4s linear infinite;
+      }
+      @keyframes draw {
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+    &lt;/style>
+    &lt;path stroke-dasharray="1439" stroke-dashoffset="1439" d="M 246,188…"/>
+  &lt;svg>              </code></pre>
+                        <a href="svg/animatelinecss.svg" target="_blank">External link</a> &nbsp; 
+                        <object height="200" data="svg/animatelinecss.svg" type="image/svg+xml"></object>
                     </section>
                 </section>
 
@@ -532,7 +576,7 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
                 <section>
                     <h2>Path manipulation</h2>
-                    <p>Including join, cap.... live demo</p>
+                    <p>Including join, cap… live demo</p>
                     <pre><code>whatever
                     </code></pre>
                 </section>
