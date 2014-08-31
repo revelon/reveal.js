@@ -349,7 +349,8 @@
                     <h2>Internal Media Queries</h2>
                     <p>Embed your media queries inside SVG = put it where it belongs!
                         <em>(OOP Encapsulation, proven practice)</em></p>
-                    <input type="range" min="30" max="488" value="488" oninput="document.getElementById('imgx').width=this.value"/><br/>
+                    <input type="range" min="30" max="488" value="488" oninput="document.getElementById('imgx').width=this.value"
+                         onchange="document.getElementById('imgx').width=this.value"/><br/>
                     <a href="responsive-svg.html" target="_blank"><img id="imgx" src="svg/responsive3.svg" width="488" alt="House Icon"/></a>
                 </section>
 
@@ -518,9 +519,13 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
 
                 <section>
-                    <h2>Line Drawing</h2>
-                    <pre><code>whatever
-                    </code></pre>
+                    <section>
+                        <h2>Line Drawing via scripting</h2>
+                        <p>MSIE compatible, DOM manipulation involved solution</p>
+                        <pre><code> &lt;svg>
+  &lt;svg>              </code></pre>
+                        <object width="300" height="200" data="svg/animateline.svg" type="image/svg+xml"></object>
+                    </section>
                 </section>
 
 
@@ -536,10 +541,12 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
                 <section>
                     <h2>Limitations</h2>
-                    <p>MSIE do not support SVG content transformations via CSS, only through direct tag properties, which very limits styling and especially 
-                        CSS transitions and animations to <a href="http://tutorials.jenkov.com/svg/svg-and-css.html" target="_blank">only properties</a> 
-                        related to: fill, stroke, text, cursor, opacity, marker, clip, mask etc.
-                    </p> demo??
+                    <p>MSIE does not support CSS transformations to SVG content, so you have to stick to direct tag properties</p>
+                    <p>MSIE also does not support CSS Transitions and Animations of otherwise supported  
+                        <a href="http://tutorials.jenkov.com/svg/svg-and-css.html" target="_blank">SVG related CSS properties</a>, 
+                        which leaves us with reasonable utilization of only: opacity.</p>
+                    <p>It is also the only browser not supporting SMIL animation model, so with SVG you're out of luck.</p>
+                    <p>Scripting could solve all these issues, but it's a pity.</p>
                 </section>
 
 
