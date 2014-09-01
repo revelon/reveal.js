@@ -1,4 +1,5 @@
 <svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="100%" width="100%" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="250 100 400 650" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rect stroke="none" fill="white" width="1000" height="1000"/>
 <defs>
 <radialGradient id="radialGradient3784" gradientUnits="userSpaceOnUse" cy="531" cx="465" gradientTransform="matrix(1.0039874,-0.59372004,0.54291469,0.91807503,-364.33566,624.3386)" r="188">
 <stop style="stop-color:#c9ae41;stop-opacity:.9878788;" offset="0"/>

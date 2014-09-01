@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="155" height="110">
-<path id="crc" stroke="none" fill="none" d="M50,0c0,27.6-22.4,50-50,50s-50-22.4-50-50,22.4-50,50-50,50,22.4,50,50z"/>
-<g transform="translate(75 55) scale(1 0.66)">
-  <text font-size="26px" font-family="Helvetica, sans-serif" fill="maroon">
-    <textPath xlink:href="#crc">Text Writ Around The Circle</textPath>
-    <animateTransform attributeName="transform" begin="1s" type="rotate" repeatCount="indefinite" from="0" to="360" dur="9s"/>
-  </text>
-</g>
-</svg>

@@ -34,7 +34,7 @@
         <![endif]-->
     
         <style>
-            th, td, object {
+            th, td {
                 border: 2px solid lightgray !important;
                 padding: 3px !important;
                 width: 50%;
@@ -45,6 +45,10 @@
             }
             .fix, table, tr {
                 width: 96% !important;
+            }
+            input.showme {
+                width: 700px;
+                font-size:0.8em;
             }
         </style>
     </head>
@@ -95,10 +99,10 @@
                 <section>
                     <h2>SVG Basics</h2>
                     <ul>
-                        <li>shape primitives: <strong>line, rect, circle, ellipse, polyline, polygon, path</strong> 
+                        <li>shape primitives: <strong>path, line, rect, circle, ellipse, polyline, polygon…</strong> 
                         <li>organization: <strong>defs, g, svg, use, symbol, a, image, foreignObject…</strong> 
-                        <li>advanced: <strong>clipPath, mask, marker, pattern, mask, gradients, filters…</strong>
-                        <li>texts: <strong>text, tspan, textPath, tref</strong>
+                        <li>advanced: <strong>clipPath, mask, marker, pattern, gradients, filters…</strong>
+                        <li>texts: <strong>text, tspan, textPath…</strong>
                         <li>animations: <strong>set, animate, animateTransform, animateMotion</strong>
                     </ul>
                 </section>
@@ -163,7 +167,7 @@
                      <section>
                         <h2>Advantages</h2>
                         <ul class="fix">
-                            <li>applicable CSS from embedding document <em>(also currentColor support)</em>
+                            <li><img src="svg/smile-ok.svg" align="right" width="100" alt="OK"/>applicable CSS from embedding document <em>(also currentColor support)</em>
                             <li>manipulable via JavaScript
                             <li>no extra file to load
                             <li>accessible
@@ -171,7 +175,7 @@
                         <hr/>            
                         <h2>Disadvantages</h2>
                         <ul class="fix">
-                            <li>not cacheable
+                            <li><img src="svg/smile-ko.svg" align="right" width="100" alt="KO"/>not cacheable
                             <li>cross-browser <em>(MSIE)</em> fluid size trick needed
                         </ul>
                     </section>
@@ -222,7 +226,7 @@
                      <section>
                         <h2>Advantages</h2>
                         <ul class="fix">
-                            <li>applicable CSS from external stylesheet
+                            <li><img src="svg/smile-ok.svg" align="right" width="100" alt="OK"/>applicable CSS from external stylesheet
                             <li>manipulable via JavaScript <em>(both externally and internally)</em>
                             <li>cacheable, as it is external file
                             <li>intensive pre-compress possible <em>(.svgz)</em>
@@ -230,7 +234,7 @@
                         <hr/>            
                         <h2>Disadvantages</h2>
                         <ul class="fix">
-                            <li>owner document CSS stylesheet not applicable
+                            <li><img src="svg/smile-ko.svg" align="right" width="100" alt="KO"/>owner document CSS stylesheet not applicable
                             <li>cross-browser <em>(MSIE)</em> fluid size trick needed
                             <li>not directly linkable <em>(a tag)</em>
                         </ul>
@@ -271,7 +275,7 @@
                     <section>
                         <h2>Advantages</h2>
                         <ul class="fix">
-                            <li>cacheable, as it is external file
+                            <li><img src="svg/smile-ok.svg" align="right" width="100" alt="OK"/>cacheable, as it is external file
                             <li>intensive pre-compress possible
                             <li>safe and simple <em>(sandboxed)</em>
                             <li>SMIL is allowed <em>(animated GIF substitute, except for MSIE)</em>
@@ -279,7 +283,7 @@
                         <hr/>            
                         <h2>Disadvantages</h2>
                         <ul class="fix">
-                            <li>external <em>(linked)</em> CSS stylesheet not applicable
+                            <li><img src="svg/smile-ko.svg" align="right" width="100" alt="KO"/>external <em>(linked)</em> CSS stylesheet not applicable
                             <li>owner document's CSS stylesheet not applicable to individual SVG elements
                             <li>cannot be manipulated via JavaScript <em>(not even internally)</em>
                             <li>interactivity disabled <em>(links, DOM events)</em>
@@ -327,7 +331,7 @@
                     <section>
                         <h2>Advantages</h2>
                         <ul class="fix">
-                            <li>no tricks needed for modern browsers
+                            <li><img src="svg/smile-ok.svg" align="right" width="100" alt="OK"/>no tricks needed for modern browsers
                             <li>cacheable, as it is external file
                             <li>intensive pre-compress possible
                             <li>safe and simple <em>(sandboxed)</em>
@@ -336,7 +340,7 @@
                         <hr/>            
                         <h2>Disadvantages</h2>
                         <ul class="fix">
-                            <li>external <em>(linked)</em> CSS stylesheet not applicable
+                            <li><img src="svg/smile-ko.svg" align="right" width="100" alt="KO"/>external <em>(linked)</em> CSS stylesheet not applicable
                             <li>owner document's CSS stylesheet not applicable to individual SVG elements
                             <li>cannot be manipulated via JavaScript <em>(not even internally)</em>
                             <li>interactivity disabled <em>(links, DOM events)</em>
@@ -396,6 +400,30 @@
                     </ol>
                     <hr/>
                     <a href="svg/twittercss.htm" target="_blank"><img src="svg/twitter.svg" width="250" alt="Twitter Logo"/></a>
+                </section>
+
+
+
+                <section>
+                    <h2>Understanding path</h2>
+                    <p>Can replace every other shape. Some available commands:</p>
+                    <ul>
+                        <li><strong>M</strong> = Move To <strong>X,Y</strong>
+                        <li><strong>L</strong> = Line To <strong>X,Y</strong>
+                        <li><strong>C</strong> = Cubic Bézier To x1,y1 x2,y2 <strong>X,Y</strong>
+                        <li><strong>Z</strong> = Close Path <em>(to the start)</em>
+                    </ul>
+                    <p>Notice two <a href="http://www.useragentman.com/tests/textpath/bezier-curve-construction-set.html">Control Points</a> in curve command.</p>
+                    <hr/>
+                    &lt;path d="<input value="M 0,100 C 0,0, 500,0, 500,100 L 250,200 Z" class="showme" 
+                        oninput="document.getElementById('demoPath').setAttribute('d',this.value)" 
+                        onchange="document.getElementById('demoPath').setAttribute('d',this.value)"/>"/&gt;<br/>
+                    <svg width="600" height="200" stroke="black" stroke-width="4" fill="orange" viewBox="-20 -20 540 240">
+                        <path id="demoPath" d="M 0,100 C 0,0, 500,0, 500,100 L 250,200 Z"/>
+                        <text font-size="30px" font-family="Helvetica, sans-serif" fill="white" stroke-width="1">
+                            <textPath xlink:href="#demoPath">Tester Testakovitch Testakof Tester Testakovitch Testakof Tester Testakovitch Testakof Tester Testakovitch Testakof Tester Testakovitch Testakof Tester Testakovitch Testakof</textPath>
+                        </text>
+                    </svg>
                 </section>
 
 
@@ -487,12 +515,6 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
                 
                 <section>
-                    <h2>Path - the ultimate solution</h2>
-                </section>
-
-
-                
-                <section>
                     <h2>JS manipulations</h2>
                     <pre><code>&lt;input onchange="document.getElementById('txt').firstChild.data=this.value">
 
@@ -505,7 +527,7 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
     &lt;/text>
   &lt;/g>
 &lt;/svg>           </code></pre>
-                    <input oninput="document.getElementById('txt').firstChild.data=this.value" value="Text Writ Around The Circle"/>
+                    <input oninput="document.getElementById('txt').firstChild.data=this.value" class="showme" value="Text Writ Around The Circle"/>
                     <svg width="310" height="120">
                       <path id="crc" stroke="none" fill="none" d="M50,0c0,27.6-22.4,50-50,50s-50-22.4-50-50,22.4-50,50-50,50,22.4,50,50z"/>
                       <g transform="translate(150 60) scale(2 0.8) rotate(180)">
@@ -575,29 +597,6 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
 
                 <section>
-                    <h2>Understanding path</h2>
-                    <p>Can replace every other shape. Some available commands:</p>
-                    <ul>
-                        <li><strong>M</strong> = Move To <strong>X,Y</strong>
-                        <li><strong>L</strong> = Line To <strong>X,Y</strong>
-                        <li><strong>C</strong> = Cubic Bézier To x1,y1 x2,y2 <strong>X,Y</strong>
-                        <li><strong>Z</strong> = Close Path <em>(to the start)</em>
-                    </ul>
-                    <p>Notice two <a href="http://www.useragentman.com/tests/textpath/bezier-curve-construction-set.html">Control Points</a> in curve command.</p>
-                    <hr/>
-                    &lt;path d="<input value="M 0,100 C 0,0, 500,0, 500,100 L 250,200 Z" style="width:700px;font-size:0.8em"
-                        oninput="document.getElementById('demoPath').setAttribute('d',this.value)" 
-                        onchange="document.getElementById('demoPath').setAttribute('d',this.value)"/>"/&gt;<br/>
-                    <svg width="500" height="200" stroke="black" stroke-width="4" fill="orange" viewBox="-20 -20 540 240">
-                        <path id="demoPath" d="M 0,100 C 0,0, 500,0, 500,100 L 250,200 Z"/>
-                        <text font-size="30px" font-family="Helvetica, sans-serif" fill="white" stroke-width="1">
-                            <textPath xlink:href="#demoPath">Tester Testakovitch Testakof Tester Testakovitch Testakof Tester Testakovitch Testakof Tester Testakovitch Testakof Tester Testakovitch Testakof Tester Testakovitch Testakof</textPath>
-                        </text>
-                    </svg>
-                </section>
-
-
-                <section>
                     <h2>Vyhody</h2>
                     <p> vyhody barevnych icon, pro infografiky...</p>
                     <pre><code>whatever
@@ -616,7 +615,7 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                 
                 <section>
                     <h2>Limitations</h2>
-                    <p>MSIE does not support CSS transformations to SVG content, so you have to stick to direct tag properties</p>
+                    <p><img src="svg/smile-ko.svg" align="right" width="100" alt="KO"/>MSIE does not support CSS transformations to SVG content, so you have to stick to direct tag properties</p>
                     <p>MSIE also does not support CSS Transitions and Animations of otherwise supported  
                         <a href="http://tutorials.jenkov.com/svg/svg-and-css.html" target="_blank">SVG related CSS properties</a>, 
                         which leaves us with reasonable utilization of only: opacity.</p>
@@ -628,6 +627,7 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
                 <section>
                     <h1>THE END</h1>
+                    <img src="svg/smile-ok.svg" width="100" alt="OK"/>
                     <h3>Thank you!</h3>
                 </section>
 

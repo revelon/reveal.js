@@ -1,56 +1,106 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="sans-serif">
 <script>
-var clippedImage, clippingCircle, lensFrame, isMouseDown = false, scaleFactor = 3;
+var clippedImage, lensFrame, isMouseDown = false, scaleFactor = 2.5, x, y;
 
-function mouseMove(evt) {
-    if(!isMouseDown) return;
-    var x = evt.clientX;
-    var y = evt.clientY;
-    clippingCircle.setAttribute("cx", x);
-    clippingCircle.setAttribute("cy", y);
-    lensFrame.setAttribute("cx", x);
-    lensFrame.setAttribute("cy", y);
-    resizeImage(x,y);
+function mouseMove(evt, bypass) {
+    if (evt.touches &amp;&amp; evt.touches.length == 1 &amp;&amp; evt.touches[0].clientX) { // solve touch devices
+        evt.preventDefault();
+        evt.clientX = evt.touches[0].clientX;
+        evt.clientY = evt.touches[0].clientY;
+        bypass = true;
+    }
+    if (!isMouseDown &amp;&amp; !bypass) return;
+    x = evt.clientX;
+    y = evt.clientY;
+    lensFrame.setAttribute("transform", "translate(" + x + "," + y + ")");
+    resizeImage();
 }
 
 function mouseDown(evt) {
     isMouseDown = true;
-    document.getElementById("percentageText").firstChild.nodeValue = "" + Math.round(scaleFactor*100) + "%";
 }
 
 function mouseUp(evt) {
     isMouseDown = false;
 }
 
-function resizeImage(x, y) {   
+function switchImg(what) {
+    document.getElementById("canvas").setAttributeNS("http://www.w3.org/1999/xlink", "href", what);
+    resizeImage();
+}
+
+function magnify(how) {
+    scaleFactor = how;
+    document.getElementById("percentageText").firstChild.nodeValue = "" + Math.round(scaleFactor*100) + "%";
+    resizeImage();
+}
+
+function switchLens(what) {
+    lensFrame.setAttribute("d", document.getElementById(what).getAttribute("d"));
+}
+
+function resizeImage() {   
     clippedImage.setAttribute("transform", 
         "translate(" + (x - scaleFactor*x) + "," + (y - scaleFactor*y) + "),scale(" + scaleFactor + "," + scaleFactor +")");
 }
 
 window.addEventListener("mousedown", mouseDown);
 window.addEventListener("mousemove", mouseMove);
+window.addEventListener("touchmove", mouseMove);
 window.addEventListener("mouseup", mouseUp);
 
 window.onload = function() {
     clippedImage = document.getElementById("clippedImage");
-    clippingCircle = document.getElementById("clippingCircle");
     lensFrame = document.getElementById("lensFrame");
+    mouseMove({clientX:300,clientY:200}, true); // position lens after document load
 }
 </script>
 
-<g opacity="0.3">
-    <image xlink:href="cell-phone-open.svg" x="60" id="canvas" width="600" height="512"/>
+<defs>
+    <path id="lensFrame" d="m 45.143701,-2.777559 a 47.051182,47.051182 0 1 1 -94.102363,0 47.051182,47.051182 0 1 1 94.102363,0 z"/>
+    <path id="starLens" d="M 35.062833,34.828581 3.8785057,24.25367 -22.511725,43.947495 l 0.420851,-32.925885 -26.88497,-19.0128735 31.444428,-9.7744055 9.7744042,-31.444427 19.0128738,26.88497 32.925885,-0.420851 -19.693825,26.390231 z"/>
+    <path id="circleLens" d="m 45.143701,-2.777559 a 47.051182,47.051182 0 1 1 -94.102363,0 47.051182,47.051182 0 1 1 94.102363,0 z"/>
+</defs>
+
+<g opacity="0.4">
+    <image xlink:href="candado3d.svg" x="60" y="60" id="canvas" width="800" height="600"/>
 </g>
 
 <clipPath id="clippingPath">
-    <circle id="clippingCircle" cx="712" cy="328" r="50"/>
+    <use xlink:href="#lensFrame"/>
 </clipPath>
 
 <g id="clippedImage">     
     <use xlink:href="#canvas" clip-path="url(#clippingPath)"/>
-    <circle id="lensFrame" cx="712" cy="328" r="50" fill="none" stroke="gray" stroke-width="6"/>
+    <use xlink:href="#lensFrame" fill="none" stroke="maroon" stroke-width="5"/>
 </g>
 
-<text id="percentageText" x="20" y="20" font-size="20px" fill="black">200%</text>
+<text id="percentageText" x="28" y="22" font-size="20px" fill="black">200%</text>
+
+<g style="cursor:pointer; stroke:black; stroke-width:3px; fill-opacity:.5">
+    <g stroke="none" text-anchor="middle" fill-opacity="1">
+        <text x="50" y="55" font-size="15px" fill="black" stroke="none">100%</text>
+        <text x="50" y="118" font-size="21px" fill="black" stroke="none">250%</text>
+        <text x="50" y="200" font-size="29px" fill="black" stroke="none">400%</text>
+        <use xlink:href="#starLens" transform="translate(33 313) scale(0.2)"/>
+        <use xlink:href="#circleLens" transform="translate(33 363) scale(0.2)"/>
+    </g>
+    <circle cx="50" cy="50" r="20" fill="cyan" onclick="magnify(1)" title="100% zoom"/>
+    <circle cx="50" cy="110" r="30" fill="deepskyblue" onclick="magnify(2.5)" title="250% zoom"/>
+    <circle cx="50" cy="190" r="40" fill="navy" onclick="magnify(4)" title="400% zoom"/>
+
+    <rect x="20" y="300" width="26" height="26" rx="2" fill="brown" onclick="switchLens('starLens')" title="Star Lens"/>
+    <rect x="20" y="350" width="26" height="26" rx="2" fill="beige" onclick="switchLens('circleLens')" title="Circle Lens"/>
+        
+    <rect x="200" y="5" width="22" height="22" rx="4" fill="maroon" onclick="switchImg('cherries.svg')"/>
+    <rect x="230" y="5" width="22" height="22" rx="4" fill="darkgreen" onclick="switchImg('cordless-phone.svg')"/>
+    <rect x="260" y="5" width="22" height="22" rx="4" fill="gold" onclick="switchImg('icebucket.svg')"/>
+    <rect x="290" y="5" width="22" height="22" rx="4" fill="gray" onclick="switchImg('11971157711280507233BigRedSmile_A_Mobile_Phone.svg')"/>
+    <rect x="320" y="5" width="22" height="22" rx="4" fill="purple" onclick="switchImg('12344047561989671112dodom01_bullet_bill.svg')"/>
+    <rect x="350" y="5" width="22" height="22" rx="4" fill="deepskyblue" onclick="switchImg('candado3d.svg')"/>
+    <rect x="380" y="5" width="22" height="22" rx="4" fill="cyan" onclick="switchImg('charger.svg')"/>
+    <rect x="410" y="5" width="22" height="22" rx="4" fill="yellow" onclick="switchImg('cell-phone-open.svg')"/>
+    <rect x="440" y="5" width="22" height="22" rx="4" fill="lightgreen" onclick="switchImg('record-player.svg')"/>
+</g>
 
 </svg>
