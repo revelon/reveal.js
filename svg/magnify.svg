@@ -39,7 +39,7 @@ window.onload = function() {
 </script>
 
 <g opacity="0.3">
-    <image xlink:href="icebucket.svg" id="canvas" width="600" height="512"/>
+    <image xlink:href="cell-phone-open.svg" x="60" id="canvas" width="600" height="512"/>
 </g>
 
 <clipPath id="clippingPath">
