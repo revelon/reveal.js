@@ -40,6 +40,12 @@
                 width: 50%;
                 font: normal 0.64em Verdana, sans-serif !important;
             }
+            th, tr:nth-child(odd) {
+                background-color: rgba(0, 0, 50, 0.1);
+            }
+            th {
+                font-weight: 700 !important;
+            }
             img {
                 border-image-width: 0 !important;
             }
@@ -49,6 +55,17 @@
             input.showme {
                 width: 700px;
                 font-size:0.8em;
+            }
+            .inText {
+                float: right;
+            }
+            li a, p a, a.extLink {
+                display: inline-block;
+                padding: 2px !important;
+                margin-top: 2px !important;
+                border: 1px dotted gray !important;
+                border-radius: 8px;
+                background-color: #ddf;
             }
         </style>
     </head>
@@ -167,7 +184,7 @@
                      <section>
                         <h2>Advantages</h2>
                         <ul class="fix">
-                            <li><img src="svg/smile-ok.svg" align="right" width="100" alt="OK"/>applicable CSS from embedding document <em>(also currentColor support)</em>
+                            <li><img src="svg/smile-ok.svg" class="inText" width="100" alt="OK"/>applicable CSS from embedding document <em>(also currentColor support)</em>
                             <li>manipulable via JavaScript
                             <li>no extra file to load
                             <li>accessible
@@ -175,7 +192,7 @@
                         <hr/>            
                         <h2>Disadvantages</h2>
                         <ul class="fix">
-                            <li><img src="svg/smile-ko.svg" align="right" width="100" alt="KO"/>not cacheable
+                            <li><img src="svg/smile-ko.svg" class="inText" width="100" alt="KO"/>not cacheable
                             <li>cross-browser <em>(MSIE)</em> fluid size trick needed
                         </ul>
                     </section>
@@ -226,7 +243,7 @@
                      <section>
                         <h2>Advantages</h2>
                         <ul class="fix">
-                            <li><img src="svg/smile-ok.svg" align="right" width="100" alt="OK"/>applicable CSS from external stylesheet
+                            <li><img src="svg/smile-ok.svg" class="inText" width="100" alt="OK"/>applicable CSS from external stylesheet
                             <li>manipulable via JavaScript <em>(both externally and internally)</em>
                             <li>cacheable, as it is external file
                             <li>intensive pre-compress possible <em>(.svgz)</em>
@@ -234,7 +251,7 @@
                         <hr/>            
                         <h2>Disadvantages</h2>
                         <ul class="fix">
-                            <li><img src="svg/smile-ko.svg" align="right" width="100" alt="KO"/>owner document CSS stylesheet not applicable
+                            <li><img src="svg/smile-ko.svg" class="inText" width="100" alt="KO"/>owner document CSS stylesheet not applicable
                             <li>cross-browser <em>(MSIE)</em> fluid size trick needed
                             <li>not directly linkable <em>(a tag)</em>
                         </ul>
@@ -275,7 +292,7 @@
                     <section>
                         <h2>Advantages</h2>
                         <ul class="fix">
-                            <li><img src="svg/smile-ok.svg" align="right" width="100" alt="OK"/>cacheable, as it is external file
+                            <li><img src="svg/smile-ok.svg" class="inText" width="100" alt="OK"/>cacheable, as it is external file
                             <li>intensive pre-compress possible
                             <li>safe and simple <em>(sandboxed)</em>
                             <li>SMIL is allowed <em>(animated GIF substitute, except for MSIE)</em>
@@ -283,7 +300,7 @@
                         <hr/>            
                         <h2>Disadvantages</h2>
                         <ul class="fix">
-                            <li><img src="svg/smile-ko.svg" align="right" width="100" alt="KO"/>external <em>(linked)</em> CSS stylesheet not applicable
+                            <li><img src="svg/smile-ko.svg" class="inText" width="100" alt="KO"/>external <em>(linked)</em> CSS stylesheet not applicable
                             <li>owner document's CSS stylesheet not applicable to individual SVG elements
                             <li>cannot be manipulated via JavaScript <em>(not even internally)</em>
                             <li>interactivity disabled <em>(links, DOM events)</em>
@@ -331,7 +348,7 @@
                     <section>
                         <h2>Advantages</h2>
                         <ul class="fix">
-                            <li><img src="svg/smile-ok.svg" align="right" width="100" alt="OK"/>no tricks needed for modern browsers
+                            <li><img src="svg/smile-ok.svg" class="inText" width="100" alt="OK"/>no tricks needed for modern browsers
                             <li>cacheable, as it is external file
                             <li>intensive pre-compress possible
                             <li>safe and simple <em>(sandboxed)</em>
@@ -340,7 +357,7 @@
                         <hr/>            
                         <h2>Disadvantages</h2>
                         <ul class="fix">
-                            <li><img src="svg/smile-ko.svg" align="right" width="100" alt="KO"/>external <em>(linked)</em> CSS stylesheet not applicable
+                            <li><img src="svg/smile-ko.svg" class="inText" width="100" alt="KO"/>external <em>(linked)</em> CSS stylesheet not applicable
                             <li>owner document's CSS stylesheet not applicable to individual SVG elements
                             <li>cannot be manipulated via JavaScript <em>(not even internally)</em>
                             <li>interactivity disabled <em>(links, DOM events)</em>
@@ -370,19 +387,19 @@
                             <th>HTML</th><th>SVG</th>
                         </tr>
                         <tr>
-                            <th>border</th><th>stroke</th>
+                            <td>border</td><td>stroke</td>
                         </tr>
                         <tr>
-                            <th>color, background</th><th>fill</th>
+                            <td>color, background</td><td>fill</td>
                         </tr>
                         <tr>
-                            <th>border rgb<strong>a</strong> <em>(alpha for opacity)</em></th><th>stroke-opacity</th>
+                            <td>border rgb<strong>a</strong> <em>(alpha for opacity)</em></td><td>stroke-opacity</td>
                         </tr>
                         <tr>
-                            <th>background-color rgb<strong>a</strong> <em>(for opacity)</em></th><th>fill-opacity</th>
+                            <td>background-color rgb<strong>a</strong> <em>(for opacity)</em></td><td>fill-opacity</td>
                         </tr>
                         <tr>
-                            <th>z-index</th><th>element order <em>(planned to 2.0)</em></th>
+                            <td>z-index</td><td>element order <em>(planned to 2.0)</em></td>
                         </tr>
                     </table>
                 </section>
@@ -391,19 +408,20 @@
 
                 <section>
                     <h3>Is drawing in CSS good enough?</h3>
-                    <p>Example of Twitter logo recreated in HTML/CSS and crushed to the minimum size <em>(single color image only)</em></p>
+                    <p>Example of Twitter logo recreated in HTML/CSS and <a href="https://tinypng.com/" target="_blank">crushed</a> 
+                        to the minimum size <em>(single color image only)</em></p>
                     <table>
                         <tr>
                             <th>Legend</th><th>Twitter</th><th>Lock</th>
                         </tr>
                         <tr>
-                            <th>HTML+CSS<br>GZipped</th><td>2.9 kB<br>1.4 kB</td><td>impossible<br>to do??</td>
+                            <th>HTML+CSS<br>GZipped</th><td>2.9 kB<br>1.4 kB</td><td>impossible<br>to do ????</td>
                         </tr>
                         <tr>
-                            <th>SVG<br>GZipped</th><td>1.2 kB<br>0.6 kB</td><td>24.7 kB<br>6.4 kB</td>
+                            <th>SVG<br>GZipped</th><td>1.2 kB<br>0.6 kB</td><td style="text-align:right">24.7 kB<br>6.4 kB</td>
                         </tr>
                         <tr>
-                            <th>PNG<br>crunched</th><td>4.1 kB<br>1.4 kB</td><td>124.7 kB<br>31.9 kB</td>
+                            <th>PNG<br>crunched</th><td>4.1 kB<br>1.4 kB</td><td style="text-align:right">124.7 kB<br>31.9 kB</td>
                         </tr>
                     </table>
                     <a href="svg/twittercss.html" target="_blank"><img src="svg/twitter.svg" width="250" alt="Twitter Logo"/></a> &nbsp; &nbsp; &nbsp; 
@@ -564,7 +582,7 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
       window.requestAnimationFrame(…shift strokeDashoffset here…);
     &lt;/script>
   &lt;svg>              </code></pre>
-                        <a href="svg/animateline.svg" target="_blank">External link</a> &nbsp; 
+                        <a href="svg/animateline.svg" target="_blank" class="extLink">External link</a> &nbsp; 
                         <object height="200" data="svg/animateline.svg" type="image/svg+xml"></object>
                     </section>
 
@@ -577,7 +595,7 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
         dur="4s" repeatCount="1" fill="freeze"/>
     &lt;/path>
   &lt;svg>              </code></pre>
-                        <a href="svg/animatelinesmil.svg" target="_blank">External link</a> &nbsp; 
+                        <a href="svg/animatelinesmil.svg" target="_blank" class="extLink">External link</a> &nbsp; 
                         <object height="200" data="svg/animatelinesmil.svg" type="image/svg+xml"></object>
                     </section>
 
@@ -597,7 +615,7 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
     &lt;/style>
     &lt;path stroke-dasharray="1439" stroke-dashoffset="1439" d="M 246,188…"/>
   &lt;svg>              </code></pre>
-                        <a href="svg/animatelinecss.svg" target="_blank">External link</a> &nbsp; 
+                        <a href="svg/animatelinecss.svg" target="_blank" class="extLink">External link</a> &nbsp; 
                         <object height="200" data="svg/animatelinecss.svg" type="image/svg+xml"></object>
                     </section>
                 </section>
@@ -605,11 +623,20 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
 
                 <section>
-                    <h2>Vyhody</h2>
-                    <p> vyhody barevnych icon, pro infografiky...</p>
-                    <pre><code>whatever
-                    </code></pre>
+                    <h2>Best SVG utilization</h2>
+                    <p>You know it already, I know, but just to be sure ;-)</p>
+                    <ol>
+                        <li><a href="http://svg.kvalitne.cz/map/map-czech-republic-minified.svg" target="_blank">maps of countries</a>, regions, world
+                        <li>graphs, diagrams and <a href="http://d3js.org/" target="_blank">data visualizations</a>
+                        <li><a href="http://treeblurb.com/xmap/svg/melbourne_central.svg" target="_blank">technical plans</a> and drawing
+                        <li><a href="http://www.google.com/insidesearch/howsearchworks/thestory/" target="_blank">interactive</a> 
+                            <a href="http://designmodo.com/svg-infographic/" target="_blank">infographics</a>
+                        <li><a href="http://designmodo.github.io/Flat-UI/" target="_blank">colorful icons</a>, 
+                            <a href="https://useiconic.com/tour/" target="_blank">superior</a> to icon fonts
+                        <li>and off course - responsive images ;-)
+                    </ol>
                 </section>
+
 
 
                 <section>
@@ -619,10 +646,10 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                     <pre><code>  &lt;g id="complexElementID" class="…">
     &lt;circle …/> &lt;rect …/> &lt;text …/> &lt;path id="somePathID" …/>
   &lt;/g>
-  &lt;use xlink:href="#complexElementID" transform="scale(2)" class="c1 …"/>
+  &lt;use xlink:href="#complexElementID" transform="scale(2)" class="c1…"/>
   &lt;g class="whatever">
-    &lt;use xlink:href="#complexElementID" transform="scale(5)" class="c2 …"/>
-    &lt;use xlink:href="#somePathID" transform="rotate(180)" class="c3 …"/>
+    &lt;use xlink:href="#complexElementID" transform="scale(5)" class="c2…"/>
+    &lt;use xlink:href="#somePathID" transform="rotate(180)" class="c3…"/>
   &lt;/g>           </code></pre>
                     <p>References are using <code>xlink:href="#refID"</code> syntax.</p>
                 </section>
@@ -631,12 +658,29 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                 
                 <section>
                     <h2>Limitations</h2>
-                    <p><img src="svg/smile-ko.svg" align="right" width="100" alt="KO"/>MSIE does not support CSS transformations to SVG content, so you have to stick to direct tag properties</p>
+                    <p><img src="svg/smile-ko.svg" class="inText" width="100" alt="KO"/><strong>MSIE</strong> does not support CSS transformations to SVG content, so you have to stick to direct tag properties.</p>
                     <p>MSIE also does not support CSS Transitions and Animations of otherwise supported  
-                        <a href="http://tutorials.jenkov.com/svg/svg-and-css.html" target="_blank">SVG related CSS properties</a>, 
-                        which leaves us with reasonable utilization of only: opacity.</p>
-                    <p>It is also the only browser not supporting SMIL animation model, so with SVG you're out of luck.</p>
-                    <p>Scripting could solve all these issues, but it's a pity.</p>
+                        <a href="http://tutorials.jenkov.com/svg/svg-and-css.html" target="_blank">SVG related CSS properties</a> <em>(also :hover works well)</em>, 
+                        which leaves us with reasonable utilization of only one property: <strong>opacity</strong>.</p>
+                    <p>It is also the only browser not supporting SMIL animation model, so with putting SVG in motion you're out of luck.</p>
+                    <p>Yes, <strong>scripting</strong> could solve all these issues, but it's a pity.</p>
+                </section>
+
+
+
+                <section>
+                    <h2>My recommendations</h2>
+                    <p>Following exceptional and wise people and sophisticated tools are great to learn from or definitely worth trying:</p>
+                    <ul>
+                        <li><a href="http://css-tricks.com/mega-list-svg-information/" target="_blank">Chris Coyier</a>
+                        <li><a href="http://sarasoueidan.com/blog/svg-coordinate-systems/" target="_blank">Sara Soueidan</a>
+                        <li><a href="http://snapsvg.io/" target="_blank">Dmitry Baranovskiy</a>
+                        <li><a href="http://d3js.org/" target="_blank">Mike Bostock</a>
+                        <li><a href="http://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html" target="_blank">David Dailey</a>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank">MDN</a>
+                        <li><a href="http://www.grumpicon.com/" target="_blank">Grumpicon</a> and 
+                            <a href="https://github.com/filamentgroup/grunticon" target="_blank">Grunticon</a>
+                    </ul>
                 </section>
 
 

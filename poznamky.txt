@@ -57,3 +57,7 @@ PNG crushed by https://tinypng.com/
 
 
 http://www.useragentman.com/blog/2013/05/20/cross-browser-svg-text-paths-without-javascript-even-in-older-ie/
+
+grunticon, grumppicon, d3.js grafy
+
+odkazy na zdroje!!
