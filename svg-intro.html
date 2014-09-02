@@ -113,12 +113,12 @@
                     <h2>viewPort vs. viewBox</h2>
                     <p>SVG canvas is <strong>infinite</strong>. ViewPort is defined by <code>width</code> and <code>height</code> and is for 
                         internal percentage sizing use + it gives to document's parent (HTML, SVG) its dimensions</p>
-                    <pre><code>&lt;svg width="200" height="200">&lt;!-- content -->&lt;/svg></code></pre>
-                    <p>ViewBox is defined by <code>viewBox</code> and defines document's canvas visibility box. 
+                    <pre><code>  &lt;svg width="200" height="200">&lt;!-- content -->&lt;/svg></code></pre>
+                    <p>ViewBox is defined by <code>viewBox</code> and defines document's canvas visibility box. <strong>Use it a lot!!</strong> 
                         Four values stand for definition of: <code>left top width height</code></p>
-                    <pre><code>&lt;svg viewBox="-50 -50 200 200">&lt;!-- content -->&lt;/svg></code></pre>
+                    <pre><code>  &lt;svg viewBox="-50 -50 200 200">&lt;!-- content -->&lt;/svg></code></pre>
                     <p>No one of them is mandatory, but they are useful and they can co-exists easily, if you want to</p>
-                    <pre><code>&lt;svg viewBox="-50 -50 200 200" width="100" height="100">&lt;!-- … -->&lt;/svg></code></pre>
+                    <pre><code>  &lt;svg viewBox="-50 -50 200 200" width="100" height="100">&lt;!-- … -->&lt;/svg></code></pre>
                 </section>
 
 
@@ -355,7 +355,7 @@
                     <p>Embed your media queries inside SVG = put it where it belongs!
                         <em>(OOP Encapsulation, proven practice)</em></p>
                     <input type="range" min="30" max="488" value="488" oninput="document.getElementById('imgx').width=this.value"
-                         onchange="document.getElementById('imgx').width=this.value"/><br/>
+                         onchange="document.getElementById('imgx').width=this.value" style="width:500px;height:30px;"/><br/>
                     <a href="responsive-svg.html" target="_blank"><img id="imgx" src="svg/responsive3.svg" width="488" alt="House Icon"/></a>
                 </section>
 
@@ -400,30 +400,6 @@
                     </ol>
                     <hr/>
                     <a href="svg/twittercss.htm" target="_blank"><img src="svg/twitter.svg" width="250" alt="Twitter Logo"/></a>
-                </section>
-
-
-
-                <section>
-                    <h2>Understanding path</h2>
-                    <p>Can replace every other shape. Some available commands:</p>
-                    <ul>
-                        <li><strong>M</strong> = Move To <strong>X,Y</strong>
-                        <li><strong>L</strong> = Line To <strong>X,Y</strong>
-                        <li><strong>C</strong> = Cubic Bézier To x1,y1 x2,y2 <strong>X,Y</strong>
-                        <li><strong>Z</strong> = Close Path <em>(to the start)</em>
-                    </ul>
-                    <p>Notice two <a href="http://www.useragentman.com/tests/textpath/bezier-curve-construction-set.html">Control Points</a> in curve command.</p>
-                    <hr/>
-                    &lt;path d="<input value="M 0,100 C 0,0, 500,0, 500,100 L 250,200 Z" class="showme" 
-                        oninput="document.getElementById('demoPath').setAttribute('d',this.value)" 
-                        onchange="document.getElementById('demoPath').setAttribute('d',this.value)"/>"/&gt;<br/>
-                    <svg width="600" height="200" stroke="black" stroke-width="4" fill="orange" viewBox="-20 -20 540 240">
-                        <path id="demoPath" d="M 0,100 C 0,0, 500,0, 500,100 L 250,200 Z"/>
-                        <text font-size="30px" font-family="Helvetica, sans-serif" fill="white" stroke-width="1">
-                            <textPath xlink:href="#demoPath">Tester Testakovitch Testakof Tester Testakovitch Testakof Tester Testakovitch Testakof Tester Testakovitch Testakof Tester Testakovitch Testakof Tester Testakovitch Testakof</textPath>
-                        </text>
-                    </svg>
                 </section>
 
 
@@ -542,6 +518,30 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
 
                 <section>
+                    <h2>Understanding path</h2>
+                    <p>Can replace every other shape. Some available commands:</p>
+                    <ul>
+                        <li><strong>M</strong> = Move To <strong>X,Y</strong>
+                        <li><strong>L</strong> = Line To <strong>X,Y</strong>
+                        <li><strong>C</strong> = Cubic Bézier To x1,y1 x2,y2 <strong>X,Y</strong>
+                        <li><strong>Z</strong> = Close Path <em>(to the start)</em>
+                    </ul>
+                    <p>Notice two <a href="http://www.useragentman.com/tests/textpath/bezier-curve-construction-set.html">Control Points</a> in curve command.</p>
+                    <hr/>
+                    &lt;path d="<input value="M 0,100 C 0,0, 500,0, 500,100 L 250,200 Z" class="showme" 
+                        oninput="document.getElementById('demoPath').setAttribute('d',this.value)" 
+                        onchange="document.getElementById('demoPath').setAttribute('d',this.value)"/>"/&gt;<br/>
+                    <svg width="600" height="200" stroke="black" stroke-width="4" fill="orange" viewBox="-20 -20 540 240">
+                        <path id="demoPath" d="M 0,100 C 0,0, 500,0, 500,100 L 250,200 Z"/>
+                        <text font-size="30px" font-family="Helvetica, sans-serif" fill="white" stroke-width="1">
+                            <textPath xlink:href="#demoPath">Tester Testakovitch Testakof Tester Testakovitch Testakof Tester Testakovitch Testakof Tester Testakovitch Testakof Tester Testakovitch Testakof Tester Testakovitch Testakof</textPath>
+                        </text>
+                    </svg>
+                </section>
+
+
+
+                <section>
                     <section>
                         <h2>Line Drawing - script</h2>
                         <p>MSIE compatible solution, DOM manipulation involved.</p>
@@ -605,10 +605,18 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
 
                 <section>
-                    <h2>Magnifying glass</h2>
-                    <p> vyhody barevnych icon, pro infografiky...</p>
-                    <pre><code>whatever
-                    </code></pre>
+                    <h2>Use reflections</h2>
+                    <p><code>use</code> tag creates live reflection of any existing node. It not only saves lines of codes, but can do true miracles!</p>
+                    <a href="svg/magnify.svg" target="_blank"><img width="323" height="153" src="svg/twomirror.svg" alt="Two Mirrors"/></a>
+                    <pre><code>  &lt;g id="complexElementID" class="…">
+    &lt;circle …/> &lt;rect …/> &lt;text …/> &lt;path id="somePathID" …/>
+  &lt;/g>
+  &lt;use xlink:href="#complexElementID" transform="scale(2)" class="c1 …"/>
+  &lt;g class="whatever">
+    &lt;use xlink:href="#complexElementID" transform="scale(5)" class="c2 …"/>
+    &lt;use xlink:href="#somePathID" transform="rotate(180)" class="c3 …"/>
+  &lt;/g>           </code></pre>
+                    <p>References are using <code>xlink:href="#refID"</code> syntax.</p>
                 </section>
 
 
@@ -629,6 +637,10 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                     <h1>THE END</h1>
                     <img src="svg/smile-ok.svg" width="100" alt="OK"/>
                     <h3>Thank you!</h3>
+                    <hr/>
+                    <footer style="font-size:0.5em">All images used in this presentation were created by myself or downloaded <em>(and sometimes slightly modified)</em> 
+                        from free internet libraries and resources like <a href="http://www.clker.com/" target="_blank">http://www.clker.com/</a>, 
+                        <a href="https://openclipart.org/" target="_blank">https://openclipart.org/</a> etc.</footer>
                 </section>
 
 
