@@ -38,7 +38,7 @@
                 border: 2px solid lightgray !important;
                 padding: 3px !important;
                 width: 50%;
-                font: normal 0.7em Verdana, sans-serif !important;
+                font: normal 0.64em Verdana, sans-serif !important;
             }
             img {
                 border-image-width: 0 !important;
@@ -391,15 +391,23 @@
 
                 <section>
                     <h3>Is drawing in CSS good enough?</h3>
-                    <p>Example of Twitter logo recreated in HTML/CSS and crushed to the minimum size <em>(single colour image only)</em></p>
-                    <hr/>
-                    <ol>
-                        <li>PNG = 1.4 kB (1 file, 1 element), 1.4 kB GZ
-                        <li>CSS = 2.5 kB (16 rules)+0.5 kB HTML (14 nodes), 1.4 kB GZ
-                        <li>SVG = 1.2 kB (3 elements), 0.6kB GZ
-                    </ol>
-                    <hr/>
-                    <a href="svg/twittercss.htm" target="_blank"><img src="svg/twitter.svg" width="250" alt="Twitter Logo"/></a>
+                    <p>Example of Twitter logo recreated in HTML/CSS and crushed to the minimum size <em>(single color image only)</em></p>
+                    <table>
+                        <tr>
+                            <th>Legend</th><th>Twitter</th><th>Lock</th>
+                        </tr>
+                        <tr>
+                            <th>HTML+CSS<br>GZipped</th><td>2.9 kB<br>1.4 kB</td><td>impossible<br>to do??</td>
+                        </tr>
+                        <tr>
+                            <th>SVG<br>GZipped</th><td>1.2 kB<br>0.6 kB</td><td>24.7 kB<br>6.4 kB</td>
+                        </tr>
+                        <tr>
+                            <th>PNG<br>crunched</th><td>4.1 kB<br>1.4 kB</td><td>124.7 kB<br>31.9 kB</td>
+                        </tr>
+                    </table>
+                    <a href="svg/twittercss.html" target="_blank"><img src="svg/twitter.svg" width="250" alt="Twitter Logo"/></a> &nbsp; &nbsp; &nbsp; 
+                    <a href="svg/lock.html" target="_blank"><img src="svg/candado3d.svg" width="250" alt="Lock Image"/></a>
                 </section>
 
 
