@@ -64,7 +64,7 @@ window.onload = function() {
 </defs>
 
 <g opacity="0.4">
-    <image xlink:href="candado3d.svg" x="60" y="60" id="canvas" width="800" height="530"/>
+    <image xlink:href="eye-scan.svg" x="60" y="60" id="canvas" width="800" height="530"/>
 </g>
 
 <clipPath id="clippingPath">
@@ -103,11 +103,10 @@ window.onload = function() {
     <rect x="260" y="5" width="22" height="22" rx="4" fill="gold" onclick="switchImg('icebucket.svg')"/>
     <rect x="290" y="5" width="22" height="22" rx="4" fill="gray" onclick="switchImg('11971157711280507233BigRedSmile_A_Mobile_Phone.svg')"/>
     <rect x="320" y="5" width="22" height="22" rx="4" fill="purple" onclick="switchImg('12344047561989671112dodom01_bullet_bill.svg')"/>
-    <rect x="350" y="5" width="22" height="22" rx="4" fill="deepskyblue" onclick="switchImg('candado3d.svg')"/>
+    <rect x="350" y="5" width="22" height="22" rx="4" fill="deepskyblue" onclick="switchImg('eye-scan.svg')"/>
     <rect x="380" y="5" width="22" height="22" rx="4" fill="cyan" onclick="switchImg('charger.svg')"/>
     <rect x="410" y="5" width="22" height="22" rx="4" fill="yellow" onclick="switchImg('cell-phone-open.svg')"/>
     <rect x="440" y="5" width="22" height="22" rx="4" fill="lightgreen" onclick="switchImg('record-player.svg')"/>
-    <rect x="470" y="5" width="22" height="22" rx="4" fill="magenta" onclick="switchImg('eye-scan.svg')"/>
 </g>
 
 </svg>
