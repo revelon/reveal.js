@@ -1,8 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="10 0 420 210" onclick="document.getElementById('chipmunk').classList.toggle('animate')">
     <style>
+        polygon:hover {
+            stroke: green;
+            fill: #9d9;
+            stroke-width: 1px;
+        }
         .animate {
-            -webkit-animation: draw 4s linear infinite;
-            animation: draw 5s linear infinite;
+            -webkit-animation: draw 4s linear 1 forwards;
+            animation: draw 4s linear 1 forwards;
         }
         @keyframes draw {
             100% {

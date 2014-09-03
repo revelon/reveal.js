@@ -47,16 +47,17 @@ function resizeImage() {
 
 function showMeTheTrick() {
     var canvas = document.getElementById("canvas");
+    var kuk = document.getElementById("kuk");
     if (!trick) {
-        trick = "url(#" + canvas.getAttribute("clip-path");
-        canvas.setAttribute("clip-path", "url(#dummy)");
-        canvas.setAttribute("opacity", 0.4);
+        trick = {kuk: kuk.getAttribute("clip-path"), canvas: canvas.getAttributeNS("http://www.w3.org/1999/xlink", "href")};
+        kuk.setAttribute("clip-path", "url(#dummy)");
+        kuk.setAttribute("opacity", 0.8);
         canvas.setAttributeNS("http://www.w3.org/1999/xlink", "href", "candado3d.svg");
     } else {
-        canvas.setAttribute("clip-path", trick);
-        canvas.setAttribute("opacity", 1);
+        kuk.setAttribute("clip-path", trick.kuk);
+        kuk.setAttribute("opacity", 1);
+        canvas.setAttributeNS("http://www.w3.org/1999/xlink", "href", trick.canvas);
         trick = null;
-        canvas.setAttributeNS("http://www.w3.org/1999/xlink", "href", "eye-scan.svg");
     }
 }
 
@@ -87,7 +88,7 @@ window.onload = function() {
 </clipPath>
 
 <g id="clippedImage">     
-    <use xlink:href="#canvas" clip-path="url(#clippingPath)"/>
+    <use xlink:href="#canvas" clip-path="url(#clippingPath)" id="kuk"/>
     <use xlink:href="#lensFrame" fill="none" stroke="darkslategray" stroke-width="4" stroke-dasharray="1 3" stroke-linecap="round"/>
 </g>
 

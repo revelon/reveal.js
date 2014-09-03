@@ -63,7 +63,7 @@
                 display: inline-block;
                 padding: 0px 3px !important;
                 margin-top: 2px !important;
-                border: 0.5px dotted gray !important;
+                border: 0.5px dashed gray !important;
                 border-radius: 8px;
                 background-color: rgba(123, 123, 123, 0.1);
             }
@@ -96,7 +96,7 @@
                 <section>
                     <h3>Scalable Vector Graphics</h3>
                     <ul>
-                        <li><img src="svg/svg-logo.svg" class="inText" width="150" alt="SVG Logo"/>W3C approved standard since 1999
+                        <li><img src="svg/svg-logo.svg" class="inText" width="185" alt="SVG Logo"/>W3C approved standard since 1999
                         <li>focused on <strong>2D</strong> vector space
                         <li>vectors = super <strong>quality</strong> for every screen resolution
                         <li>HTML5, CSS and JS <strong>friendly</strong>
@@ -140,7 +140,7 @@
 
 
                 <section>
-                    <h2>viewPort vs. viewBox</h2>
+                    <h2>viewPort vs viewBox</h2>
                     <p>SVG canvas is <strong>infinite</strong>. ViewPort is defined by <code>width</code> and <code>height</code> and is for 
                         internal percentage sizing use + it gives to document's parent (HTML, SVG) its dimensions</p>
                     <pre><code>  &lt;svg width="200" height="200">&lt;!-- content -->&lt;/svg></code></pre>
@@ -383,7 +383,7 @@
 
                 <section>
                     <h2>Internal Media Queries</h2>
-                    <p>Embed your media queries inside SVG = put it where it belongs!
+                    <p>Embed your media queries <strong>inside</strong> SVG = put it where it belongs!
                         <em>(OOP Encapsulation, proven practice)</em></p>
                     <input type="range" min="30" max="488" value="488" oninput="document.getElementById('imgx').width=this.value"
                          onchange="document.getElementById('imgx').width=this.value" style="width:500px;height:30px;"/><br/>
@@ -560,7 +560,7 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
                 <section>
                     <h2>Understanding path</h2>
-                    <p>Can replace every other shape. Some available commands:</p>
+                    <p>Can replace every other <strong>shape</strong>. Some available commands:</p>
                     <ul>
                         <li><strong>M</strong> = Move To <strong>X,Y</strong>
                         <li><strong>L</strong> = Line To <strong>X,Y</strong>
@@ -572,10 +572,10 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                     &lt;path d="<input value="M 0,100 C 0,0, 500,0, 500,100 L 250,200 Z" class="showme" 
                         oninput="document.getElementById('demoPath').setAttribute('d',this.value)" 
                         onchange="document.getElementById('demoPath').setAttribute('d',this.value)"/>"/&gt;<br/>
-                    <svg width="600" height="200" stroke="black" stroke-width="4" fill="orange" viewBox="-20 -20 540 240">
+                    <svg width="600" height="200" stroke="black" stroke-width="4" fill="orange" viewBox="-20 -20 540 246" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <path id="demoPath" d="M 0,100 C 0,0, 500,0, 500,100 L 250,200 Z"/>
                         <text font-size="30px" font-family="Helvetica, sans-serif" fill="white" stroke-width="1">
-                            <textPath xlink:href="#demoPath"<tspan dy="-20px">Tester Testakovitch Testakoff Tester Testakovitch Testakoff Tester Testakovitch Testakoff Tester Testakovitch Testakoff Tester Testakovitch Testakoff Tester Testakovitch Testakoff</tspan></textPath>
+                            <textPath xlink:href="#demoPath"><tspan dy="-10px">Tester Testakovitch Testakoff Tester Testakovitch Testakoff Tester Testakovitch Testakoff Tester Testakovitch Testakoff Tester Testakovitch Testakoff Tester Testakovitch Testakoff</tspan></textPath>
                         </text>
                     </svg>
                 </section>
@@ -585,7 +585,7 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                 <section>
                     <section>
                         <h2>Line Drawing - script</h2>
-                        <p>MSIE compatible solution, DOM manipulation involved.</p>
+                        <p><strong>MSIE compatible</strong> solution, DOM manipulation involved.</p>
                         <pre><code>  &lt;svg>
     &lt;path id="drawMe" d="M 246,188 l3,12h2l5-6c0,4,1,6,5,7,3-5,8-2…"/>
     &lt;script>
@@ -603,7 +603,7 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
                     <section>
                         <h2>Line Drawing - SMIL</h2>
-                        <p>Synchronized Multimedia Integration Language solution.</p>
+                        <p><strong>S</strong>ynchronized <strong>M</strong>ultimedia <strong>I</strong>ntegration <strong>L</strong>anguage solution.</p>
                         <pre><code>  &lt;svg>
     &lt;path stroke-dasharray="1439" stroke-dashoffset="1439" d="M 246,188…">
       &lt;animate attributeName="stroke-dashoffset" from="1439" to="0" 
@@ -616,11 +616,11 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
                     <section>
                         <h2>Line Drawing - CSS</h2>
-                        <p>Don't forget to add necessary prefixes <em>(like -webkit-…)</em></p>
+                        <p>Don't forget to add necessary <strong>prefixes</strong> <em>(like -webkit-…)</em></p>
                         <pre><code>  &lt;svg>
     &lt;style>
       .animate {
-        animation: draw 4s linear infinite;
+        animation: draw 4s linear 1 forwards;
       }
       @keyframes draw {
         100% {
@@ -639,11 +639,15 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
                 <section>
                     <h2>Best SVG utilization</h2>
-                    <p>You know it already, I know, but just to be sure ;-)</p>
-                    <ol>
-                        <li><a href="http://svg.kvalitne.cz/map/map-czech-republic-minified.svg" target="_blank">maps of countries</a>, regions, world
-                        <li>graphs, diagrams and <a href="http://d3js.org/" target="_blank">data visualizations</a>
-                        <li><a href="http://treeblurb.com/xmap/svg/melbourne_central.svg" target="_blank">technical plans</a> and drawing
+                    <p><strong>You know</strong> it already, I know, but just to be sure ;-)</p>
+                    <ol style="background-image: url(svg/award-symbol.svg);background-size: contain; background-position: 33% center; background-repeat: no-repeat;">
+                        <li><a href="http://svg.kvalitne.cz/map/map-with-disctricts.html" target="_blank">maps</a> of 
+                            <a href="http://www.petercollingridge.co.uk/sites/files/peter/colour_with_class.svg" target="_blank">countries</a>, regions even world
+                        <li>graphs, <a href="http://www.robweir.com/blog/images/apache-map.svg" target="_blank">diagrams</a> and 
+                            <a href="http://d3js.org/" target="_blank">data visualizations</a>
+                        <li><a href="http://treeblurb.com/xmap/svg/melbourne_central.svg" target="_blank">technical</a> 
+                            <a href="http://www.anzstadium.com.au/the-stadium/stadium-map/" target="_blank">plans</a> and 
+                            <a href="http://upload.wikimedia.org/wikipedia/commons/0/06/Mir_diagram.svg" target="_blank">drawings</a>
                         <li><a href="http://www.google.com/insidesearch/howsearchworks/thestory/" target="_blank">interactive</a> 
                             <a href="http://designmodo.com/svg-infographic/" target="_blank">infographics</a>
                         <li><a href="http://designmodo.github.io/Flat-UI/" target="_blank">colorful icons</a>, 
@@ -656,7 +660,8 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
                 <section>
                     <h2>Use reflections</h2>
-                    <p><code>use</code> tag creates live reflection of any existing node. It not only saves lines of codes, but can do true miracles!</p>
+                    <p><code>use</code> tag creates <strong>live reflection</strong> of any <strong>existing node</strong>. 
+                        It not only saves lines of codes, but can do true <strong>miracles</strong>!!</p>
                     <a href="svg/magnify.svg" target="_blank"><img width="323" height="153" src="svg/twomirror.svg" alt="Two Mirrors"/></a>
                     <pre><code>  &lt;g id="complexElementID" class="…">
     &lt;circle …/> &lt;rect …/> &lt;text …/> &lt;path id="somePathID" …/>
