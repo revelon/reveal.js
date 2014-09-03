@@ -61,11 +61,11 @@
             }
             li a, p a, a.extLink {
                 display: inline-block;
-                padding: 2px !important;
+                padding: 0px 3px !important;
                 margin-top: 2px !important;
-                border: 1px dotted gray !important;
+                border: 0.5px dotted gray !important;
                 border-radius: 8px;
-                background-color: #ddf;
+                background-color: rgba(123, 123, 123, 0.1);
             }
         </style>
     </head>
@@ -76,8 +76,11 @@
 
             
                 <section>
+                    <h1 style="margin-bottom: 0">Do Not be afraid of SVG</h1>
                     <img src="svg/webexpo-logo.svg" width="100" alt="WebExpo Logo"/>
-                    <h1>Do Not be afraid of SVG</h1>
+                    <img src="svg/scared-ghost.svg" width="100" alt="Scared Ghost" style="margin: 0 2%"/>
+                    <img src="svg/webexpo-logo.svg" width="100" alt="WebExpo Logo"/>
+
                     <h3>Utilize It On Your Web Today</h3>
                     <p><small><a href="http://svg.kvalitne.cz/">Marek Raida</a> <a href="http://twitter.com/xrevelon">@xrevelon</a></small></p>
                 </section>
@@ -106,7 +109,9 @@
                         <li><strong>manually</strong> <em>(just like you do HTML, CSS)</em>
                         <li>vector <strong>editor</strong> like <a href="http://en.wikipedia.org/wiki/Adobe_Illustrator" target="_blank">Illustrator</a> 
                             or <a href="http://en.wikipedia.org/wiki/Inkscape" target="_blank">Inkscape</a>
-                        <li><img src="svg/pallet-clipart-paint-palette.svg" class="inText" width="200" alt="Palette"/><strong>online</strong> editor like <a href="http://svg-edit.googlecode.com/svn/branches/stable/editor/svg-editor.html" target="_blank">SVG-Edit</a>
+                        <li><img src="svg/pallet-clipart-paint-palette.svg" class="inText" width="200" alt="Palette"/><strong>online</strong> editor like 
+                            <a href="http://www.youidraw.com/">YouiDraw</a> or 
+                            <a href="http://svg-edit.googlecode.com/svn/branches/stable/editor/svg-editor.html" target="_blank">SVG-Edit</a>
                         <li>download and utilize documents from <strong>internet</strong>
                         <li>generate it via <strong>scripting</strong>
                     </ul>
@@ -133,7 +138,7 @@
                     <p>SVG canvas is <strong>infinite</strong>. ViewPort is defined by <code>width</code> and <code>height</code> and is for 
                         internal percentage sizing use + it gives to document's parent (HTML, SVG) its dimensions</p>
                     <pre><code>  &lt;svg width="200" height="200">&lt;!-- content -->&lt;/svg></code></pre>
-                    <p>ViewBox is defined by <code>viewBox</code> and defines document's canvas visibility box. <strong>Use it a lot!!</strong> 
+                    <p>ViewBox is defined by <code>viewBox</code> and defines document's canvas visibility box. <strong>Use it a lot, I do!</strong> 
                         Four values stand for definition of: <code>left top width height</code></p>
                     <pre><code>  &lt;svg viewBox="-50 -50 200 200">&lt;!-- content -->&lt;/svg></code></pre>
                     <p>No one of them is mandatory, but they are useful and they can co-exists easily, if you want to</p>
