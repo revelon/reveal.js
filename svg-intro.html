@@ -73,6 +73,11 @@
             h3 {
                 word-spacing: 0.15em;
             }
+            ol, ul {
+                background-size: contain;
+                background-position: 40% center; 
+                background-repeat: no-repeat;
+            }
         </style>
     </head>
     <body>
@@ -113,9 +118,9 @@
                     <h2>How to create SVG</h2>
                     <ul>
                         <li><strong>manually</strong> <em>(just like you do HTML, CSS)</em>
-                        <li>vector <strong>editor</strong> like <a href="http://en.wikipedia.org/wiki/Adobe_Illustrator" target="_blank">Illustrator</a> 
+                        <li><img src="svg/pallet-clipart-paint-palette.svg" class="inText" width="200" alt="Palette"/>vector <strong>editor</strong> like <a href="http://en.wikipedia.org/wiki/Adobe_Illustrator" target="_blank">Illustrator</a> 
                             or <a href="http://en.wikipedia.org/wiki/Inkscape" target="_blank">Inkscape</a>
-                        <li><img src="svg/pallet-clipart-paint-palette.svg" class="inText" width="200" alt="Palette"/><strong>online</strong> editor like 
+                        <li><strong>online</strong> editor like 
                             <a href="http://www.youidraw.com/">YouiDraw</a> or 
                             <a href="http://svg-edit.googlecode.com/svn/branches/stable/editor/svg-editor.html" target="_blank">SVG-Edit</a>
                         <li>download and utilize documents from <strong>internet</strong>
@@ -127,9 +132,9 @@
 
                 <section>
                     <h2>SVG Basics</h2>
-                    <img src="svg/box.svg" width="200" alt="Box"/>
-                    <ul>
-                        <li>shape primitives: <strong>path, line, rect, circle, ellipse, polyline, polygon…</strong> 
+                    <ul style="background-image:url(svg/boox.svg)">
+                        <li>shape primitives: <strong>path, line, rect, circle, ellipse, polyline, polygon…</strong>
+                            <img src="svg/box.svg" class="inText" width="350" alt="Box"/>
                         <li>organization: <strong>defs, g, svg, use, symbol, a, image, foreignObject…</strong> 
                         <li>advanced: <strong>clipPath, mask, marker, pattern, gradients, filters…</strong>
                         <li>texts: <strong>text, tspan, textPath…</strong>
@@ -413,7 +418,7 @@
                             <td>background-color rgb<strong>a</strong> <em>(for opacity)</em></td><td>fill-opacity</td>
                         </tr>
                         <tr>
-                            <td>z-index</td><td>element order <em>(planned to SVG 2)</em></td>
+                            <td>z-index</td><td>element order <em>(planned to <a href="http://www.w3.org/TR/SVG2/single-page.html" target="_blank">SVG2</a>)</em></td>
                         </tr>
                     </table>
                 </section>
@@ -640,7 +645,7 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                 <section>
                     <h2>Best SVG utilization</h2>
                     <p><strong>You know</strong> it already, I know, but just to be sure ;-)</p>
-                    <ol style="background-image: url(svg/award-symbol.svg);background-size: contain; background-position: 33% center; background-repeat: no-repeat;">
+                    <ol style="background-image:url(svg/award-symbol.svg)">
                         <li><a href="http://svg.kvalitne.cz/map/map-with-disctricts.html" target="_blank">maps</a> of 
                             <a href="http://www.petercollingridge.co.uk/sites/files/peter/colour_with_class.svg" target="_blank">countries</a>, regions even world
                         <li>graphs, <a href="http://www.robweir.com/blog/images/apache-map.svg" target="_blank">diagrams</a> and 
