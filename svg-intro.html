@@ -64,7 +64,7 @@
                 padding: 0px 3px !important;
                 margin-top: 2px !important;
                 border: 0.5px dashed gray !important;
-                border-radius: 8px;
+                border-radius: 15px;
                 background-color: rgba(123, 123, 123, 0.1);
             }
             h2 {
@@ -72,11 +72,6 @@
             }
             h3 {
                 word-spacing: 0.15em;
-            }
-            ol, ul {
-                background-size: contain;
-                background-position: 40% center; 
-                background-repeat: no-repeat;
             }
         </style>
     </head>
@@ -399,7 +394,8 @@
 
                 <section>
                     <h3>HTML vs SVG differences</h3>
-                        <p>There are many <strong>SVG only CSS properties</strong> and all of them <em>(and more)</em> could be written
+                        <p style="background-image:url(svg/big-arrow.svg);background-size:contain;background-position:48% center;background-repeat:no-repeat">
+                            There are many <strong>SVG only CSS properties</strong> and all of them <em>(and more)</em> could be written
                             as direct presentation attributes, but probably the <strong>most notable</strong> are:</p>
                     <table>
                         <tr>
@@ -645,7 +641,7 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                 <section>
                     <h2>Best SVG utilization</h2>
                     <p><strong>You know</strong> it already, I know, but just to be sure ;-)</p>
-                    <ol style="background-image:url(svg/award-symbol.svg)">
+                    <ol style="background-image:url(svg/award-symbol.svg);background-size:contain;background-position:33% center;background-repeat:no-repeat">
                         <li><a href="http://svg.kvalitne.cz/map/map-with-disctricts.html" target="_blank">maps</a> of 
                             <a href="http://www.petercollingridge.co.uk/sites/files/peter/colour_with_class.svg" target="_blank">countries</a>, regions even world
                         <li>graphs, <a href="http://www.robweir.com/blog/images/apache-map.svg" target="_blank">diagrams</a> and 
