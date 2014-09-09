@@ -565,7 +565,7 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
                 <section>
                     <h2>Understanding path</h2>
-                    <p>Can replace every other <strong>shape</strong>. Some available commands:</p>
+                    <p>Substitutes every other <strong>shape</strong>. Some available commands:</p>
                     <ul>
                         <li><strong>M</strong> = Move To <strong>X,Y</strong> <em>(applied from current position)</em>
                         <li><strong>L</strong> = Line To <strong>X,Y</strong> <em>(the same for all commands…)</em>
@@ -579,7 +579,7 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                         onchange="document.getElementById('demoPath').setAttribute('d',this.value)"/>"/&gt;<br/>
                     <svg width="600" height="200" stroke="black" stroke-width="4" fill="orange" viewBox="-20 -20 540 246" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <path id="demoPath" d="M 0,100 C 0,0, 500,0, 500,100 L 250,200 Z"/>
-                        <text font-size="30px" font-family="Helvetica, sans-serif" fill="white" stroke-width="1">
+                        <text font-size="30px" font-family="Helvetica, sans-serif" fill="#444" stroke-width="1">
                             <textPath xlink:href="#demoPath"><tspan dy="-10px">Tester Testakovitch Testakoff Tester Testakovitch Testakoff Tester Testakovitch Testakoff Tester Testakovitch Testakoff Tester Testakovitch Testakoff Tester Testakovitch Testakoff</tspan></textPath>
                         </text>
                     </svg>
@@ -622,19 +622,19 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                     <section>
                         <h2>Line Drawing - CSS</h2>
                         <p>Don't forget to add necessary <strong>prefixes</strong> <em>(like -webkit-…)</em></p>
-                        <pre><code>  &lt;svg>
-    &lt;style>
-      .animate {
-        animation: draw 4s linear 1 forwards;
-      }
-      @keyframes draw {
-        100% {
-          stroke-dashoffset: 0;
-        }
-      }
-    &lt;/style>
-    &lt;path stroke-dasharray="1439" stroke-dashoffset="1439" d="M 246,188…"/>
-  &lt;svg>              </code></pre>
+                        <pre><code> &lt;svg>
+   &lt;style>
+     .animate {
+       animation: draw 4s linear 1 forwards;
+     }
+     @keyframes draw {
+       100% {
+         stroke-dashoffset: 0;
+       }
+     }
+   &lt;/style>
+   &lt;path stroke-dasharray="1439" stroke-dashoffset="1439" d="M 246,188…"/>
+ &lt;svg>              </code></pre>
                         <a href="svg/animatelinecss.svg" target="_blank" class="extLink">External link</a> &nbsp; 
                         <object height="200" data="svg/animatelinecss.svg" type="image/svg+xml"></object>
                     </section>
@@ -713,16 +713,31 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
 
                 <section>
+                    <h2>Don not worry about</h2>
+                    <ol>
+                        <li>MSIE 8 and 6 are <a href="http://gs.statcounter.com/#browser_version-ww-monthly-201308-201408" target="_blank">declining</a>
+                            <a href="" target="_blank">rapidly</a>, having share from 5 to 20% respectively
+                        <li><img src="svg/confusion.svg" class="inText" width="260" alt="Trends"/>desktop browsers are <strong>declining</strong> anyway and all major mobile ones render SVG more than well
+                        <li>elder Android versions without SVG, like <a href="http://gigaom.com/2014/08/17/its-2014-and-android-fragmentation-is-no-longer-a-problem/" target="_blank">Gingerbread</a> are dying even faster
+                        <li><strong>performance</strong>, as long as you do not have SVG documents with thousands of complex paths, is good</a>
+                        <li>it's a living standard, <a href="http://www.w3.org/TR/SVG2/single-page.html" target="_blank">evolving</a> and used more and more</a>
+                    </ol>
+                </section>
+
+
+
+                <section>
                     <h4>Learn it and love it, SVG will not let you down!</h4>
-                    <h2>THE END</h2>
+                    <h1>THE END</h1>
                     <img src="svg/smile-ok.svg" width="100" alt="OK"/>
                     <h4>Thank you!</h4>
                     <hr/>
                     <footer style="font-size:0.5em">All images used in this presentation were created by myself or downloaded <em>(and sometimes slightly modified)</em> 
-                        from free internet libraries and resources like <a href="http://www.clker.com/" target="_blank">http://www.clker.com/</a>, 
-                        <a href="https://openclipart.org/" target="_blank">https://openclipart.org/</a>, 
-                        <a href="http://www.downloadclipart.net/" target="_blank">http://www.downloadclipart.net/</a>,
-                        <a href="http://openclipart.lynms.edu.hk/" target="_blank">http://openclipart.lynms.edu.hk/</a> and others.</footer>
+                        from free internet libraries and resources like <a href="http://www.clker.com/" target="_blank">www.clker.com</a>, 
+                        <a href="https://openclipart.org/" target="_blank">openclipart.org</a>, 
+                        <a href="http://www.wikipedia.org/" target="_blank">www.wikipedia.org</a>,
+                        <a href="http://www.downloadclipart.net/" target="_blank">www.downloadclipart.net</a>,
+                        <a href="http://openclipart.lynms.edu.hk/" target="_blank">openclipart.lynms.edu.hk</a> and others.</footer>
                 </section>
 
 
