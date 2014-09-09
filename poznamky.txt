@@ -1,3 +1,14 @@
+test na 1024x768 rozliseni
+fakeSmile - msie?
+plus vyresit pro apple i transparent, treba i s pomoci opacity??
+a nebo dokonce i s pouzitim rgba barvy???
+a asi odebrat viewport na extra prikladech, nedaji se pak zoomovat...
+symbol example asi vylepsit, je trosku matousi a neni videt reuse mezi definici v ramci stranky...
+a vyresit si cas, nejak...
+prepsat grunticon / grumpicon a ze ma nevyhody
+dela i pre rendering, coz je rychlejsi, img tag
+
+
 v html ale s xml/xhtml syntaxi
 pro logo v hlavicce ale jde stylovat pres ext soubor s cachovanim pres currentColor (snad)
 ukazat vyhodu gzipu extra predem

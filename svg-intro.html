@@ -363,7 +363,7 @@
                         <h2>Advantages</h2>
                         <ul class="fix">
                             <li><img src="svg/smile-ok.svg" class="inText" width="100" alt="OK"/>no tricks needed for modern browsers
-                            <li>cacheable, as it is external file
+                            <li>cacheable, as it is external file + offers good pre-rendering performance
                             <li>intensive pre-compress possible
                             <li>safe and simple <em>(sandboxed)</em>
                             <li>SMIL is allowed <em>(animated GIF substitute, except for MSIE)</em>
@@ -449,22 +449,23 @@
                 <section>
                     <section class="crclr">
                         <h2>Sharing CSS definitions</h2>
-                        <p>Inline code case, notice symbol element use.</p>
-                        <pre><code>&lt;style>
-  span { color: darkgreen; fill: currentColor; }
-&lt;/style>
+                        <p>Inline code case, notice <code>symbol</code> element use.</p>
+                        <pre><code>&lt;style> span { color: darkgreen; fill: currentColor; } &lt;/style>
 &lt;span>My cute jellyfish
   &lt;svg stroke="none" width="60" height="60">
     &lt;symbol id="jellyfish" viewBox="0 0 400 500">
-      &lt;path d="M200,0.438c-90,0.772-172,72-192,160-6.89,28-8.74,57-6.79,86,6.82,22,35.8,21,52.8,13,7.2-3,14.6-6,22.2-8,3.8,4,7.1,10,9.8,15-11.7,36-12.4,74-8.2,112-20.8,33-48.2,67-41.7,109,2.4,23,13.8,44,30.3,59-2.4,3-5,7-7.8,10-9.3,11,0.2,1,8.1-10,14.2,13,32.1,22,50.9,24-18.9-2-36.4-12-50.1-25,3.6-5,6.7-10,7.4-12,7.9-14,12.3-29,14.6-44,13.1,29,43.1,48,74.1,49-33-1-62-24-73.4-54,2.1-18,1.3-36-0.4-54,12.8-42,49.8-76,43.8-123-2-24-13-46-30-62v-1c8-1,15-1,22,0,7,10,19,21,18,30,11,28,14,59,11,88-17,19-33,40-28,66,2,7,5,13,9,18-2,25,5,50,24,67,5,7,17,13,27,17h-2,3c1,0,2,1,4,1-2,0-3-1-4-1,8-4,16-8,23-14,3,13-5,34-10,42,10-11,13-27,10-42,16,13,35,20,55,20-20,0-39-8-53-21,9-8,16-17,22-27,9,12,20,22,33,30-1,12,2,24,8,34-10,8-21,13-34,17,13-3,25-9,35-16,2,4,6,7,10,10-4-3-7-6-10-10,9-7,17-15,23-24,5,1,11,2,16,2-3,0-9-1-15-3,14-19,21-43,21-66,15-10,29-22,31-41,4-37-29-59-49-86,0-11,2-21,6-32,7-19,18-38,32-52,2,0,3,1,5,2,17,6,39,13,54-1,12-21,7-46,5-69-9-60-42-116-94-150-31-21.1-69-33.6-107-32.8-2-0.024-3-0.044-5-0.031zm1,558c-1,2-3,3-4,5,1,0,2-2,4-5zm99-315h2c-26,24-28,68-5,95-1,19,2,39,8,58,6,20,12,43,13,65-10,6-20,12-29,18-12,9-19,23-21,37-1,0-1-1-2-1-12-8-22-17-29-29,10-18,15-38,13-59-1-20-4-41-7-61,19-26,41-51,37-84-1-12-5-23-12-33,1-1,2-2,3-4,10-1,19-2,29-2zm16,1c5,0,11,2,16,3-5,7-9,14-12,17-13,19-20,40-22,63-17-27-9-66,18-83zm-226,3c0.9,0,1.9,1,2.8,1-0.8,3-1.6,6-2.4,9-1.7-3-3.5-6-5.5-9,1.7,0,3.4-1,5.1-1zm50.9,0c10,2,19,3,29,4,28,22,27,67,3,92-4,3-7,7-11,11,2-10,2-19,1-30-2-27-9-53-22-77zm116,1v1l1,1c-2,3-4,6-6,8-18,33-21,70-15,106-13,20-22,41-21,65-1,21,6,41,18,58-3,5-6,10-10,15-3,4-7,8-12,12-1,0-1-1-2-1-3-13-10-25-21-33-5-12-7-26-5-40,7-48,47-89,39-140-1-16-7-32-17-46,17,0,34-1,51-6zm-73,5c4,0,8,0,12,1,2,2,4,5,5,8,22,32,18,75,2,110-15,32-31,70-18,106-15-11-34-19-46-34,1-1,1-2,1-3,6-26,16-51,21-76,8-9,18-18,24-28,20-25,17-61-1-84zm-84,0c4,2,7,5,8,9,26,31,24,76,4,110-8,15-16.9,31-22.9,48-1.6-14-3.6-28-5.1-41,11.3-19,20-37,21-60,1-18-2-36-9.6-53,1.6-4,3.3-9,4.6-13zm163,4c15,25,10,58-8,81-4,6-8,12-13,18-2-24-2-49,8-73,4-9,8-18,13-26zm-171,21c10.3,30,7.2,64-8.6,92-0.1-1-0.2-1-0.2-2-2.6-30,0.5-61,8.8-90zm211,67c20,22,48,43,46,76-2,17-14,28-27,37-1-3-1-6-1-9-4-34-17-69-18-104zm-150,28c-2,14-6,27-11,40-3,9-5,18-6,27-3-5-4-10-5-16-2-21,9-37,22-51zm85,0c1,4,2,7,2,11,7,33,11,70-4,100-21-32-22-76,0-108,1-1,1-2,2-3zm-159,13c1.6,12,3.6,24,5.8,36,0.5,2,0.9,5,1.3,7-4.8,17-5.8,35,0.9,53,0.3,1,0.5,1,0.8,2-2.3,22-8.5,42-20.3,61-21.5-22-33.4-53-27.5-83,5.1-29,23.2-52,39-76zm8.5,54c1.4,12,1.8,25,0.9,38-3.1-11-3.8-23-1.7-34,0.2-1,0.5-3,0.8-4zm51.4,9c12,14,32,22,47,33,1,1,1,2,2,3,5,12,13,22,22,30-8,6-17,12-22,14-31-12-53-46-49-80zm179,15c0,19-3,38-13,55-2,3-4,6-6,9-10-2-22-6-30-11,3-16,12-31,26-39,7-5,15-9,23-14zm-127,21c8,7,15,15,18,26-8-7-14-16-18-26zm78,33c9,5,19,9,29,11-6,9-13,16-22,23-6-10-8-22-7-34zm-72,14c6,2,10,3,11,2-4,0-8-1-11-2z"/>
-      &lt;g id="eye" transform="matrix(0.89472818,0,0,0.89472818,363.45969,-292.73304)">
-        &lt;path fill="yellow" d="m-139,494c-4.15,39.8,46.2,71.1,80.1,49.9,15-7.45,25.7-23.6,28.7-39.9,0.194-14-16.3-9.07-25.4-9.96h-83.4z"/>
-        &lt;path fill="black" d="m-112,494c-4.57,20,18.9,32.5,35.7,26.2,12.5,0.718,26.1-27.1,9.42-26.2h-45.1z"/>
+      &lt;path d="M200,0.438c-90,0.772-172,72-192,160-6.89,28-8.74,57…
+      &lt;g id="eye" transform="matrix(0.89472818,0,0,0.89472818,363.45969…
+        &lt;path fill="yellow" d="m-139,494c-4.15,39.8,46.2,71.1,80.1…
+        &lt;path fill="black" d="m-112,494c-4.57,20,18.9,32.5,35.7,26.2,12.5…
       &lt;/g>
       &lt;use xlink:href="#eye" transform="translate(-150 0)"/>
     &lt;/symbol>
     &lt;use xlink:href="#jellyfish"/>
   &lt;/svg>
+&lt;/span>
+&lt;span>Another cute jellyfish
+  &lt;svg>&lt;use xlink:href="#jellyfish"/>&lt;/svg>
 &lt;/span>              </code></pre>
                         <style scoped>
                             .crclr span.dr {
@@ -568,7 +569,7 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                         <li><strong>C</strong> = Cubic Bézier To x1,y1 x2,y2 <strong>X,Y</strong>
                         <li><strong>Z</strong> = Close Path <em>(to the start)</em>
                     </ul>
-                    <p>Notice two <a href="http://www.useragentman.com/tests/textpath/bezier-curve-construction-set.html">Control Points</a> in curve command.</p>
+                    <p>Notice two <a href="http://www.useragentman.com/tests/textpath/bezier-curve-construction-set.html" target="_blank">Control Points</a> in curve command.</p>
                     <hr/>
                     &lt;path d="<input value="M 0,100 C 0,0, 500,0, 500,100 L 250,200 Z" class="showme" 
                         oninput="document.getElementById('demoPath').setAttribute('d',this.value)" 
@@ -683,7 +684,8 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                     <p><img src="svg/smile-ko.svg" class="inText" width="200" alt="KO"/>It also does not support <strong>CSS Transitions</strong> and <strong>Animations</strong> of otherwise supported  
                         <a href="http://tutorials.jenkov.com/svg/svg-and-css.html" target="_blank">SVG related CSS properties</a> <em>(although :hover works well)</em>, 
                         which leaves us with reasonable utilization of only one property: <strong>opacity</strong>.</p>
-                    <p>It is also the only browser not supporting <strong>SMIL Animation</strong> model, so with putting SVG in motion you're out of luck.</p>
+                    <p>It is also the only browser not supporting <strong>SMIL Animation</strong> model, so putting SVG in motion is 
+                        <a href="http://leunen.me/fakesmile/" target="_blank">unnecessarily troublesome</a>.</p>
                     <p>Yes, <strong>scripting</strong> could solve all these issues, but it's a pity.</p>
                 </section>
 
@@ -694,14 +696,14 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                     <p>Following exceptional and <strong>wise people</strong> and <strong>sophisticated tools</strong> are great to learn 
                         from or <strong>definitely worth</strong> trying:</p>
                     <ul>
-                        <li><img src="svg/thumbsup.svg" class="inText" width="190" alt="Thumb up"/><a href="http://css-tricks.com/mega-list-svg-information/" target="_blank">Chris Coyier</a>
+                        <li><img src="svg/thumbsup.svg" class="inText" width="140" alt="Thumb up"/><a href="http://css-tricks.com/mega-list-svg-information/" target="_blank">Chris Coyier</a>
                         <li><a href="http://sarasoueidan.com/blog/svg-coordinate-systems/" target="_blank">Sara Soueidan</a>
                         <li><a href="http://d3js.org/" target="_blank">Mike Bostock</a>
                         <li><a href="http://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html" target="_blank">David Dailey</a>
                         <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank">MDN</a>
                         <li><a href="http://snapsvg.io/" target="_blank">Dmitry Baranovskiy</a>
-                        <li><a href="http://www.grumpicon.com/" target="_blank">Grumpicon</a> and 
-                            <a href="https://github.com/filamentgroup/grunticon" target="_blank">Grunticon</a>
+                        <li><a href="https://github.com/filamentgroup/grunticon" target="_blank">Grunticon</a> / 
+                            <a href="http://www.grumpicon.com/" target="_blank">Grumpicon</a>
                     </ul>
                 </section>
 
