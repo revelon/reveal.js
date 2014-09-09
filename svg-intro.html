@@ -96,9 +96,9 @@
                 <section>
                     <h3>Scalable Vector Graphics</h3>
                     <ul>
-                        <li><img src="svg/svg-logo.svg" class="inText" width="185" alt="SVG Logo"/>W3C approved standard since 1999
+                        <li><img src="svg/svg-logo.svg" class="inText" width="185" alt="SVG Logo"/><a href="http://en.wikipedia.org/wiki/Scalable_Vector_Graphics" target="_blank">W3C approved</a> standard since 1999
                         <li>focused on <strong>2D</strong> vector space
-                        <li>vectors = super <strong>quality</strong> for every screen resolution
+                        <li>vectors = super <strong>quality</strong> and good performance for every screen resolution
                         <li>HTML5, CSS and JS <strong>friendly</strong>
                         <li><strong>XML</strong> based markup <em>(even when part of HTML5 document!)</em>
                         <li><strong>DOM</strong> based with well supported event model
@@ -112,15 +112,16 @@
                 <section>
                     <h2>How to create SVG</h2>
                     <ul>
-                        <li><strong>manually</strong> <em>(just like you do HTML, CSS)</em>
+                        <li><strong>manually</strong> <em>(just like you do HTML and CSS, man…)</em>
                         <li><img src="svg/pallet-clipart-paint-palette.svg" class="inText" width="200" alt="Palette"/>vector <strong>editor</strong> like <a href="http://en.wikipedia.org/wiki/Adobe_Illustrator" target="_blank">Illustrator</a> 
                             or <a href="http://en.wikipedia.org/wiki/Inkscape" target="_blank">Inkscape</a>
                         <li><strong>online</strong> editor like 
                             <a href="http://www.youidraw.com/">YouiDraw</a> or 
                             <a href="http://svg-edit.googlecode.com/svn/branches/stable/editor/svg-editor.html" target="_blank">SVG-Edit</a>
-                        <li>download and utilize documents from <strong>internet</strong>
+                        <li>download and utilize tons of documents from <strong>internet</strong> <em>(Google = filetype:svg)</em>
                         <li>generate it via <strong>scripting</strong>
                     </ul>
+                    <p><em>PS: Do not forget to serve it as <a href="http://www.w3.org/services/svg-server/" target="_blank">image/svg+xml</a> MIME type</em></p>
                 </section>
 
 
@@ -130,8 +131,8 @@
                     <ul style="background-image:url(svg/boox.svg)">
                         <li>shape primitives: <strong>path, line, rect, circle, ellipse, polyline, polygon…</strong>
                             <img src="svg/box.svg" class="inText" width="350" alt="Box"/>
-                        <li>organization: <strong>defs, g, svg, use, symbol, a, image, foreignObject…</strong> 
-                        <li>advanced: <strong>clipPath, mask, marker, pattern, gradients, filters…</strong>
+                        <li>organization: <strong>defs, g, svg, use, a, symbol, image, foreignObject…</strong> 
+                        <li>advanced: <strong>marker, pattern, clipPath, mask, gradient, filter…</strong>
                         <li>texts: <strong>text, tspan, textPath…</strong>
                         <li>animations: <strong>set, animate, animateTransform, animateMotion</strong>
                     </ul>
@@ -141,13 +142,13 @@
 
                 <section>
                     <h2>viewPort vs viewBox</h2>
-                    <p>SVG canvas is <strong>infinite</strong>. ViewPort is defined by <code>width</code> and <code>height</code> and is for 
-                        internal percentage sizing use + it gives to document's parent (HTML, SVG) its dimensions</p>
+                    <p>SVG canvas is <strong>infinite</strong>. ViewPort is defined by <code>width</code> and <code>height</code> and is 
+                        internally for percentage sizing use + it gives document's parent <em>(HTML, SVG)</em> its desired dimensions</p>
                     <pre><code>  &lt;svg width="200" height="200">&lt;!-- content -->&lt;/svg></code></pre>
                     <p>ViewBox is defined by <code>viewBox</code> and defines document's canvas visibility box. <strong>Use it a lot, I do!</strong> 
-                        Four values stand for definition of: <code>left top width height</code></p>
+                        Four values stand for definition of: <code>left top width height</code> frame</p>
                     <pre><code>  &lt;svg viewBox="-50 -50 200 200">&lt;!-- content -->&lt;/svg></code></pre>
-                    <p>No one of them is mandatory, but they are useful and they can co-exists easily, if you want to</p>
+                    <p>No one of them is mandatory, but they are very useful and they can co-exists easily, if you want or need to</p>
                     <pre><code>  &lt;svg viewBox="-50 -50 200 200" width="100" height="100">&lt;!-- … -->&lt;/svg></code></pre>
                 </section>
 
@@ -156,7 +157,8 @@
                 <section>
                     <h2>Integration ways</h2>
                     <p>
-                        There are many ways how to integrate SVG in <strong>your web</strong> project. I <strong>recommend</strong> to stick to these ones:
+                        There are many ways how to integrate SVG in <strong>your web</strong> project <em>(page)</em>. 
+                        I <strong>recommend</strong> to stick to these ones:
                     </p>
                     <ol>
                         <li><img src="svg/ben_Jigsaw_Puzzle.svg" class="inText" width="300" alt="Puzzle"/>inline <code>svg</code> markup
@@ -171,7 +173,7 @@
                 <section>          
                     <section>
                         <h2>Inline SVG markup</h2>
-                        <p>Mind necessity to keep XML syntax for all SVG markup!</p>
+                        <p>Mind necessity to keep <strong>XML syntax</strong> for all SVG markup</p>
                         <pre><code> …
  &lt;h2>Some Title&lt;/h2>
   &lt;div class="wrapper">
@@ -213,7 +215,7 @@
 
                     <section>
                         <h2>Fluid design MSIE trick</h2>
-                        <p>Use if you need stretching, fixed sizes are OK without it.<br/> <a href="fluid-inline.html" target="_blank">Live demo</a></p>
+                        <p>Use if stretching is needed; fixed sizes works OK. <a href="fluid-inline.html" target="_blank">Live demo</a></p>
                         <pre><code>    &lt;style>
       .wrapper {
           width: 50%;
@@ -267,7 +269,7 @@
                         <ul class="fix">
                             <li><img src="svg/smile-ko.svg" class="inText" width="100" alt="KO"/>owner document CSS stylesheet not applicable
                             <li>cross-browser <em>(MSIE)</em> fluid size trick needed
-                            <li>not directly linkable <em>(a tag)</em>
+                            <li>not directly linkable from HTML <em>(a tag)</em>
                         </ul>
                     </section>
                     
@@ -354,17 +356,18 @@
     &lt;/style>
     
     &lt;div class="holder"/></code></pre>
-                        <p><a href="fluid-background.html" target="_blank">Live demo for fluid design</a></p>
-                        <div style="width: 50%; height: 180px; margin: 0 auto; background: url(svg/fish.svg); 
+                        <a href="fluid-background.html" target="_blank">
+                            <div style="width: 50%; height: 180px; margin: 0 auto; background: url(svg/fish.svg); 
                             background-size: contain; background-position: center center; background-repeat: no-repeat;">&nbsp;</div>
+                        </a>
                     </section>
 
                     <section>
                         <h2>Advantages</h2>
                         <ul class="fix">
                             <li><img src="svg/smile-ok.svg" class="inText" width="100" alt="OK"/>no tricks needed for modern browsers
-                            <li>cacheable, as it is external file + offers good pre-rendering performance
-                            <li>intensive pre-compress possible
+                            <li>cacheable as external file + pre-compressing
+                            <li>offers good pre-rendering performance
                             <li>safe and simple <em>(sandboxed)</em>
                             <li>SMIL is allowed <em>(animated GIF substitute, except for MSIE)</em>
                         </ul>
@@ -372,8 +375,8 @@
                         <h2>Disadvantages</h2>
                         <ul class="fix">
                             <li><img src="svg/smile-ko.svg" class="inText" width="100" alt="KO"/>external <em>(linked)</em> CSS stylesheet not applicable
-                            <li>owner document's CSS stylesheet not applicable to individual SVG elements
-                            <li>cannot be manipulated via JavaScript <em>(not even internally)</em>
+                            <li>owner's CSS not applicable to individual elements
+                            <li>not manipulable via JavaScript <em>(not even internally)</em>
                             <li>interactivity disabled <em>(links, DOM events)</em>
                         </ul>
                     </section>
@@ -423,7 +426,7 @@
 
                 <section>
                     <h3>Is CSS drawing good enough?</h3>
-                    <p>Example of Twitter logo <strong>recreated</strong> in HTML/CSS and <a href="https://tinypng.com/" target="_blank">crushed</a> 
+                    <p>Example of <em>(not only)</em> Twitter logo <strong>recreated</strong> in HTML/CSS and <a href="https://tinypng.com/" target="_blank">crushed</a> 
                         to the minimum size <em>(<strong>single</strong> color image only)</em></p>
                     <table>
                         <tr>
@@ -540,9 +543,9 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 &lt;svg width="310" height="120">
   &lt;path id="crc" stroke="none" fill="none" d="M50,0c0,27.6-22.4,50-50,50s-50-22.4-50-50,22.4-50,50-50,50,22.4,50,50z"/>
   &lt;g transform="translate(150 60) scale(2 0.8)">
-    &lt;text font-size="26px" font-family="Helvetica, sans-serif" fill="maroon">
+    &lt;text font-size="26px" font-family="sans-serif" fill="green">
       &lt;textPath xlink:href="#crc" id="txt">Text Writ Around The Circle&lt;/textPath>
-      &lt;animateTransform attributeName="transform" type="rotate" from="0" to="360" begin="1s" repeatCount="indefinite" dur="9s"/>
+      &lt;animateTransform attributeName="transform" type="rotate" from="0" to="360" begin="1s" repeatCount="1" dur="9s"/>
     &lt;/text>
   &lt;/g>
 &lt;/svg>           </code></pre>
@@ -550,9 +553,9 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                     <svg width="310" height="120">
                       <path id="crc" stroke="none" fill="none" d="M50,0c0,27.6-22.4,50-50,50s-50-22.4-50-50,22.4-50,50-50,50,22.4,50,50z"/>
                       <g transform="translate(150 60) scale(2 0.8) rotate(180)">
-                        <text font-size="26px" font-family="Helvetica, sans-serif" fill="maroon">
+                        <text font-size="25.8px" font-family="sans-serif" fill="darkgreen">
                           <textPath xlink:href="#crc" id="txt">Text Writ Around The Circle</textPath>
-                          <!--animateTransform attributeName="transform" begin="1s" type="rotate" repeatCount="indefinite" from="0" to="360" dur="9s"/-->
+                          <animateTransform attributeName="transform" begin="click" type="rotate" repeatCount="1" from="0" to="360" dur="9s"/>
                         </text>
                       </g>
                     </svg>
@@ -564,10 +567,10 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                     <h2>Understanding path</h2>
                     <p>Can replace every other <strong>shape</strong>. Some available commands:</p>
                     <ul>
-                        <li><strong>M</strong> = Move To <strong>X,Y</strong>
-                        <li><strong>L</strong> = Line To <strong>X,Y</strong>
+                        <li><strong>M</strong> = Move To <strong>X,Y</strong> <em>(applied from current position)</em>
+                        <li><strong>L</strong> = Line To <strong>X,Y</strong> <em>(the same for all commands…)</em>
                         <li><strong>C</strong> = Cubic Bézier To x1,y1 x2,y2 <strong>X,Y</strong>
-                        <li><strong>Z</strong> = Close Path <em>(to the start)</em>
+                        <li><strong>Z</strong> = Close Path <em>(to the starting point, exception ;-)</em>
                     </ul>
                     <p>Notice two <a href="http://www.useragentman.com/tests/textpath/bezier-curve-construction-set.html" target="_blank">Control Points</a> in curve command.</p>
                     <hr/>
@@ -681,10 +684,10 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                 <section>
                     <h2>Limitations (= MSIE)</h2>
                     <p><strong>MSIE</strong> doesn't support <strong>CSS Transformations</strong> to SVG content, so direct tag properties must be used.</p>
-                    <p><img src="svg/smile-ko.svg" class="inText" width="200" alt="KO"/>It also does not support <strong>CSS Transitions</strong> and <strong>Animations</strong> of otherwise supported  
+                    <p><img src="svg/smile-ko.svg" class="inText" width="200" alt="KO"/>It also doesn't support <strong>CSS Transitions</strong> and <strong>Animations</strong> of otherwise supported  
                         <a href="http://tutorials.jenkov.com/svg/svg-and-css.html" target="_blank">SVG related CSS properties</a> <em>(although :hover works well)</em>, 
                         which leaves us with reasonable utilization of only one property: <strong>opacity</strong>.</p>
-                    <p>It is also the only browser not supporting <strong>SMIL Animation</strong> model, so putting SVG in motion is 
+                    <p>It is also the only browser not supporting <strong>SMIL Animation</strong>, so putting SVG in motion is 
                         <a href="http://leunen.me/fakesmile/" target="_blank">unnecessarily troublesome</a>.</p>
                     <p>Yes, <strong>scripting</strong> could solve all these issues, but it's a pity.</p>
                 </section>
@@ -711,9 +714,9 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
                 <section>
                     <h4>Learn it and love it, SVG will not let you down!</h4>
-                    <h1>THE END</h1>
+                    <h2>THE END</h2>
                     <img src="svg/smile-ok.svg" width="100" alt="OK"/>
-                    <h3>Thank you!</h3>
+                    <h4>Thank you!</h4>
                     <hr/>
                     <footer style="font-size:0.5em">All images used in this presentation were created by myself or downloaded <em>(and sometimes slightly modified)</em> 
                         from free internet libraries and resources like <a href="http://www.clker.com/" target="_blank">http://www.clker.com/</a>, 
