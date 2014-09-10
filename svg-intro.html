@@ -118,10 +118,10 @@
                         <li><strong>online</strong> editor like 
                             <a href="http://www.youidraw.com/">YouiDraw</a> or 
                             <a href="http://svg-edit.googlecode.com/svn/branches/stable/editor/svg-editor.html" target="_blank">SVG-Edit</a>
-                        <li>download and utilize tons of documents from <strong>internet</strong> <em>(Google = filetype:svg)</em>
+                        <li>download and utilize tons of documents from <strong>internet</strong> <em>(Google search = filetype:svg)</em>
                         <li>generate it via <strong>scripting</strong>
                     </ul>
-                    <p><em>PS: Do not forget to serve it as <a href="http://www.w3.org/services/svg-server/" target="_blank">image/svg+xml</a> MIME type</em></p>
+                    <p><em>PS: And do not forget to serve it as <a href="http://www.w3.org/services/svg-server/" target="_blank">image/svg+xml</a> MIME type</em></p>
                 </section>
 
 
@@ -545,7 +545,7 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
   &lt;g transform="translate(150 60) scale(2 0.8)">
     &lt;text font-size="26px" font-family="sans-serif" fill="green">
       &lt;textPath xlink:href="#crc" id="txt">Text Writ Around The Circle&lt;/textPath>
-      &lt;animateTransform attributeName="transform" type="rotate" from="0" to="360" begin="1s" repeatCount="1" dur="9s"/>
+      &lt;animateTransform attributeName="transform" type="rotate" from="0" to="360" begin="click" repeatCount="1" dur="9s"/>
     &lt;/text>
   &lt;/g>
 &lt;/svg>           </code></pre>
@@ -577,8 +577,12 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                     &lt;path d="<input value="M 0,100 C 0,0, 500,0, 500,100 L 250,200 Z" class="showme" 
                         oninput="document.getElementById('demoPath').setAttribute('d',this.value)" 
                         onchange="document.getElementById('demoPath').setAttribute('d',this.value)"/>"/&gt;<br/>
-                    <svg width="600" height="200" stroke="black" stroke-width="4" fill="orange" viewBox="-20 -20 540 246" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <path id="demoPath" d="M 0,100 C 0,0, 500,0, 500,100 L 250,200 Z"/>
+                    <svg width="600" height="200" stroke="black" stroke-width="4" viewBox="-20 -20 540 246" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <radialGradient id="grd" cx="0.5" cy="0.5">
+                          <stop stop-color="yellow" offset="0"/>
+                          <stop stop-color="orange" offset=".9"/>
+                        </radialGradient>
+                        <path id="demoPath" fill="url(#grd)" d="M 0,100 C 0,0, 500,0, 500,100 L 250,200 Z"/>
                         <text font-size="30px" font-family="Helvetica, sans-serif" fill="#444" stroke-width="1">
                             <textPath xlink:href="#demoPath"><tspan dy="-10px">Tester Testakovitch Testakoff Tester Testakovitch Testakoff Tester Testakovitch Testakoff Tester Testakovitch Testakoff Tester Testakovitch Testakoff Tester Testakovitch Testakoff</tspan></textPath>
                         </text>
@@ -713,14 +717,14 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
 
                 <section>
-                    <h2>Don not worry about</h2>
+                    <h2>Do not worry about</h2>
                     <ol>
                         <li>MSIE 8 and 6 are <a href="http://gs.statcounter.com/#browser_version-ww-monthly-201308-201408" target="_blank">declining</a>
                             <a href="" target="_blank">rapidly</a>, having share from 5 to 20% respectively
                         <li><img src="svg/confusion.svg" class="inText" width="260" alt="Trends"/>desktop browsers are <strong>declining</strong> anyway and all major mobile ones render SVG more than well
                         <li>elder Android versions without SVG, like <a href="http://gigaom.com/2014/08/17/its-2014-and-android-fragmentation-is-no-longer-a-problem/" target="_blank">Gingerbread</a> are dying even faster
-                        <li><strong>performance</strong>, as long as you do not have SVG documents with thousands of complex paths, is good</a>
-                        <li>it's a living standard, <a href="http://www.w3.org/TR/SVG2/single-page.html" target="_blank">evolving</a> and used more and more</a>
+                        <li><strong>performance</strong>, as long as you do not have SVG documents with thousands of complex paths, is good
+                        <li>it's a living standard, <a href="http://www.w3.org/TR/SVG2/single-page.html" target="_blank">evolving</a> and used more and more
                     </ol>
                 </section>
 
@@ -729,8 +733,8 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                 <section>
                     <h4>Learn it and love it, SVG will not let you down!</h4>
                     <h1>THE END</h1>
-                    <img src="svg/smile-ok.svg" width="100" alt="OK"/>
-                    <h4>Thank you!</h4>
+                    <img src="svg/smile-ok.svg" width="128" alt="Thank you!"/>
+                    <h3>Thank you!</h3>
                     <hr/>
                     <footer style="font-size:0.5em">All images used in this presentation were created by myself or downloaded <em>(and sometimes slightly modified)</em> 
                         from free internet libraries and resources like <a href="http://www.clker.com/" target="_blank">www.clker.com</a>, 
