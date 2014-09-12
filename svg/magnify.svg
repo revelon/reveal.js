@@ -69,7 +69,7 @@ window.addEventListener("mouseup", mouseUp);
 window.onload = function() {
     clippedImage = document.getElementById("clippedImage");
     lensFrame = document.getElementById("lensFrame");
-    mouseMove({clientX:415,clientY:280}, true); // position lens after document load
+    mouseMove({clientX:420,clientY:333}, true); // position lens after document load
 }
 </script>
 
@@ -80,7 +80,7 @@ window.onload = function() {
 </defs>
 
 <g opacity="0.4">
-    <image xlink:href="eye-scan.svg" x="60" y="60" id="canvas" width="800" height="530"/>
+    <image xlink:href="record-player.svg" x="60" y="60" id="canvas" width="800" height="530"/>
 </g>
 
 <clipPath id="clippingPath">
