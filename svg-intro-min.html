@@ -52,6 +52,9 @@
             .fix, table, tr {
                 width: 96% !important;
             }
+            .cntr {
+                text-align: center !important;
+            }
             input.showme {
                 width: 700px;
                 font-size:0.8em;
@@ -99,10 +102,10 @@
                 <section>
                     <h3>Scalable Vector Graphics</h3>
                     <ul>
-                        <li><img src="svg/svg-logo.svg" class="inText" width="185" alt="SVG Logo"/><a href="http://en.wikipedia.org/wiki/Scalable_Vector_Graphics" target="_blank">W3C approved</a> standard, since 1999
-                        <li>focused on <strong>2D</strong> vector space
-                        <li>vectors = <strong>quality</strong> for every screen
-                        <li>HTML5, CSS and JS <strong>friendly</strong>
+                        <li><img src="svg/svg-logo.svg" class="inText" width="185" alt="SVG Logo"/><a href="http://en.wikipedia.org/wiki/Scalable_Vector_Graphics" target="_blank">W3C</a> approved standard, since 1999
+                        <li>vectors = <strong>quality</strong>&nbsp;for&nbsp;every&nbsp;screen
+                        <li>focused on <strong>2D</strong>
+                        <li>HTML, CSS and JS <strong>friendly</strong>
                         <li><strong>XML</strong> based markup
                         <li><strong>DOM</strong> based with event model
                         <li><strong>supported</strong> even in MSIE 9+
@@ -122,9 +125,9 @@
                         <li><strong>online</strong> editor like 
                             <a href="http://www.youidraw.com/" target="_blank">YouiDraw</a> or 
                             <a href="http://svg-edit.googlecode.com/svn/branches/stable/editor/svg-editor.html" target="_blank">SVG-Edit</a>
-                        <li>utilize tons of documents from <strong>internet</strong> <em>(Google search = filetype:svg)</em>
+                        <li>utilize tons of documents from <strong>internet</strong> <em>(tip: Google search = filetype:svg)</em>
                         <li>generate it via <strong>scripting</strong>
-                        <li>and serve it as <a href="http://www.w3.org/services/svg-server/" target="_blank">image/svg+xml</a> MIME type</em>
+                        <li>and serve it as <a href="http://www.w3.org/services/svg-server/" target="_blank">image/svg+xml</a> MIME type
                     </ul>
                 </section>
 
@@ -137,7 +140,7 @@
                     <p>ViewBox = canvas visibility box/frame. <strong>Use it a lot, I do!</strong></p>
                     <pre><code>  &lt;svg viewBox="-50 -50 200 200">&lt;!-- content -->&lt;/svg></code></pre>
                     <p>No one is mandatory, but they are very <strong>useful</strong>.</p>
-                    <pre><code>  &lt;svg viewBox="-50 -50 200 200" width="100" height="100">&lt;!-- … -->&lt;/svg></code></pre>
+                    <pre><code>  &lt;svg viewBox="-8 -8 80 80" width="88" height="88">&lt;!-- content -->&lt;/svg></code></pre>
                 </section>
 
 
@@ -151,8 +154,8 @@
                     <ol>
                         <li><img src="svg/ben_Jigsaw_Puzzle.svg" class="inText" width="300" alt="Puzzle"/>inline <code>svg</code> markup
                         <li><code>object</code> tag
-                        <li>image <em>(<code>img</code>)</em> tag
-                        <li>CSS <code>background</code> property
+                        <li><code>img</code> tag
+                        <li>CSS <code>background</code>
                     </ol>
                 </section>
 
@@ -177,7 +180,7 @@
      }
    &lt;/script>
   &lt;/div>
- &lt;p>Text of some paragraph&lt;/p>
+ &lt;p>Some text…&lt;/p>
  …                      </code></pre>
                         <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" width="50" height="50">
                             <circle cx="25" cy="25" r="20" fill="orange"/>
@@ -188,7 +191,7 @@
                      <section>
                         <h2>Advantages</h2>
                         <ul class="fix">
-                            <li><img src="svg/smile-ok.svg" class="inText" width="100" alt="OK"/>CSS from embedding document applicable
+                            <li><img src="svg/smile-ok.svg" class="inText" width="100" alt="OK"/>owner's document CSS applicable
                             <li>manipulable via JavaScript
                             <li>no extra file to load
                             <li>accessible
@@ -217,8 +220,8 @@
           left: 0;
       }
     &lt;/style>
-    &lt;div class="wrapper">  <!-- replace svg's width/height by viewBox -->
-      &lt;svg viewBox="0 0 50 50"><!-- SVG content -->&lt;/svg>
+    &lt;div class="wrapper">  <!-- replace svg's width/height by viewBox! -->
+      &lt;svg viewBox="0 0 50 50"><!-- content -->&lt;/svg>
     &lt;/div>           </code></pre>
                     </section>
                 </section>
@@ -235,7 +238,7 @@
     &lt;object type="image/svg+xml" data="dog.svg" width="136" height="200">
         <!-- possible fallback (like PNG image) here -->
     &lt;/object>
-    &lt;p>Text of some paragraph&lt;/p>
+    &lt;p>Some paragraph…&lt;/p>
     …
                         </code></pre>
             
@@ -247,7 +250,7 @@
                      <section>
                         <h2>Advantages</h2>
                         <ul class="fix">
-                            <li><img src="svg/smile-ok.svg" class="inText" width="100" alt="OK"/>applicable CSS from external stylesheet
+                            <li><img src="svg/smile-ok.svg" class="inText" width="100" alt="OK"/>CSS from external stylesheet works
                             <li>manipulable via JavaScript <em>(externally &amp; internally)</em>
                             <li>cacheable
                             <li><a href="http://en.wikipedia.org/wiki/Zopfli" target="_blank">intensive pre-compress</a> possible <em>(.svgz)</em>
@@ -255,7 +258,7 @@
                         <hr/>            
                         <h2>Disadvantages</h2>
                         <ul class="fix">
-                            <li><img src="svg/smile-ko.svg" class="inText" width="100" alt="KO"/>owner document CSS stylesheet not applicable
+                            <li><img src="svg/smile-ko.svg" class="inText" width="100" alt="KO"/>owner document CSS not applicable
                             <li>cross-browser <em>(MSIE)</em> fluid size trick needed
                         </ul>
                     </section>
@@ -283,7 +286,7 @@
                 <section>
                     <section>
                         <h2>Image tag integration</h2>
-                        <p>Good old, familiar and easy way to go…</p>
+                        <p>Good, old and familiar way to go…</p>
                         <pre><code>
     &lt;img width="323" height="153" src="svg/turtle.svg" alt="Turtle"
         onerror="this.onerror=null; this.src='fallback.png'"/>
@@ -305,14 +308,14 @@
                         <ul class="fix">
                             <li><img src="svg/smile-ko.svg" class="inText" width="100" alt="KO"/>external CSS not applicable
                             <li>owner document's CSS not applicable
-                            <li>not manipullable via JavaScript <em>(not even internally)</em>
+                            <li>no JavaScript manipulation <em>(not even internally)</em>
                             <li>interactivity disabled <em>(links, DOM events)</em>
                         </ul>
                     </section>
                     
                     <section>
                         <h2>Fluid design MSIE trick</h2>
-                        <p>Similar to <code>object</code> tag - you need to set width. <a href="fluid-image.html" target="_blank">Live demo</a></p>
+                        <p>The same <code>width</code> trick like in <code>object</code> tag. <a href="fluid-image.html" target="_blank">Live demo</a></p>
                         <pre><code>
     &lt;style>
       img {
@@ -351,8 +354,7 @@
                         <ul class="fix">
                             <li><img src="svg/smile-ok.svg" class="inText" width="100" alt="OK"/>no tricks needed for modern browsers
                             <li>cacheable, pre-compressible and performant
-                            <li>sandboxed
-                            <li>SMIL allowed
+                            <li>sandboxed with SMIL allowed
                         </ul>
                         <hr/>            
                         <h2>Disadvantages</h2>
@@ -382,16 +384,16 @@
                     <p>Twitter logo <strong>created</strong> using HTML/CSS and <a href="https://tinypng.com/" target="_blank">crushed</a>.</p>
                     <table>
                         <tr>
-                            <th>Legend</th><th>Twitter</th><th>Lock</th>
+                            <th>Legend</th><th class="cntr">Twitter</th><th>Lock</th>
                         </tr>
                         <tr>
-                            <th>HTML+CSS<br>GZipped</th><td>2.9 kB<br>1.4 kB</td><td><em>impossible<br>to do ????</em></td>
+                            <th>HTML+CSS<br>GZipped</th><td class="cntr">2.9 kB<br>1.4 kB</td><td><em>impossible<br>to do ????</em></td>
                         </tr>
                         <tr>
-                            <th>SVG<br>GZipped</th><td>1.2 kB<br>0.6 kB</td><td style="text-align:right">24.7 kB<br>6.4 kB</td>
+                            <th>SVG<br>GZipped</th><td class="cntr">1.2 kB<br>0.6 kB</td><td style="text-align:right">24.7 kB<br>6.4 kB</td>
                         </tr>
                         <tr>
-                            <th>PNG<br>crunched</th><td>4.1 kB<br>1.4 kB</td><td style="text-align:right">124.7 kB<br>31.9 kB</td>
+                            <th>PNG<br>crunched</th><td class="cntr">4.1 kB<br>1.4 kB</td><td style="text-align:right">124.7 kB<br>31.9 kB</td>
                         </tr>
                     </table>
                     <a href="svg/twittercss.html" target="_blank"><img src="svg/twitter.svg" width="250" alt="Twitter Logo"/></a>
@@ -408,7 +410,7 @@
                         <pre><code>&lt;span style="color: darkgreen; fill: currentColor">My cute jellyfish
   &lt;svg width="60" height="60">
     &lt;symbol id="jellyfish" viewBox="0 0 400 500">
-      &lt;path d="M200,0.438c-90,0.772-172,72-192,160-6.89,28-8.74,57…"/> …
+      &lt;path d="M200,0.438c-90,0.772-172,72-192,160-6.89,28-8.74,57…"/>
     &lt;/symbol>
     &lt;use xlink:href="#jellyfish"/>
   &lt;/svg>
@@ -454,18 +456,17 @@
                         <h2>External CSS &amp; object</h2>
                         <pre><code>/* objectcase.css file */ 
 span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
-                        <pre><code>&lt;style type="text/css"> @import url(css/objectcase.css) &lt;/style>
+                        <pre><code>&lt;style> @import url(css/objectcase.css) &lt;/style>
 
 &lt;span>My shared jellyfish
   &lt;object type="image/svg+xml" data="jellyfish.svg" width="60" height="60"/>
 &lt;/span>              </code></pre>
                         <pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xhtml="http://www.w3.org/…">
-  &lt;style type="text/css"> @import url(css/objectcase.css) &lt;/style>
+  &lt;style> @import url(css/objectcase.css) &lt;/style>
   
   &lt;!-- I prefer this CSS linking instead of &lt;?xml-stylesheet… ?> way -->
-  &lt;symbol id="jellyfish" viewBox="0 0 400 500">
-    …rest of the symbol definition…
-  &lt;/symbol>
+  &lt;symbol id="jellyfish" viewBox="0 0 400 500">…&lt;/symbol>
+  
   &lt;use xlink:href="#jellyfish" id="jellyfishExt"/>
 &lt;/svg>               </code></pre>
                         <style scoped>
@@ -594,10 +595,10 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                 <section>
                     <h2>Best SVG utilization</h2>
                     <hr>
-                    <ol style="background-image:url(svg/award-symbol.svg);background-size:contain;background-position:33% center;background-repeat:no-repeat">
+                    <ol>
                         <li><a href="http://svg.kvalitne.cz/map/map-with-disctricts.html" target="_blank">maps</a> of 
                             <a href="http://www.petercollingridge.co.uk/sites/files/peter/colour_with_class.svg" target="_blank">countries</a>, regions even world
-                        <li>graphs, <a href="http://www.robweir.com/blog/images/apache-map.svg" target="_blank">diagrams</a> and 
+                        <li><img width="200" src="svg/award-symbol.svg" alt="Award" class="inText"/>graphs, <a href="http://www.robweir.com/blog/images/apache-map.svg" target="_blank">diagrams</a> and 
                             <a href="http://d3js.org/" target="_blank">data visualizations</a>
                         <li><a href="http://treeblurb.com/xmap/svg/melbourne_central.svg" target="_blank">technical</a> 
                             <a href="http://www.anzstadium.com.au/the-stadium/stadium-map/" target="_blank">plans</a> and 
@@ -633,7 +634,7 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                 
                 <section>
                     <h2>Limitations (= MSIE)</h2>
-                    <p style="text-align:left; width:90%">SVG doesn't work in <strong>MSIE 8</strong>, but it's in decline already.<br>
+                    <p style="text-align:left; width:90%">SVG doesn't work in <strong>MSIE8</strong>, but it's in decline already.<br>
                         For SVG content doesn't work CSS: <strong>Transitions</strong>,
                         <img src="svg/smile-ko.svg" class="inText" width="200" alt="KO"/> <strong>Transformations</strong> nor 
                         <strong>Animations</strong>.<br>
@@ -661,17 +662,17 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
 
                 <section>
-                    <h4>Learn it and love it, SVG will not let you down!</h4>
+                    <h4>Learn it and love it, SVG will not let you down</h4>
                     <h1>THE END</h1>
                     <img src="svg/smile-ok.svg" width="128" alt="Thank you!"/>
                     <h3>Thank you!</h3>
                     <hr/>
-                    <footer style="font-size:0.5em">All images used in this presentation were created by myself or downloaded <em>(and sometimes slightly modified)</em> 
+                    <footer style="font-size:0.5em">All images used were created by myself or downloaded <em>(and slightly modified)</em> 
                         from free internet libraries and resources like <a href="http://www.clker.com/" target="_blank">www.clker.com</a>, 
                         <a href="https://openclipart.org/" target="_blank">openclipart.org</a>, 
                         <a href="http://www.wikipedia.org/" target="_blank">www.wikipedia.org</a>,
                         <a href="http://www.downloadclipart.net/" target="_blank">www.downloadclipart.net</a>,
-                        <a href="http://openclipart.lynms.edu.hk/" target="_blank">openclipart.lynms.edu.hk</a> and others.</footer>
+                        <a href="http://openclipart.lynms.edu.hk/" target="_blank">openclipart.lynms.edu.hk</a> and others</footer>
                 </section>
 
 
