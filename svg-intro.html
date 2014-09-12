@@ -245,17 +245,17 @@
                     <section>
                         <h2>Object tag integration</h2>
                         <pre><code>
-    …
-    &lt;h2>Some Title&lt;/h2>
-    <!-- xmlns is not required in HTML5 document -->
-    &lt;object type="image/svg+xml" data="dog.svg" width="136" height="200">
-        <!-- possible fallback (like PNG image) here -->
-    &lt;/object>
-    &lt;p>Text of some paragraph&lt;/p>
+  …
+  &lt;h2>Some Title&lt;/h2>
+
+  &lt;object type="image/svg+xml" data="turtle.svg" width="323" height="153">
+      <!-- possible fallback (like PNG image) here -->
+  &lt;/object>
+
+  &lt;p>Some paragraph…&lt;/p>
     …
                         </code></pre>
-            
-                        <object type="image/svg+xml" data="svg/dog.svg" width="136" height="200">
+                        <object type="image/svg+xml" width="323" height="153" data="svg/turtle.svg">
                             <!-- fallback like PNG image here -->
                         </object>
                      </section>
@@ -290,7 +290,7 @@
     &lt;/style>
     
     &lt;div class="wrapper">  <!-- replace svg's width/height by viewBox -->
-      &lt;object type="image/svg+xml" data="dog.svg">&lt;/object>
+      &lt;object type="image/svg+xml" data="turtle.svg">&lt;/object>
     &lt;/div>           </code></pre>
                     </section>
                 </section>
@@ -302,11 +302,11 @@
                         <h2>Image tag integration</h2>
                         <p>Good old, familiar and easy way to go…</p>
                         <pre><code>
-    &lt;img width="323" height="153" src="svg/turtle.svg" alt="Turtle"
+    &lt;img src="svg/dog.svg" alt="Dog" width="136" height="200"
         onerror="this.onerror=null; this.src='fallback.png'"/>
     &lt;!-- with possible fallback using onerror attribute -->
                         </code></pre>
-                        <img width="323" height="153" src="svg/turtle.svg" alt="Turtle"/>
+                        <img src="svg/dog.svg" width="136" height="200" alt="Dog"/>
                     </section>
 
                     <section>
@@ -337,7 +337,7 @@
       }
     &lt;/style>
     
-    &lt;img width="323" height="153" src="svg/turtle.svg" alt="Turtle"/>
+    &lt;img width="136" height="200" src="svg/dog.svg" alt="Dog"/>
                         </code></pre>
                     </section>
                 </section>
@@ -651,6 +651,24 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
 
                 <section>
+                    <h2>Use reflections</h2>
+                    <p><code>use</code> tag creates <strong>live reflection</strong> of any <strong>existing node</strong>. 
+                        It not only saves lines of code, but can do true <strong>miracles</strong>!!</p>
+                    <a href="svg/magnify.svg" target="_blank"><img width="323" height="153" src="svg/twomirror.svg" alt="Two Mirrors"/></a>
+                    <pre><code>  &lt;g id="complexElementID" class="…">
+    &lt;circle …/> &lt;rect …/> &lt;text …/> &lt;path id="somePathID" …/>
+  &lt;/g>
+  &lt;use xlink:href="#complexElementID" transform="scale(2)" class="c1…"/>
+  &lt;g class="whatever">
+    &lt;use xlink:href="#complexElementID" transform="scale(5)" class="c2…"/>
+    &lt;use xlink:href="#somePathID" transform="rotate(180)" class="c3…"/>
+  &lt;/g>           </code></pre>
+                    <p>References are using <code>xlink:href="#refID"</code> syntax.</p>
+                </section>
+
+
+
+                <section>
                     <h2>Best SVG utilization</h2>
                     <p><strong>You know</strong> it already, I know, but just to be sure ;-)</p>
                     <ol>
@@ -671,24 +689,6 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
 
 
-                <section>
-                    <h2>Use reflections</h2>
-                    <p><code>use</code> tag creates <strong>live reflection</strong> of any <strong>existing node</strong>. 
-                        It not only saves lines of code, but can do true <strong>miracles</strong>!!</p>
-                    <a href="svg/magnify.svg" target="_blank"><img width="323" height="153" src="svg/twomirror.svg" alt="Two Mirrors"/></a>
-                    <pre><code>  &lt;g id="complexElementID" class="…">
-    &lt;circle …/> &lt;rect …/> &lt;text …/> &lt;path id="somePathID" …/>
-  &lt;/g>
-  &lt;use xlink:href="#complexElementID" transform="scale(2)" class="c1…"/>
-  &lt;g class="whatever">
-    &lt;use xlink:href="#complexElementID" transform="scale(5)" class="c2…"/>
-    &lt;use xlink:href="#somePathID" transform="rotate(180)" class="c3…"/>
-  &lt;/g>           </code></pre>
-                    <p>References are using <code>xlink:href="#refID"</code> syntax.</p>
-                </section>
-
-
-                
                 <section>
                     <h2>Limitations (= MSIE)</h2>
                     <p><strong>MSIE</strong> doesn't support <strong>CSS Transformations</strong> to SVG content, so direct tag properties must be used.</p>

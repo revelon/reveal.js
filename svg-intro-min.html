@@ -59,8 +59,9 @@
                 width: 700px;
                 font-size:0.8em;
             }
-            .inText {
+            img.inText {
                 float: right;
+                margin-left: 5px !important;
             }
             li a, p a, a.extLink {
                 display: inline-block;
@@ -229,17 +230,17 @@
                     <section>
                         <h2>Object tag integration</h2>
                         <pre><code>
-    …
-    &lt;h2>Some Title&lt;/h2>
-    <!-- xmlns is not required in HTML5 document -->
-    &lt;object type="image/svg+xml" data="dog.svg" width="136" height="200">
-        <!-- possible fallback (like PNG image) here -->
-    &lt;/object>
-    &lt;p>Some paragraph…&lt;/p>
+  …
+  &lt;h2>Some Title&lt;/h2>
+
+  &lt;object type="image/svg+xml" data="turtle.svg" width="323" height="153">
+      <!-- possible fallback (like PNG image) here -->
+  &lt;/object>
+
+  &lt;p>Some paragraph…&lt;/p>
     …
                         </code></pre>
-            
-                        <object type="image/svg+xml" data="svg/dog.svg" width="136" height="200">
+                        <object type="image/svg+xml" width="323" height="153" data="svg/turtle.svg">
                             <!-- fallback like PNG image here -->
                         </object>
                      </section>
@@ -273,7 +274,7 @@
     &lt;/style>
     
     &lt;div class="wrapper">  <!-- replace svg's width/height by viewBox -->
-      &lt;object type="image/svg+xml" data="dog.svg">&lt;/object>
+      &lt;object type="image/svg+xml" data="turtle.svg">&lt;/object>
     &lt;/div>           </code></pre>
                     </section>
                 </section>
@@ -285,11 +286,11 @@
                         <h2>Image tag integration</h2>
                         <p>Good, old and familiar way to go…</p>
                         <pre><code>
-    &lt;img width="323" height="153" src="svg/turtle.svg" alt="Turtle"
+    &lt;img src="svg/dog.svg" alt="Dog" width="136" height="200"
         onerror="this.onerror=null; this.src='fallback.png'"/>
     &lt;!-- with possible fallback using onerror attribute -->
                         </code></pre>
-                        <img width="323" height="153" src="svg/turtle.svg" alt="Turtle"/>
+                        <img src="svg/dog.svg" width="136" height="200" alt="Dog"/>
                     </section>
 
                     <section>
@@ -319,7 +320,7 @@
       }
     &lt;/style>
     
-    &lt;img width="323" height="153" src="svg/turtle.svg" alt="Turtle"/>
+    &lt;img width="323" height="153" src="svg/dog.svg" alt="Dog"/>
                         </code></pre>
                     </section>
                 </section>
@@ -501,34 +502,6 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
 
                 <section>
-                    <h2>Understanding path</h2>
-                    <p>Substitutes every other <strong>shape</strong>. Some available commands:</p>
-                    <ul>
-                        <li><strong>M</strong> = Move To <strong>X,Y</strong>
-                        <li><strong>L</strong> = Line To <strong>X,Y</strong>
-                        <li><strong>C</strong> = Cubic Bézier To x1,y1 x2,y2 <strong>X,Y</strong>
-                        <li><strong>Z</strong> = Close Path <em>(to the starting point)</em>
-                    </ul>
-                    <p>Notice two <a href="http://www.useragentman.com/tests/textpath/bezier-curve-construction-set.html" target="_blank">Control Points</a> in curve command.</p>
-                    <hr/>
-                    &lt;path d="<input value="M 0,100 C 0,0, 500,0, 500,100 L 250,200 Z" class="showme" 
-                        oninput="document.getElementById('demoPath').setAttribute('d',this.value)" 
-                        onchange="document.getElementById('demoPath').setAttribute('d',this.value)"/>"/&gt;<br/>
-                    <svg width="600" height="200" stroke="black" stroke-width="4" viewBox="-20 -20 540 246" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <radialGradient id="grd" cx="0.5" cy="0.5">
-                          <stop stop-color="yellow" offset="0"/>
-                          <stop stop-color="orange" offset=".9"/>
-                        </radialGradient>
-                        <path id="demoPath" fill="url(#grd)" d="M 0,100 C 0,0, 500,0, 500,100 L 250,200 Z"/>
-                        <text font-size="30px" font-family="Helvetica, sans-serif" fill="#444" stroke-width="1">
-                            <textPath xlink:href="#demoPath"><tspan dy="-10px">Tester Testakovitch Testakoff Tester Testakovitch Testakoff Tester Testakovitch Testakoff Tester Testakovitch Testakoff Tester Testakovitch Testakoff Tester Testakovitch Testakoff</tspan></textPath>
-                        </text>
-                    </svg>
-                </section>
-
-
-
-                <section>
                     <section>
                         <h2>Line Drawing - script</h2>
                         <p><strong>MSIE compatible</strong> solution, DOM manipulation involved.</p>
@@ -582,6 +555,21 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                 </section>
 
 
+                <section>
+                    <h2>Use reflections</h2>
+                    <p><code>use</code> tag creates <strong>live reflection</strong> of any <strong>existing node</strong>. 
+                        It not only saves lines of code, but can do true <strong>miracles</strong>!!</p>
+                    <a href="svg/magnify.svg" target="_blank"><img width="323" height="153" src="svg/twomirror.svg" alt="Two Mirrors"/></a>
+                    <pre><code>  &lt;g id="complexElementID" class="…">
+    &lt;circle …/> &lt;text …/> &lt;path …/>
+  &lt;/g>
+
+  &lt;use xlink:href="#complexElementID" transform="scale(2)" class="some"/>
+
+  &lt;use xlink:href="#complexElementID" transform="rotate(90)" class="other"/></code></pre>
+                </section>
+
+
 
                 <section>
                     <h2>Best SVG utilization</h2>
@@ -604,22 +592,6 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
 
 
-                <section>
-                    <h2>Use reflections</h2>
-                    <p><code>use</code> tag creates <strong>live reflection</strong> of any <strong>existing node</strong>. 
-                        It not only saves lines of code, but can do true <strong>miracles</strong>!!</p>
-                    <a href="svg/magnify.svg" target="_blank"><img width="323" height="153" src="svg/twomirror.svg" alt="Two Mirrors"/></a>
-                    <pre><code>  &lt;g id="complexElementID" class="…">
-    &lt;circle …/> &lt;text …/> &lt;path …/>
-  &lt;/g>
-
-  &lt;use xlink:href="#complexElementID" transform="scale(2)" class="some"/>
-
-  &lt;use xlink:href="#complexElementID" transform="rotate(90)" class="other"/></code></pre>
-                </section>
-
-
-                
                 <section>
                     <h2>Limitations (= MSIE)</h2>
                     <p style="text-align:left; width:90%">SVG doesn't work in <strong>MSIE8</strong>, but it's in decline already.<br>
