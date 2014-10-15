@@ -86,9 +86,9 @@
             
                 <section>
                     <h1 style="margin-bottom: 0">Do Not be afraid of SVG</h1>
-                    <img src="svg/webexpo-logo.svg" width="100" alt="WebExpo Logo"/>
-                    <img src="svg/scared-ghost.svg" width="100" alt="Scared Ghost" style="margin: 0 2%"/>
-                    <img src="svg/webexpo-logo.svg" width="100" alt="WebExpo Logo"/>
+                    <img src="svg/vse_logo_cerne_kulate.png" width="128" alt="VSE Logo"/>
+                    <img src="svg/scared-ghost.svg" width="128" alt="Scared Ghost" style="margin: 0 2%"/>
+                    <img src="svg/vse_logo_cerne_kulate.png" width="128" alt="VSE Logo"/>
 
                     <h3>Utilize It On Your Web Today</h3>
                     <p><small><a href="http://svg.kvalitne.cz/" target="_blank">Marek Raida</a> <a href="http://twitter.com/xrevelon" target="_blank">@xrevelon</a></small></p>
@@ -691,6 +691,25 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                 </section>
 
 
+                
+                <section>
+                    <h2>Pumpkin Carving</h2>
+                    <pre><code>&lt;mask id="myMask"/>
+&lt;g id="pumpkin">…several paths there…&lt;/g>
+&lt;script>
+  var carving;
+  pumpkin.onmousedown = function(evt) {
+    carving = document.createElement('path');
+    myMask.appendChild(carving);
+  }
+  pumpkin.onmousemove = function(evt) {
+    carving.setAttribute('d', carving.getAttribute('d') + 
+      " " + evt.clientX + " " + evt.clientY);
+  }                 </code></pre>
+                    <a href="svg/pumpkin.svg" target="_blank" class="extLink">External link</a>
+                    <object type="image/svg+xml" width="340" height="260" data="svg/pumpkin.svg">
+                    </object>
+                 </section>
 
                 <section>
                     <h2>Limitations (= MSIE)</h2>
