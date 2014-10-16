@@ -709,7 +709,32 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                     <a href="svg/pumpkin.svg" target="_blank" class="extLink">External link</a>
                     <object type="image/svg+xml" width="340" height="260" data="svg/pumpkin.svg">
                     </object>
-                 </section>
+                </section>
+
+
+
+                <section>
+                    <h2>Season's Leaf Fall</h2>
+                    <pre><code>&lt;g id="leaf">
+  &lt;path d="M53,20…">…several paths there…
+&lt;/g>
+&lt;path id="fly" d="M33,44…"/>
+&lt;animateMotion dur="3" repeatCount="2">
+  &lt;mpath xlink:href="#fly"/>
+&lt;/animateMotion>
+&lt;script>
+  for (var i=0; i&lt;50; i++) {
+    var one = leaf.cloneNode(true);
+    one.setAttribute("fill", "rgb("+Math.round((Math.random()*255))…");
+    one.setAttribute("transform", "translate("+(30+Math.random()*550)…");
+    document.documentElement.appendChild(one);
+  }                 </code></pre>
+                    <a href="svg/leaves.svg" target="_blank" class="extLink">External link</a>
+                    <object type="image/svg+xml" width="440" height="180" data="svg/leaves.svg">
+                    </object>
+                </section>
+
+
 
                 <section>
                     <h2>Limitations (= MSIE)</h2>
