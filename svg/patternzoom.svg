@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1300 700">
+
+<pattern id="back" patternUnits="userSpaceOnUse" x="0" y="0" width="250" height="300">
+  <image xlink:href="jkb.jpg" x="74" y="101" width="148" height="202">
+    <animateTransform attributeName="transform" type="rotate" dur="13" values="0 148 202; 360 148 202" repeatCount="indefinite"/>
+  </image>
+  <animateTransform attributeName="patternTransform" type="scale" dur="13" values="0.5; 2; 0.1; 0.5" calcMode="paced" repeatCount="indefinite"/>
+</pattern>
+
+<rect x="-500" y="-500" width="2300" height="1700" fill="black"/>
+<text x="0" y="500" fill="url(#back)" style="font:bolder 600px sans-serif">XML</text>
+
+</svg>
