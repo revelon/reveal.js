@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="10 0 420 210" id="chipmunk">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="10 0 420 210" id="chipmunk" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <script type="text/ecmascript" xlink:href="../fakesmile/smil.user.js"/>
     <style>
         polygon:hover {
             stroke: green;
