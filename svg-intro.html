@@ -675,7 +675,7 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                     <h2>Best SVG utilization</h2>
                     <p><strong>You know</strong> it already, I know, but just to be sure ;-)</p>
                     <ol>
-                        <li><a href="http://svg.kvalitne.cz/map/map-with-disctricts.html" target="_blank">maps</a> of 
+                        <li><a href="map-with-disctricts.html" target="_blank">maps</a> of 
                             <a href="http://www.petercollingridge.co.uk/sites/files/peter/colour_with_class.svg" target="_blank">countries</a>, regions even world
                         <li><img width="200" src="svg/award-symbol.svg" alt="Award" class="inText"/>graphs, <a href="http://www.robweir.com/blog/images/apache-map.svg" target="_blank">diagrams</a> and 
                             <a href="http://d3js.org/" target="_blank">data visualizations</a>
@@ -737,6 +737,20 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
 
                 <section>
+                    <h2>Uloz.to logo story</h2>
+                    <ul>
+                        <img src="svg/ulozto/ulozto-logo-done.svg" class="inText" width="350" alt="Uloz.to Logo"/>
+                        <li><a href="svg/ulozto/ulozto-logo-org.svg" target="_blank">original logo</a> <em>(3kB, 33 elements, antialiasing rendering issues)</em>
+                        <li><a href="svg/ulozto/ulozto-logo-0.svg" target="_blank">shape-rendering:crispEdges</a><br><em>(3kB, 33 elements, another antialiasing rendering issues)</em>
+                        <li><a href="svg/ulozto/ulozto-logo-1.svg" target="_blank">stroke-width:0.09; stroke-linejoin:bevel</a> <em>(2kB, 30 elements, coords rewritten, result is OK, but inaccurate)</em>
+                        <li><a href="svg/ulozto/ulozto-logo-2.svg" target="_blank">text paths merged</a> <em>(2kB, 23 elements, coords rewritten, only filesize optimization)</em>
+                        <li><a href="svg/ulozto/ulozto-logo-done.svg" target="_blank">symbol rewritten to three overlapping paths</a> <em>(1.5kB, 5 elements, very good enough result)</em>
+                    </ul>
+                </section>
+
+
+
+                <section>
                     <h2>Limitations (= MSIE)</h2>
                     <p><strong>MSIE</strong> doesn't support <strong>CSS Transformations</strong> to SVG content, so direct tag properties must be used.</p>
                     <p><img src="svg/smile-ko.svg" class="inText" width="200" alt="KO"/>It also doesn't support <strong>CSS Transitions</strong> and <strong>Animations</strong> of otherwise supported  
@@ -774,14 +788,14 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                         <li>MSIE 8 and lower are <a href="http://gs.statcounter.com/" target="_blank">declining</a>
                             <a href="http://marketshare.hitslink.com/" target="_blank">rapidly</a>, having share from 1.5% to 12% respectively
                         <li><img src="svg/confusion.svg" class="inText" width="260" alt="Trends"/>desktop browsers are <strong>declining</strong> anyway and all major mobile ones render SVG more than well
-                        <li>elder Android versions without SVG, like <a href="http://www.androidcentral.com/sites/androidcentral.com/files/styles/larger/public/article_images/2015/10/september-android-versions.JPG?itok=f5dRWw7c" target="_blank">Gingerbread</a> are dying even faster
+                        <li>elder Android versions without SVG, like <a href="http://betanews.com/wp-content/uploads/2015/11/Android-November-2015-distribution-share-chart-e1446823951858.png" target="_blank">Gingerbread</a> are dying even faster
                         <li><strong>performance</strong>, as long as you do not have SVG documents with thousands of complex paths, is good
                         <li>it's a living standard, <a href="http://www.w3.org/TR/SVG2/single-page.html" target="_blank">evolving</a> and used more and more
                     </ol>
                 </section>
 
-
-
+                
+                
                 <section>
                     <h2>Bits of the Future</h2>
                     <ul>
@@ -796,8 +810,8 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                     </ul>
                 </section>
 
-                
-                
+
+
                 <section>
                     <h4>Learn it and love it, SVG will not let you down!</h4>
                     <h1>THE END<a href="svg/patternzoom.svg" target="_blank">?</a></h1>
