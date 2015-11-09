@@ -76,6 +76,9 @@
             pre code {
                 font-weight: 800 !important;
             }
+            .str {
+                text-decoration: line-through;
+            }
         </style>
     </head>
     <body>
@@ -138,7 +141,7 @@
                         <li>organization: <strong>defs, g, svg, use, a, symbol, image, foreignObject…</strong> 
                         <li>advanced: <strong>marker, pattern, clipPath, mask, gradient, filter…</strong>
                         <li>texts: <strong>text, tspan, textPath…</strong>
-                        <li>animations: <strong>set, animate, animateTransform, animateMotion</strong>
+                        <li>animations: <strong>set, animate, animateTransform, animateMotion</strong> <span class="str">&nbsp;(SMIL)&nbsp;</st>
                     </ul>
                 </section>
 
@@ -169,6 +172,7 @@
                         <li><code>object</code> tag
                         <li>image <em>(<code>img</code>)</em> tag
                         <li>CSS <code>background</code> property
+                        <li class="str">iframe</li>
                     </ol>
                 </section>
 
@@ -204,7 +208,7 @@
                      <section>
                         <h2>Advantages</h2>
                         <ul class="fix">
-                            <li><img src="svg/smile-ok.svg" class="inText" width="100" alt="OK"/>applicable CSS from embedding document <em>(also currentColor support)</em>
+                            <li><img src="svg/smile-ok.svg" class="inText" width="100" alt="OK"/>applicable CSS from embedding document <em>(also currentColor/Shadow DOM support)</em>
                             <li>manipulable via JavaScript
                             <li>no extra file to load
                             <li>accessible
