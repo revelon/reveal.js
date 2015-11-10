@@ -653,6 +653,23 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                         <a href="svg/animatelinecss.svg" target="_blank" class="extLink">External link</a> &nbsp; 
                         <object height="200" data="svg/animatelinecss.svg" type="image/svg+xml"></object>
                     </section>
+
+                    <section>
+                        <h2>Line Drawing - GSAP</h2>
+                        <p>Does not work with standalone SVG documents<br>and is <em>somewhat</em> <a href="http://greensock.com/club/" target="_blank">commercial</a></p>
+                        <pre><code>&lt;html>
+ &lt;head/>
+ &lt;body>
+   &lt;script src="http://https://cdnjs.cloudflare… …TweenMax.min.js">&lt;/script>
+   &lt;svg>
+     &lt;path stroke-dasharray="1439" stroke-dashoffset="1439" d="M 246,188…"/>
+   &lt;/svg>
+   &lt;script> TweenLite.to('path', 4, {strokeDashoffset:0}); &lt;/script>
+ &lt;body>
+&lt;html>              </code></pre>
+                        <a href="svg/animatelinegsap.html" target="_blank" class="extLink">External link</a> &nbsp; 
+                        <object height="220" data="svg/animatelinegsap.html" type="text/html"></object>
+                    </section>
                 </section>
 
 
