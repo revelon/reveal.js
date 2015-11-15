@@ -772,10 +772,26 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
 
                 <section>
+                    <h2>Shape Morphing</h2>
+                    <pre><code>
+  &lt;path    d="M5,5 L10,10 15,20 50,33…>
+    &lt;animate attributeName="d" dur="10s" start="0s" repeatCount="indefinite"
+      values="M15,10 L5,5 17,30 7,20…;
+              M15,10 L2,2 70,11 8,42…" />
+  &lt;/path> (Batman Logo Evolution by Tavmjong Bah)
+                 </code></pre>
+                    <a href="svg/Batman-Logos-Over-Time.svg" target="_blank" class="extLink">External link</a>
+                    <object type="image/svg+xml" width="480" height="275" data="svg/Batman-Logos-Over-Time.svg">
+                    </object>
+                </section>
+
+
+
+                <section>
                     <h2>Limitations (= M$)</h2>
                     <p><strong>MSIE/Edge</strong> doesn't support <strong>CSS Transformations</strong> to SVG content, so direct tag attributes have to be used.</p>
                     <p><img src="svg/smile-ko.svg" class="inText" width="200" alt="KO"/>MSIE also doesn't support <strong>CSS Transitions</strong> and <strong>Animations</strong> of otherwise supported  
-                        <a href="http://tutorials.jenkov.com/svg/svg-and-css.html" target="_blank">SVG related CSS properties</a> (<em><a href="https://msdn.microsoft.com/en-us/library/bg124132%28v=vs.85%29.aspx" target="_blank">latest Edge does!</a>)</em>, 
+                        <a href="http://tutorials.jenkov.com/svg/svg-and-css.html" target="_blank">SVG related CSS properties</a> - <em><a href="https://msdn.microsoft.com/en-us/library/bg124132%28v=vs.85%29.aspx" target="_blank">latest Edge does!</a></em>, 
                         which leaves us with reasonable utilization of only one property: <strong>opacity</strong>.</p>
                     <p>They are also the only browsers not supporting <strong>SMIL Animation</strong>, so putting SVG in motion is 
                         <a href="http://leunen.me/fakesmile/" target="_blank">not so easy</a>.</p>
