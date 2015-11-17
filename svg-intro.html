@@ -548,6 +548,28 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
                 
                 <section>
+                    <h2>External Sprites</h2>
+                    <pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg">
+   &lt;symbol viewBox="0 0 800 1313" id="r2d2">
+      &lt;path d="M10.965784,-230.08768L54.388126,-413.23943L161.54509…">…
+   &lt;/symbol>
+   &lt;symbol viewBox="0 0 200 222" id="darth">…&lt;/symbol>
+&lt;/svg></code></pre>
+                    <pre><code>&lt;h2>Smart R2D2&lt;/h2>
+&lt;svg>
+   &lt;use xlink:href="svg/sprites.svg#r2d2"/>
+&lt;/svg>
+&lt;h2>Darth Minnie&lt;/h2>
+&lt;svg>
+   &lt;use xlink:href="svg/sprites.svg#darth"/>
+&lt;/svg></code></pre>
+                    <a href="external-content.html" target="_blank" class="extLink">External link</a> &nbsp; 
+                    <object width="400" height="180" data="external-content.html" type="text/html"></object>
+                </section>
+
+
+
+                <section>
                     <h2>JS manipulations</h2>
                     <pre><code>&lt;input onchange="document.getElementById('txt').firstChild.data=this.value">
 
@@ -791,7 +813,7 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                     <h2>Limitations (= M$)</h2>
                     <p><strong>MSIE/Edge</strong> doesn't support <strong>CSS Transformations</strong> to SVG content, so direct tag attributes have to be used.</p>
                     <p><img src="svg/smile-ko.svg" class="inText" width="200" alt="KO"/>MSIE also doesn't support <strong>CSS Transitions</strong> and <strong>Animations</strong> of otherwise supported  
-                        <a href="http://tutorials.jenkov.com/svg/svg-and-css.html" target="_blank">SVG related CSS properties</a> - <em><a href="https://msdn.microsoft.com/en-us/library/bg124132%28v=vs.85%29.aspx" target="_blank">latest Edge does!</a></em>, 
+                        <a href="http://tutorials.jenkov.com/svg/svg-and-css.html" target="_blank">SVG related CSS properties</a> - <em><a href="https://msdn.microsoft.com/en-us/library/bg124132%28v=vs.85%29.aspx" target="_blank">latest Edge does?</a></em>, 
                         which leaves us with reasonable utilization of only one property: <strong>opacity</strong>.</p>
                     <p>They are also the only browsers not supporting <strong>SMIL Animation</strong>, so putting SVG in motion is 
                         <a href="http://leunen.me/fakesmile/" target="_blank">not so easy</a>.</p>
