@@ -89,9 +89,7 @@
             
                 <section>
                     <h1 style="margin-bottom: 0">Do Not be afraid of SVG</h1>
-                    <img src="svg/liberec.svg" width="128" alt="Liberec Logo" style="opacity:.44"/>
-                    <img src="svg/rage-horror.svg" width="148" alt="Scared Face" style="margin: 0 5% 3% 5%"/>
-                    <img src="svg/liberec.svg" width="128" alt="Liberec Logo" style="opacity:.44"/>
+                    <img src="svg/indiana-jones-clip-art.svg" width="300" alt="Scared Face" style="margin: 0 5% 3% 5%"/>
 
                     <h3>Utilize It On Your Web Today</h3>
                     <p><small><a href="http://svg.kvalitne.cz/" target="_blank">Marek Raida</a> <a href="http://twitter.com/xrevelon" target="_blank">@xrevelon</a></small></p>
@@ -548,7 +546,8 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 
                 
                 <section>
-                    <h2>External Sprites</h2>
+                    <section>
+                    <h2>External Sprites I.</h2>
                     <pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg">
    &lt;symbol viewBox="0 0 800 1313" id="r2d2">
       &lt;path d="M10.965784,-230.08768L54.388126,-413.23943L161.54509…">…
@@ -565,6 +564,25 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
 &lt;/svg></code></pre>
                     <a href="external-content.html" target="_blank" class="extLink">External link</a> &nbsp; 
                     <object width="444" height="205" data="external-content.html" type="text/html"></object>
+                    </section>
+                    <section>
+                    <h2>External Sprites II.</h2>
+                    <p>Use of <strong>view with identifier</strong> is another very popular way.</p>
+                    <pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg">
+   &lt;view viewBox="0 0 800 1313" id="r2d2"/>
+   &lt;path d="M10.965784,-230.08768L54.388126,-413.23943L161.54509…">…
+
+   &lt;view viewBox="900 900 200 222" id="darth"/>
+&lt;/svg></code></pre>
+                    <pre><code>&lt;h3>Smart R2D2&lt;/h3>
+&lt;img src="svg/sprites2.svg#r2d2"/>
+
+&lt;h3>Darth Minnie&lt;/h3>
+&lt;img src="svg/sprites2.svg#darth"/>
+&lt;/svg></code></pre>
+                    <a href="external-view.html" target="_blank" class="extLink">External link</a> &nbsp; 
+                    <object width="444" height="205" data="external-view.html" type="text/html"></object>
+                    </section>
                 </section>
 
 
@@ -728,7 +746,7 @@ span, use#jellyfishExt { color: magenta; fill: magenta; }</code></pre>
                         <li><a href="http://www.google.com/insidesearch/howsearchworks/thestory/" target="_blank">interactive</a> 
                             <a href="http://designmodo.com/svg-infographic/" target="_blank">infographics</a>
                         <li><a href="http://designmodo.github.io/Flat-UI/" target="_blank">colorful icons</a>, 
-                            <a href="https://useiconic.com/tour/" target="_blank">superior</a> to icon fonts
+                            <a href="https://github.com/jonathantneal/svg4everybody" target="_blank">superior</a> to <a href="https://useiconic.com/tour/" target="_blank">icon</a> <a href="https://github.com/eugene1g/font-blast" target="_blank">fonts</a>
                         <li>and off course - responsive images ;-)
                     </ol>
                 </section>

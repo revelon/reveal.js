@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>SVG External Sprite Test II.</title>
+	<style>
+		body {
+			font-family: sans-serif;
+			color: gray;
+		}
+		div {
+			float: left;
+			margin: 0 10px;
+		}
+		svg, img {
+			display: block;
+			width: 100px;
+			height: 100px;
+		}
+		div:nth-of-type(1) svg {
+			fill: #454b97;
+			color: #454b97;
+		}
+		div:nth-of-type(1) svg:hover {
+			fill: lightgreen;
+			color: lightgreen;
+		}
+		div:nth-of-type(2) svg:hover {
+			fill: pink;
+			color: pink;
+		}
+	</style>
+</head>
+<body>
+
+<div>
+<h3>Smart R2D2</h3>
+<img src="svg/sprites2.svg#r2d2"/>
+</div>
+
+<div>
+<h3>Darth Minnie</h3>
+<img src="svg/sprites2.svg#darth"/>
+</div>
+
+</body>
+</html>
