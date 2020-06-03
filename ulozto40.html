@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Uloz.to 4.0</title>
+
+        <meta name="description" content="How it is all composed together">
+        <meta name="author" content="Marek Raida">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/simple.css" id="theme">
+        <link rel="stylesheet" href="lib/css/xcode.css">
+
+        <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+        <script>
+            if( window.location.search.match( /print-pdf/gi ) ) {
+                var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'css/print/pdf.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    
+        <style>
+            th, td {
+                border: 2px solid lightgray !important;
+                padding: 3px !important;
+                width: 50%;
+                font: normal 0.64em Verdana, sans-serif !important;
+            }
+            th, tr:nth-child(odd) {
+                background-color: rgba(0, 0, 50, 0.1);
+            }
+            th {
+                font-weight: 700 !important;
+            }
+            .reveal section img {
+                border: none;
+                box-shadow: none;
+            }
+            .fix, table, tr {
+                width: 96% !important;
+            }
+            input.showme {
+                width: 700px;
+                font-size:0.8em;
+            }
+            .inText {
+                float: right;
+            }
+            li a, p a, a.extLink {
+                display: inline-block;
+                padding: 0px 3px !important;
+                margin-top: 2px !important;
+                border: 0.5px dashed gray !important;
+                border-radius: 15px;
+                background-color: rgba(123, 123, 123, 0.1);
+            }
+            h2 {
+                word-spacing: 0.2em;
+            }
+            .reveal section h3 {
+                word-spacing: 0.15em;
+                margin-bottom: 1em;
+            }
+            pre code {
+                font-weight: 800 !important;
+            }
+            .reveal section ul li {
+                line-height: 1.4em;
+                margin-bottom: 0.5em;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+
+
+            
+                <section>
+                    <h1 style="margin-bottom: 0">Quo Vadis, Uloz.to?</h1>
+                    <img src="ulozto/way.png" width="400" alt="" style="margin: 6% 0"/>
+                </section>
+
+
+                <section>
+                    <h3>Z minulosti</h3>
+                    <img src="ulozto/kronika.png" width="400" alt=""/>
+                    <ul>
+                        <li>filesharing = problémy s platebními kanály
+                        <li><strong>cloud</strong> = uloz.to - search
+                        <li><em>produktově zvažováno už několik let</em>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Z darů EU</h3>
+                    <ul><img src="ulozto/eu_directive.png" width="340" alt="" style="float:right"/>
+                        <li>nová evropská legislativa, v ČR platná nejpozději od poloviny 2021
+                        <li>obrovské <strong>regulačně/cenzorní požadavky</strong> na obsah celého internetu
+                        <li><strong>cloud = výjimka</strong> tzn. ještě větší motivace stát se cloudem
+                        <li>bezpečný cloud = zabudovaná podpora šifrování "by default"
+                    </ul>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>Takže?</h3>
+                        <img src="ulozto/revolution-evolution.png" width="360" alt=""/><br>
+                        <ul>
+                            <li>ano, jsou to <strong>revoluční</strong> změny
+                            <li>musíme je ale řešit <strong>evolučně</strong>
+                            <li>a to ve třech krocích
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3>I. Vyhledávání</h3>
+                        <ul><img src="ulozto/appendix.jpg" width="320" alt="" style="float:right"/>
+                            <li>Ulož.to bez Vyhledávání a Podobných souborů
+                            <li>s odkazy na <strong>hledání třetích stran</strong> <em>(Google, Bing, DuckDuckGo, ...)</em>
+                            <li>pomůžeme vybudovat i <strong>jednu novou</strong> třetí stranu
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3>II. Šifrování</h3>
+                        <ul><img src="ulozto/encrypt.jpg" width="400" alt="" style="float:right"/>
+                            <li>funkci <strong>Zaheslované soubory</strong> má Ulož.to již dnes
+                            <li>uděláme lepší, Zaheslované soubory <strong>na steroidech</strong>
+                            <li>tj. podpora <strong>E2E</strong> <em>(End To End)</em> šifrování souborů
+                            <li>uživatelé mohou sdílet i zašifrovaný obsah, musí ale dodat přístupové údaje
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3>III. Cloudovost</h3>
+                        <ul><img src="ulozto/rainbow.jpg" width="300" alt="" style="float:right"/>
+                            <li>posílení <strong>prodeje cloudového prostoru</strong>, ve více variantách
+                            <li><strong>subscripce, verzování obsahu, synchronizace dat, zálohování</strong>
+                            <li>jiné podmínky prodeje reklamy
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
+                    <h3>Dá se to zvládnout?</h3>
+                    <img src="ulozto/mission-possible.jpg" width="300" alt=""/>
+                    <ul>
+                        <li>je to fůra práce, ale pomohou nám i externisti
+                        <li>do roka <strong>MVP</strong>, poté bugfixing a chybějící vlastnosti
+                        <li>společně to dokážeme!
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>God Save the Uloz.to!</h3>
+                    <img src="ulozto/gods-protection1.jpg" width="580" alt=""/>
+                </section>
+
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
+        <script>
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+                slideNumber: true,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/highlight/highlight.min.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
+</html>
